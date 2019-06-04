@@ -46314,6 +46314,9 @@ $h_Lcoursier_core_Module.prototype = $c_Lcoursier_core_Module.prototype;
 $c_Lcoursier_core_Module.prototype.productPrefix__T = (function() {
   return "Module"
 });
+$c_Lcoursier_core_Module.prototype.repr__T = (function() {
+  return ((this.organization$1 + ":") + this.nameWithAttributes__T())
+});
 $c_Lcoursier_core_Module.prototype.productArity__I = (function() {
   return 3
 });
@@ -46393,7 +46396,7 @@ $c_Lcoursier_core_Module.prototype.hashCode$lzycompute__p1__I = (function() {
   return this.hashCode$1
 });
 $c_Lcoursier_core_Module.prototype.toString__T = (function() {
-  return ((this.organization$1 + ":") + this.nameWithAttributes__T())
+  return this.repr__T()
 });
 $c_Lcoursier_core_Module.prototype.init___T__T__sci_Map = (function(organization, name, attributes) {
   this.organization$1 = organization;
