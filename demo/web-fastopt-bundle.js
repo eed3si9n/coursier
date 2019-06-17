@@ -16117,6 +16117,44 @@ function $m_Lcoursier_core_ResolutionProcess$() {
   return $n_Lcoursier_core_ResolutionProcess$
 }
 /** @constructor */
+function $c_Lcoursier_core_Type$Exotic$() {
+  $c_O.call(this);
+  this.mavenPlugin$1 = null;
+  this.eclipsePlugin$1 = null;
+  this.hk2$1 = null;
+  this.orbit$1 = null;
+  this.scalaJar$1 = null
+}
+$c_Lcoursier_core_Type$Exotic$.prototype = new $h_O();
+$c_Lcoursier_core_Type$Exotic$.prototype.constructor = $c_Lcoursier_core_Type$Exotic$;
+/** @constructor */
+function $h_Lcoursier_core_Type$Exotic$() {
+  /*<skip>*/
+}
+$h_Lcoursier_core_Type$Exotic$.prototype = $c_Lcoursier_core_Type$Exotic$.prototype;
+$c_Lcoursier_core_Type$Exotic$.prototype.init___ = (function() {
+  this.mavenPlugin$1 = "maven-plugin";
+  this.eclipsePlugin$1 = "eclipse-plugin";
+  this.hk2$1 = "hk2-jar";
+  this.orbit$1 = "orbit";
+  this.scalaJar$1 = "scala-jar";
+  return this
+});
+var $d_Lcoursier_core_Type$Exotic$ = new $TypeData().initClass({
+  Lcoursier_core_Type$Exotic$: 0
+}, false, "coursier.core.Type$Exotic$", {
+  Lcoursier_core_Type$Exotic$: 1,
+  O: 1
+});
+$c_Lcoursier_core_Type$Exotic$.prototype.$classData = $d_Lcoursier_core_Type$Exotic$;
+var $n_Lcoursier_core_Type$Exotic$ = (void 0);
+function $m_Lcoursier_core_Type$Exotic$() {
+  if ((!$n_Lcoursier_core_Type$Exotic$)) {
+    $n_Lcoursier_core_Type$Exotic$ = new $c_Lcoursier_core_Type$Exotic$().init___()
+  };
+  return $n_Lcoursier_core_Type$Exotic$
+}
+/** @constructor */
 function $c_Lcoursier_core_Version$Tokenizer$() {
   $c_O.call(this)
 }
@@ -36756,7 +36794,7 @@ $c_Lcoursier_core_Resolution$.prototype.init___ = (function() {
   var y$5 = base.apply__O__O(new $c_Lcoursier_core_Configuration().init___T($m_Lcoursier_core_Configuration$().runtime$1));
   var array$5 = [new $c_T2().init___O__O(self$5, y$5)];
   this.mavenScopes$1 = base.$$plus$plus__sc_GenTraversableOnce__sci_Map(jsx$5.apply__sc_Seq__sc_GenTraversable(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$5)));
-  var array$6 = [new $c_Lcoursier_core_Type().init___T($m_Lcoursier_core_Type$().jar$1), new $c_Lcoursier_core_Type().init___T($m_Lcoursier_core_Type$().testJar$1), new $c_Lcoursier_core_Type().init___T($m_Lcoursier_core_Type$().bundle$1)];
+  var array$6 = [new $c_Lcoursier_core_Type().init___T($m_Lcoursier_core_Type$().jar$1), new $c_Lcoursier_core_Type().init___T($m_Lcoursier_core_Type$().testJar$1), new $c_Lcoursier_core_Type().init___T($m_Lcoursier_core_Type$().bundle$1), new $c_Lcoursier_core_Type().init___T($m_Lcoursier_core_Type$Exotic$().mavenPlugin$1), new $c_Lcoursier_core_Type().init___T($m_Lcoursier_core_Type$Exotic$().eclipsePlugin$1), new $c_Lcoursier_core_Type().init___T($m_Lcoursier_core_Type$Exotic$().hk2$1), new $c_Lcoursier_core_Type().init___T($m_Lcoursier_core_Type$Exotic$().orbit$1), new $c_Lcoursier_core_Type().init___T($m_Lcoursier_core_Type$Exotic$().scalaJar$1)];
   if (($uI(array$6.length) === 0)) {
     var jsx$6 = $m_sci_Set$EmptySet$()
   } else {
@@ -37505,10 +37543,16 @@ $c_Lcoursier_core_Resolution$.prototype.profileIsActive__Lcoursier_core_Profile_
     if ((!(x === userActivations))) {
       throw new $c_s_MatchError().init___O(userActivations)
     };
-    var xo = profile.activeByDefault$1;
-    var this$2 = xo.toList__sci_List();
-    if ($f_sc_LinearSeqOptimized__contains__O__Z(this$2, true)) {
-      var fromUserOrDefault = new $c_s_Some().init___O(true)
+    var this$1 = profile.activeByDefault$1;
+    if (this$1.isEmpty__Z()) {
+      var jsx$1 = true
+    } else {
+      var arg1 = this$1.get__O();
+      var x$3 = $uZ(arg1);
+      var jsx$1 = x$3
+    };
+    if (jsx$1) {
+      var fromUserOrDefault = this$1
     } else {
       var fromUserOrDefault = $m_s_None$()
     }
