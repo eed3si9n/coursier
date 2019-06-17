@@ -18842,7 +18842,7 @@ function $m_Lcoursier_maven_Pom$() {
 function $c_Lcoursier_maven_PomParser$() {
   $c_O.call(this);
   this.handlers$1 = null;
-  this.handlerMap$1 = null
+  this.coursier$maven$PomParser$$handlerMap$1 = null
 }
 $c_Lcoursier_maven_PomParser$.prototype = new $h_O();
 $c_Lcoursier_maven_PomParser$.prototype.constructor = $c_Lcoursier_maven_PomParser$;
@@ -18999,7 +18999,7 @@ $c_Lcoursier_maven_PomParser$.prototype.init___ = (function() {
   var this$36 = $m_sci_Nil$();
   var this$37 = new $c_sci_$colon$colon().init___O__sci_List("project", this$36);
   var this$38 = new $c_sci_$colon$colon().init___O__sci_List("dependencies", this$37);
-  var jsx$8 = this.dependencyHandlers__sci_List__F3__sc_Seq(new $c_sci_$colon$colon().init___O__sci_List("dependency", this$38), new $c_sjsr_AnonFunction3().init___sjs_js_Function3((function(this$13$1) {
+  var jsx$8 = this.dependencyHandlers__p1__sci_List__F3__sc_Seq(new $c_sci_$colon$colon().init___O__sci_List("dependency", this$38), new $c_sjsr_AnonFunction3().init___sjs_js_Function3((function(this$13$1) {
     return (function(s$2, c$2, d$2) {
       var s = $as_Lcoursier_maven_PomParser$State(s$2);
       var c = $as_Lcoursier_core_Configuration(c$2).value$1;
@@ -19015,7 +19015,7 @@ $c_Lcoursier_maven_PomParser$.prototype.init___ = (function() {
   var this$43 = new $c_sci_$colon$colon().init___O__sci_List("project", this$42);
   var this$44 = new $c_sci_$colon$colon().init___O__sci_List("dependencyManagement", this$43);
   var this$45 = new $c_sci_$colon$colon().init___O__sci_List("dependencies", this$44);
-  var jsx$5 = this.dependencyHandlers__sci_List__F3__sc_Seq(new $c_sci_$colon$colon().init___O__sci_List("dependency", this$45), new $c_sjsr_AnonFunction3().init___sjs_js_Function3((function(this$14$1) {
+  var jsx$5 = this.dependencyHandlers__p1__sci_List__F3__sc_Seq(new $c_sci_$colon$colon().init___O__sci_List("dependency", this$45), new $c_sjsr_AnonFunction3().init___sjs_js_Function3((function(this$14$1) {
     return (function(s$3$2, c$3$2, d$3$2) {
       var s$3 = $as_Lcoursier_maven_PomParser$State(s$3$2);
       var c$3 = $as_Lcoursier_core_Configuration(c$3$2).value$1;
@@ -19029,7 +19029,7 @@ $c_Lcoursier_maven_PomParser$.prototype.init___ = (function() {
   var jsx$4 = $as_sc_TraversableLike(jsx$7.$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O(jsx$5, this$48.ReusableCBFInstance$2));
   var this$49 = $m_sci_Nil$();
   var this$50 = new $c_sci_$colon$colon().init___O__sci_List("project", this$49);
-  var jsx$3 = this.propertyHandlers__sci_List__F3__sc_Seq(new $c_sci_$colon$colon().init___O__sci_List("properties", this$50), new $c_sjsr_AnonFunction3().init___sjs_js_Function3((function(this$15$1) {
+  var jsx$3 = this.propertyHandlers__p1__sci_List__F3__sc_Seq(new $c_sci_$colon$colon().init___O__sci_List("properties", this$50), new $c_sjsr_AnonFunction3().init___sjs_js_Function3((function(this$15$1) {
     return (function(s$4$2, k$2, v$2) {
       var s$4 = $as_Lcoursier_maven_PomParser$State(s$4$2);
       var k = $as_T(k$2);
@@ -19042,7 +19042,7 @@ $c_Lcoursier_maven_PomParser$.prototype.init___ = (function() {
   var this$54 = $m_sci_Nil$();
   var this$55 = new $c_sci_$colon$colon().init___O__sci_List("project", this$54);
   var this$56 = new $c_sci_$colon$colon().init___O__sci_List("profiles", this$55);
-  var jsx$1 = this.profileHandlers__sci_List__F2__sc_Seq(new $c_sci_$colon$colon().init___O__sci_List("profile", this$56), new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$16$1) {
+  var jsx$1 = this.profileHandlers__p1__sci_List__F2__sc_Seq(new $c_sci_$colon$colon().init___O__sci_List("profile", this$56), new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$16$1) {
     return (function(s$5$2, p$2) {
       var s$5 = $as_Lcoursier_maven_PomParser$State(s$5$2);
       var p = $as_Lcoursier_core_Profile(p$2);
@@ -19060,15 +19060,10 @@ $c_Lcoursier_maven_PomParser$.prototype.init___ = (function() {
     })
   })(this));
   var this$60 = $m_sc_Seq$();
-  this.handlerMap$1 = $as_sc_TraversableOnce(jsx$24.map__F1__scg_CanBuildFrom__O(jsx$23, this$60.ReusableCBFInstance$2)).toMap__s_Predef$$less$colon$less__sci_Map($m_s_Predef$().singleton$und$less$colon$less$2);
+  this.coursier$maven$PomParser$$handlerMap$1 = $as_sc_TraversableOnce(jsx$24.map__F1__scg_CanBuildFrom__O(jsx$23, this$60.ReusableCBFInstance$2)).toMap__s_Predef$$less$colon$less__sci_Map($m_s_Predef$().singleton$und$less$colon$less$2);
   return this
 });
-$c_Lcoursier_maven_PomParser$.prototype.propertyHandlers__sci_List__F3__sc_Seq = (function(prefix, add) {
-  var jsx$1 = $m_sc_Seq$();
-  var array = [new $c_Lcoursier_maven_PomParser$$anon$6().init___sci_List__F3(prefix, add)];
-  return $as_sc_Seq(jsx$1.apply__sc_Seq__sc_GenTraversable(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array)))
-});
-$c_Lcoursier_maven_PomParser$.prototype.profileHandlers__sci_List__F2__sc_Seq = (function(prefix, add) {
+$c_Lcoursier_maven_PomParser$.prototype.profileHandlers__p1__sci_List__F2__sc_Seq = (function(prefix, add) {
   var jsx$21 = $m_sc_Seq$();
   var jsx$20 = new $c_Lcoursier_maven_PomParser$$anon$2().init___sci_List__F2(prefix, add);
   var path = new $c_sci_$colon$colon().init___O__sci_List("id", prefix);
@@ -19195,7 +19190,7 @@ $c_Lcoursier_maven_PomParser$.prototype.profileHandlers__sci_List__F2__sc_Seq = 
   var array$1 = [jsx$20, jsx$19, jsx$18, jsx$17, jsx$16, jsx$15, jsx$14, jsx$13, jsx$12, jsx$11, new $c_Lcoursier_maven_PomParser$$anon$1().init___sci_List__F2(path$8, f$8)];
   var jsx$8 = $as_sc_TraversableLike(jsx$21.apply__sc_Seq__sc_GenTraversable(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1)));
   var this$26 = new $c_sci_$colon$colon().init___O__sci_List("dependencies", prefix);
-  var jsx$6 = this.dependencyHandlers__sci_List__F3__sc_Seq(new $c_sci_$colon$colon().init___O__sci_List("dependency", this$26), new $c_sjsr_AnonFunction3().init___sjs_js_Function3((function(this$10$1) {
+  var jsx$6 = this.dependencyHandlers__p1__sci_List__F3__sc_Seq(new $c_sci_$colon$colon().init___O__sci_List("dependency", this$26), new $c_sjsr_AnonFunction3().init___sjs_js_Function3((function(this$10$1) {
     return (function(s$2, c$2, d$2) {
       var s = $as_Lcoursier_maven_PomParser$State(s$2);
       var c = $as_Lcoursier_core_Configuration(c$2).value$1;
@@ -19209,7 +19204,7 @@ $c_Lcoursier_maven_PomParser$.prototype.profileHandlers__sci_List__F2__sc_Seq = 
   var jsx$5 = $as_sc_TraversableLike(jsx$8.$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O(jsx$6, this$29.ReusableCBFInstance$2));
   var this$30 = new $c_sci_$colon$colon().init___O__sci_List("dependencyManagement", prefix);
   var this$31 = new $c_sci_$colon$colon().init___O__sci_List("dependencies", this$30);
-  var jsx$3 = this.dependencyHandlers__sci_List__F3__sc_Seq(new $c_sci_$colon$colon().init___O__sci_List("dependency", this$31), new $c_sjsr_AnonFunction3().init___sjs_js_Function3((function(this$11$1) {
+  var jsx$3 = this.dependencyHandlers__p1__sci_List__F3__sc_Seq(new $c_sci_$colon$colon().init___O__sci_List("dependency", this$31), new $c_sjsr_AnonFunction3().init___sjs_js_Function3((function(this$11$1) {
     return (function(s$3$2, c$3$2, d$3$2) {
       var s$3 = $as_Lcoursier_maven_PomParser$State(s$3$2);
       var c$3 = $as_Lcoursier_core_Configuration(c$3$2).value$1;
@@ -19221,7 +19216,7 @@ $c_Lcoursier_maven_PomParser$.prototype.profileHandlers__sci_List__F2__sc_Seq = 
   })(this)));
   var this$34 = $m_sc_Seq$();
   var jsx$2 = $as_sc_TraversableLike(jsx$5.$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O(jsx$3, this$34.ReusableCBFInstance$2));
-  var jsx$1 = this.propertyHandlers__sci_List__F3__sc_Seq(new $c_sci_$colon$colon().init___O__sci_List("properties", prefix), new $c_sjsr_AnonFunction3().init___sjs_js_Function3((function(this$12$1) {
+  var jsx$1 = this.propertyHandlers__p1__sci_List__F3__sc_Seq(new $c_sci_$colon$colon().init___O__sci_List("properties", prefix), new $c_sjsr_AnonFunction3().init___sjs_js_Function3((function(this$12$1) {
     return (function(s$4$2, k$2, v$2) {
       var s$4 = $as_Lcoursier_maven_PomParser$State(s$4$2);
       var k = $as_T(k$2);
@@ -19232,7 +19227,7 @@ $c_Lcoursier_maven_PomParser$.prototype.profileHandlers__sci_List__F2__sc_Seq = 
   var this$37 = $m_sc_Seq$();
   return $as_sc_Seq(jsx$2.$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O(jsx$1, this$37.ReusableCBFInstance$2))
 });
-$c_Lcoursier_maven_PomParser$.prototype.dependencyHandlers__sci_List__F3__sc_Seq = (function(prefix, add) {
+$c_Lcoursier_maven_PomParser$.prototype.dependencyHandlers__p1__sci_List__F3__sc_Seq = (function(prefix, add) {
   var jsx$11 = $m_sc_Seq$();
   var jsx$10 = new $c_Lcoursier_maven_PomParser$$anon$4().init___sci_List__F3(prefix, add);
   var path = new $c_sci_$colon$colon().init___O__sci_List("groupId", prefix);
@@ -19306,7 +19301,7 @@ $c_Lcoursier_maven_PomParser$.prototype.dependencyHandlers__sci_List__F3__sc_Seq
     return (function(state$9$2, content$9$2) {
       var state$9 = $as_Lcoursier_maven_PomParser$State(state$9$2);
       var content$9 = $as_T(content$9$2);
-      state$9.dependencyExclusionGroupIdOpt$1 = new $c_s_Some().init___O(new $c_Lcoursier_core_Organization().init___T(content$9))
+      state$9.dependencyExclusionGroupId$1 = content$9
     })
   })(this));
   var jsx$1 = new $c_Lcoursier_maven_PomParser$$anon$1().init___sci_List__F2(path$7, f$7);
@@ -19322,6 +19317,11 @@ $c_Lcoursier_maven_PomParser$.prototype.dependencyHandlers__sci_List__F3__sc_Seq
   })(this));
   var array = [jsx$10, jsx$9, jsx$8, jsx$7, jsx$6, jsx$5, jsx$4, jsx$3, jsx$2, jsx$1, new $c_Lcoursier_maven_PomParser$$anon$1().init___sci_List__F2(path$8, f$8)];
   return $as_sc_Seq(jsx$11.apply__sc_Seq__sc_GenTraversable(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array)))
+});
+$c_Lcoursier_maven_PomParser$.prototype.propertyHandlers__p1__sci_List__F3__sc_Seq = (function(prefix, add) {
+  var jsx$1 = $m_sc_Seq$();
+  var array = [new $c_Lcoursier_maven_PomParser$$anon$6().init___sci_List__F3(prefix, add)];
+  return $as_sc_Seq(jsx$1.apply__sc_Seq__sc_GenTraversable(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array)))
 });
 var $d_Lcoursier_maven_PomParser$ = new $TypeData().initClass({
   Lcoursier_maven_PomParser$: 0
@@ -19443,7 +19443,7 @@ function $c_Lcoursier_maven_PomParser$State() {
   this.dependencyType$1 = null;
   this.dependencyClassifier$1 = null;
   this.dependencyExclusions$1 = null;
-  this.dependencyExclusionGroupIdOpt$1 = null;
+  this.dependencyExclusionGroupId$1 = null;
   this.dependencyExclusionArtifactId$1 = null;
   this.propertyNameOpt$1 = null;
   this.profileId$1 = null;
@@ -19492,7 +19492,7 @@ $c_Lcoursier_maven_PomParser$State.prototype.init___ = (function() {
   this.dependencyType$1 = $m_Lcoursier_core_Type$().empty$1;
   this.dependencyClassifier$1 = $m_Lcoursier_core_Classifier$().empty$1;
   this.dependencyExclusions$1 = $m_sci_Set$EmptySet$();
-  this.dependencyExclusionGroupIdOpt$1 = $m_s_None$();
+  this.dependencyExclusionGroupId$1 = "*";
   this.dependencyExclusionArtifactId$1 = "*";
   this.propertyNameOpt$1 = $m_s_None$();
   this.profileId$1 = "";
@@ -32766,9 +32766,9 @@ $c_Lcoursier_maven_PomParser.prototype.characters__AC__I__I__V = (function(ch, s
 $c_Lcoursier_maven_PomParser.prototype.startElement__T__V = (function(tagName) {
   var this$1 = this.paths$2;
   this.paths$2 = new $c_Lcoursier_maven_PomParser$CustomList$Cons().init___O__Lcoursier_maven_PomParser$CustomList(tagName, this$1);
-  var this$2 = $m_Lcoursier_maven_PomParser$().handlerMap$1.get__O__s_Option(this.paths$2);
+  var this$2 = $m_Lcoursier_maven_PomParser$().coursier$maven$PomParser$$handlerMap$1.get__O__s_Option(this.paths$2);
   if (this$2.isEmpty__Z()) {
-    var jsx$1 = $m_Lcoursier_maven_PomParser$().handlerMap$1;
+    var jsx$1 = $m_Lcoursier_maven_PomParser$().coursier$maven$PomParser$$handlerMap$1;
     var this$3 = this.paths$2.tail__Lcoursier_maven_PomParser$CustomList();
     var handlerOpt = jsx$1.get__O__s_Option(new $c_Lcoursier_maven_PomParser$CustomList$Cons().init___O__Lcoursier_maven_PomParser$CustomList("*", this$3))
   } else {
@@ -38840,7 +38840,7 @@ function $h_Lcoursier_maven_PomParser$$anon$5() {
 }
 $h_Lcoursier_maven_PomParser$$anon$5.prototype = $c_Lcoursier_maven_PomParser$$anon$5.prototype;
 $c_Lcoursier_maven_PomParser$$anon$5.prototype.end__Lcoursier_maven_PomParser$State__V = (function(state) {
-  var r = new $c_T2().init___O__O(state.dependencyExclusionGroupIdOpt$1.get__O(), new $c_Lcoursier_core_ModuleName().init___T(state.dependencyExclusionArtifactId$1));
+  var r = new $c_T2().init___O__O(new $c_Lcoursier_core_Organization().init___T(state.dependencyExclusionGroupId$1), new $c_Lcoursier_core_ModuleName().init___T(state.dependencyExclusionArtifactId$1));
   state.dependencyExclusions$1 = $as_sci_Set(state.dependencyExclusions$1.$$plus__O__sc_Set(r))
 });
 $c_Lcoursier_maven_PomParser$$anon$5.prototype.init___sci_List = (function(prefix$2) {
@@ -38850,7 +38850,7 @@ $c_Lcoursier_maven_PomParser$$anon$5.prototype.init___sci_List = (function(prefi
   return this
 });
 $c_Lcoursier_maven_PomParser$$anon$5.prototype.start__Lcoursier_maven_PomParser$State__V = (function(state) {
-  state.dependencyExclusionGroupIdOpt$1 = $m_s_None$();
+  state.dependencyExclusionGroupId$1 = "*";
   state.dependencyExclusionArtifactId$1 = "*"
 });
 var $d_Lcoursier_maven_PomParser$$anon$5 = new $TypeData().initClass({
