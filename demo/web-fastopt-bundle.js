@@ -14586,6 +14586,156 @@ function $m_Lcoursier_cache_internal_Platform$() {
   return $n_Lcoursier_cache_internal_Platform$
 }
 /** @constructor */
+function $c_Lcoursier_core_Dependency() {
+  $c_O.call(this);
+  this.moduleVersion$1 = null;
+  this.hashCode$1 = 0;
+  this.module$1 = null;
+  this.version$1 = null;
+  this.configuration$1 = null;
+  this.exclusions$1 = null;
+  this.publication$1 = null;
+  this.optional$1 = false;
+  this.transitive$1 = false;
+  this.bitmap$0$1 = 0
+}
+$c_Lcoursier_core_Dependency.prototype = new $h_O();
+$c_Lcoursier_core_Dependency.prototype.constructor = $c_Lcoursier_core_Dependency;
+/** @constructor */
+function $h_Lcoursier_core_Dependency() {
+  /*<skip>*/
+}
+$h_Lcoursier_core_Dependency.prototype = $c_Lcoursier_core_Dependency.prototype;
+$c_Lcoursier_core_Dependency.prototype.moduleVersion$lzycompute__p1__T2 = (function() {
+  if (((((1 & this.bitmap$0$1) << 24) >> 24) === 0)) {
+    this.moduleVersion$1 = new $c_T2().init___O__O(this.module$1, this.version$1);
+    this.bitmap$0$1 = (((1 | this.bitmap$0$1) << 24) >> 24)
+  };
+  return this.moduleVersion$1
+});
+$c_Lcoursier_core_Dependency.prototype.equals__O__Z = (function(obj) {
+  if ($is_Lcoursier_core_Dependency(obj)) {
+    var x2 = $as_Lcoursier_core_Dependency(obj);
+    var x = this.module$1;
+    var x$2 = x2.module$1;
+    if (((((x === null) ? (x$2 === null) : x.equals__O__Z(x$2)) && (this.version$1 === x2.version$1)) && (this.configuration$1 === x2.configuration$1))) {
+      var x$3 = this.exclusions$1;
+      var x$4 = x2.exclusions$1;
+      var jsx$2 = ((x$3 === null) ? (x$4 === null) : $f_sc_GenSetLike__equals__O__Z(x$3, x$4))
+    } else {
+      var jsx$2 = false
+    };
+    if (jsx$2) {
+      var x$5 = this.publication$1;
+      var x$6 = x2.publication$1;
+      var jsx$1 = ((x$5 === null) ? (x$6 === null) : x$5.equals__O__Z(x$6))
+    } else {
+      var jsx$1 = false
+    };
+    if ((jsx$1 && (this.optional$1 === x2.optional$1))) {
+      return (this.transitive$1 === x2.transitive$1)
+    } else {
+      return false
+    }
+  } else {
+    return false
+  }
+});
+$c_Lcoursier_core_Dependency.prototype.init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Publication__Z__Z = (function(module, version, configuration, exclusions, publication, optional, transitive) {
+  this.module$1 = module;
+  this.version$1 = version;
+  this.configuration$1 = configuration;
+  this.exclusions$1 = exclusions;
+  this.publication$1 = publication;
+  this.optional$1 = optional;
+  this.transitive$1 = transitive;
+  return this
+});
+$c_Lcoursier_core_Dependency.prototype.hashCode$lzycompute__p1__I = (function() {
+  if (((((2 & this.bitmap$0$1) << 24) >> 24) === 0)) {
+    var code = ((17 + $m_sr_Statics$().anyHash__O__I("coursier.code.Dependency")) | 0);
+    code = (($imul(37, code) + $m_sr_Statics$().anyHash__O__I(this.module$1)) | 0);
+    code = (($imul(37, code) + $m_sr_Statics$().anyHash__O__I(this.version$1)) | 0);
+    code = (($imul(37, code) + $m_sr_Statics$().anyHash__O__I(new $c_Lcoursier_core_Configuration().init___T(this.configuration$1))) | 0);
+    code = (($imul(37, code) + $m_sr_Statics$().anyHash__O__I(this.exclusions$1)) | 0);
+    code = (($imul(37, code) + $m_sr_Statics$().anyHash__O__I(this.publication$1)) | 0);
+    code = (($imul(37, code) + (this.optional$1 ? 1231 : 1237)) | 0);
+    code = (($imul(37, code) + (this.transitive$1 ? 1231 : 1237)) | 0);
+    this.hashCode$1 = code;
+    this.bitmap$0$1 = (((2 | this.bitmap$0$1) << 24) >> 24)
+  };
+  return this.hashCode$1
+});
+$c_Lcoursier_core_Dependency.prototype.toString__T = (function() {
+  return (((((((((((((("Dependency(" + this.module$1) + ", ") + this.version$1) + ", ") + new $c_Lcoursier_core_Configuration().init___T(this.configuration$1)) + ", ") + this.exclusions$1) + ", ") + this.publication$1) + ", ") + this.optional$1) + ", ") + this.transitive$1) + ")")
+});
+$c_Lcoursier_core_Dependency.prototype.copy__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency = (function(module, version, configuration, exclusions, attributes, optional, transitive) {
+  var x$1 = attributes.type$1;
+  var x$2 = attributes.classifier$1;
+  var this$1 = this.publication$1;
+  var x$3 = this$1.name$1;
+  var this$2 = this.publication$1;
+  var x$4 = this$2.ext$1;
+  var publication = new $c_Lcoursier_core_Publication().init___T__T__T__T(x$3, x$1, x$4, x$2);
+  return new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Publication__Z__Z(module, version, configuration, exclusions, publication, optional, transitive)
+});
+$c_Lcoursier_core_Dependency.prototype.hashCode__I = (function() {
+  return (((((2 & this.bitmap$0$1) << 24) >> 24) === 0) ? this.hashCode$lzycompute__p1__I() : this.hashCode$1)
+});
+$c_Lcoursier_core_Dependency.prototype.moduleVersion__T2 = (function() {
+  return (((((1 & this.bitmap$0$1) << 24) >> 24) === 0) ? this.moduleVersion$lzycompute__p1__T2() : this.moduleVersion$1)
+});
+function $is_Lcoursier_core_Dependency(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lcoursier_core_Dependency)))
+}
+function $as_Lcoursier_core_Dependency(obj) {
+  return (($is_Lcoursier_core_Dependency(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "coursier.core.Dependency"))
+}
+function $isArrayOf_Lcoursier_core_Dependency(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lcoursier_core_Dependency)))
+}
+function $asArrayOf_Lcoursier_core_Dependency(obj, depth) {
+  return (($isArrayOf_Lcoursier_core_Dependency(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lcoursier.core.Dependency;", depth))
+}
+var $d_Lcoursier_core_Dependency = new $TypeData().initClass({
+  Lcoursier_core_Dependency: 0
+}, false, "coursier.core.Dependency", {
+  Lcoursier_core_Dependency: 1,
+  O: 1
+});
+$c_Lcoursier_core_Dependency.prototype.$classData = $d_Lcoursier_core_Dependency;
+/** @constructor */
+function $c_Lcoursier_core_Dependency$() {
+  $c_O.call(this)
+}
+$c_Lcoursier_core_Dependency$.prototype = new $h_O();
+$c_Lcoursier_core_Dependency$.prototype.constructor = $c_Lcoursier_core_Dependency$;
+/** @constructor */
+function $h_Lcoursier_core_Dependency$() {
+  /*<skip>*/
+}
+$h_Lcoursier_core_Dependency$.prototype = $c_Lcoursier_core_Dependency$.prototype;
+$c_Lcoursier_core_Dependency$.prototype.init___ = (function() {
+  return this
+});
+$c_Lcoursier_core_Dependency$.prototype.apply__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency = (function(module, version, configuration, exclusions, attributes, optional, transitive) {
+  return new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Publication__Z__Z(module, version, configuration, exclusions, new $c_Lcoursier_core_Publication().init___T__T__T__T("", attributes.type$1, $m_Lcoursier_core_Extension$().empty$1, attributes.classifier$1), optional, transitive)
+});
+var $d_Lcoursier_core_Dependency$ = new $TypeData().initClass({
+  Lcoursier_core_Dependency$: 0
+}, false, "coursier.core.Dependency$", {
+  Lcoursier_core_Dependency$: 1,
+  O: 1
+});
+$c_Lcoursier_core_Dependency$.prototype.$classData = $d_Lcoursier_core_Dependency$;
+var $n_Lcoursier_core_Dependency$ = (void 0);
+function $m_Lcoursier_core_Dependency$() {
+  if ((!$n_Lcoursier_core_Dependency$)) {
+    $n_Lcoursier_core_Dependency$ = new $c_Lcoursier_core_Dependency$().init___()
+  };
+  return $n_Lcoursier_core_Dependency$
+}
+/** @constructor */
 function $c_Lcoursier_core_Exclusions$() {
   $c_O.call(this);
   this.allOrganizations$1 = null;
@@ -14991,7 +15141,7 @@ $c_Lcoursier_core_Orders$.prototype.minDependenciesUnsafe__sci_Set__sci_Map__sci
       return new $c_T2().init___O__O(dep.optional$1, new $c_Lcoursier_core_Configuration().init___T(dep.configuration$1))
     })
   })(this));
-  var this$4 = $f_sc_TraversableLike__groupBy__F1__sci_Map(this$3, f$1);
+  var this$5 = $f_sc_TraversableLike__groupBy__F1__sci_Map(this$3, f$1);
   var f$2 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$3$1) {
     return (function(deps$2) {
       var deps = $as_sci_Set(deps$2);
@@ -15008,33 +15158,34 @@ $c_Lcoursier_core_Orders$.prototype.minDependenciesUnsafe__sci_Set__sci_Map__sci
       var x$2 = qual$1.module$1;
       var x$3 = qual$1.version$1;
       var x$4 = qual$1.configuration$1;
-      var x$5 = qual$1.attributes$1;
+      var this$4 = qual$1.publication$1;
+      var x$5 = new $c_Lcoursier_core_Attributes().init___T__T(this$4.type$1, this$4.classifier$1);
       var x$6 = qual$1.optional$1;
       var x$7 = qual$1.transitive$1;
-      return new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(x$2, x$3, x$4, x$1, x$5, x$6, x$7)
+      return qual$1.copy__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(x$2, x$3, x$4, x$1, x$5, x$6, x$7)
     })
   })(this));
-  var this$5 = new $c_sci_MapLike$$anon$2().init___sci_MapLike__F1(this$4, f$2);
-  var this$6 = $m_sci_List$();
-  var cbf = this$6.ReusableCBFInstance$2;
-  var groupedDependencies = $as_sci_List($f_sc_TraversableLike__to__scg_CanBuildFrom__O(this$5, cbf));
-  var this$11 = $f_sc_SeqLike__combinations__I__sc_Iterator(groupedDependencies, 2);
+  var this$6 = new $c_sci_MapLike$$anon$2().init___sci_MapLike__F1(this$5, f$2);
+  var this$7 = $m_sci_List$();
+  var cbf = this$7.ReusableCBFInstance$2;
+  var groupedDependencies = $as_sci_List($f_sc_TraversableLike__to__scg_CanBuildFrom__O(this$6, cbf));
+  var this$12 = $f_sc_SeqLike__combinations__I__sc_Iterator(groupedDependencies, 2);
   var p = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$4$1) {
     return (function(check$ifrefutable$1$2) {
       var check$ifrefutable$1 = $as_sci_List(check$ifrefutable$1$2);
       $m_sci_List$();
       var o11 = new $c_s_Some().init___O(check$ifrefutable$1);
       if ((o11.value$2 !== null)) {
-        var this$8 = $as_sc_LinearSeqOptimized(o11.value$2);
-        var jsx$1 = ($f_sc_LinearSeqOptimized__lengthCompare__I__I(this$8, 2) === 0)
+        var this$9 = $as_sc_LinearSeqOptimized(o11.value$2);
+        var jsx$1 = ($f_sc_LinearSeqOptimized__lengthCompare__I__I(this$9, 2) === 0)
       } else {
         var jsx$1 = false
       };
       if (jsx$1) {
-        var this$9 = $as_sc_LinearSeqOptimized(o11.value$2);
-        var p3 = $as_T2($f_sc_LinearSeqOptimized__apply__I__O(this$9, 0));
         var this$10 = $as_sc_LinearSeqOptimized(o11.value$2);
-        var p4 = $as_T2($f_sc_LinearSeqOptimized__apply__I__O(this$10, 1));
+        var p3 = $as_T2($f_sc_LinearSeqOptimized__apply__I__O(this$10, 0));
+        var this$11 = $as_sc_LinearSeqOptimized(o11.value$2);
+        var p4 = $as_T2($f_sc_LinearSeqOptimized__apply__I__O(this$11, 1));
         if ((p3 !== null)) {
           var p5 = $as_T2(p3.$$und1__O());
           if (((p5 !== null) && (p4 !== null))) {
@@ -15048,23 +15199,23 @@ $c_Lcoursier_core_Orders$.prototype.minDependenciesUnsafe__sci_Set__sci_Map__sci
       return false
     })
   })(this));
-  var this$25 = new $c_sc_Iterator$$anon$12().init___sc_Iterator__F1(this$11, p);
+  var this$26 = new $c_sc_Iterator$$anon$12().init___sc_Iterator__F1(this$12, p);
   var f$7 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$5$1, configs$1) {
     return (function(x$17$2) {
       var x$17 = $as_sci_List(x$17$2);
       $m_sci_List$();
       var o11$1 = new $c_s_Some().init___O(x$17);
       if ((o11$1.value$2 !== null)) {
-        var this$13 = $as_sc_LinearSeqOptimized(o11$1.value$2);
-        var jsx$2 = ($f_sc_LinearSeqOptimized__lengthCompare__I__I(this$13, 2) === 0)
+        var this$14 = $as_sc_LinearSeqOptimized(o11$1.value$2);
+        var jsx$2 = ($f_sc_LinearSeqOptimized__lengthCompare__I__I(this$14, 2) === 0)
       } else {
         var jsx$2 = false
       };
       if (jsx$2) {
-        var this$14 = $as_sc_LinearSeqOptimized(o11$1.value$2);
-        var p3$1 = $as_T2($f_sc_LinearSeqOptimized__apply__I__O(this$14, 0));
         var this$15 = $as_sc_LinearSeqOptimized(o11$1.value$2);
-        var p4$1 = $as_T2($f_sc_LinearSeqOptimized__apply__I__O(this$15, 1));
+        var p3$1 = $as_T2($f_sc_LinearSeqOptimized__apply__I__O(this$15, 0));
+        var this$16 = $as_sc_LinearSeqOptimized(o11$1.value$2);
+        var p4$1 = $as_T2($f_sc_LinearSeqOptimized__apply__I__O(this$16, 1));
         if ((p3$1 !== null)) {
           var p5$1 = $as_T2(p3$1.$$und1__O());
           var xDep = $as_Lcoursier_core_Dependency(p3$1.$$und2__O());
@@ -15077,36 +15228,36 @@ $c_Lcoursier_core_Orders$.prototype.minDependenciesUnsafe__sci_Set__sci_Map__sci
               if ((p6$1 !== null)) {
                 var yOpt = p6$1.$$und1$mcZ$sp__Z();
                 var yScope = $as_Lcoursier_core_Configuration(p6$1.$$und2__O()).value$1;
-                var this$24 = $m_Lcoursier_core_Orders$().optionalPartialOrder$1.tryCompare__O__O__s_Option(xOpt, yOpt).iterator__sc_Iterator();
+                var this$25 = $m_Lcoursier_core_Orders$().optionalPartialOrder$1.tryCompare__O__O__s_Option(xOpt, yOpt).iterator__sc_Iterator();
                 var f$6 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this$2, configs$1$1, xScope$1, yScope$1, xDep$1, yDep$1) {
                   return (function(optCmp$2) {
                     var optCmp = $uI(optCmp$2);
-                    var this$17 = ($m_Lcoursier_core_Orders$(), new $c_Lcoursier_core_Orders$$anon$1().init___sci_Map(configs$1$1)).tryCompare__O__O__s_Option(new $c_Lcoursier_core_Configuration().init___T(xScope$1), new $c_Lcoursier_core_Configuration().init___T(yScope$1)).iterator__sc_Iterator();
+                    var this$18 = ($m_Lcoursier_core_Orders$(), new $c_Lcoursier_core_Orders$$anon$1().init___sci_Map(configs$1$1)).tryCompare__O__O__s_Option(new $c_Lcoursier_core_Configuration().init___T(xScope$1), new $c_Lcoursier_core_Configuration().init___T(yScope$1)).iterator__sc_Iterator();
                     var p$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this$3, optCmp$1) {
                       return (function(scopeCmp$2) {
                         var scopeCmp = $uI(scopeCmp$2);
                         return ($imul(optCmp$1, scopeCmp) >= 0)
                       })
                     })($this$2, optCmp));
-                    var this$23 = new $c_sc_Iterator$$anon$12().init___sc_Iterator__F1(this$17, p$1);
+                    var this$24 = new $c_sc_Iterator$$anon$12().init___sc_Iterator__F1(this$18, p$1);
                     var f$5 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$1, xDep$1$1, yDep$1$1, optCmp$3) {
                       return (function(scopeCmp$3$2) {
                         var scopeCmp$3 = $uI(scopeCmp$3$2);
-                        var this$18 = $m_Lcoursier_core_Orders$().exclusionsPartialOrder$1.tryCompare__O__O__s_Option(xDep$1$1.exclusions$1, yDep$1$1.exclusions$1).iterator__sc_Iterator();
+                        var this$19 = $m_Lcoursier_core_Orders$().exclusionsPartialOrder$1.tryCompare__O__O__s_Option(xDep$1$1.exclusions$1, yDep$1$1.exclusions$1).iterator__sc_Iterator();
                         var p$2 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this$4, optCmp$1$1) {
                           return (function(exclCmp$2) {
                             var exclCmp = $uI(exclCmp$2);
                             return ($imul(optCmp$1$1, exclCmp) >= 0)
                           })
                         })(this$2$1, optCmp$3));
-                        var this$19 = new $c_sc_Iterator$$anon$12().init___sc_Iterator__F1(this$18, p$2);
+                        var this$20 = new $c_sc_Iterator$$anon$12().init___sc_Iterator__F1(this$19, p$2);
                         var p$3 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$2, scopeCmp$1) {
                           return (function(exclCmp$3$2) {
                             var exclCmp$3 = $uI(exclCmp$3$2);
                             return ($imul(scopeCmp$1, exclCmp$3) >= 0)
                           })
                         })(this$2$1, scopeCmp$3));
-                        var this$20 = new $c_sc_Iterator$$anon$12().init___sc_Iterator__F1(this$19, p$3);
+                        var this$21 = new $c_sc_Iterator$$anon$12().init___sc_Iterator__F1(this$20, p$3);
                         var f$3 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$3$2, optCmp$1$2, scopeCmp$4) {
                           return (function(exclCmp$4$2) {
                             var exclCmp$4 = $uI(exclCmp$4$2);
@@ -15115,7 +15266,7 @@ $c_Lcoursier_core_Orders$.prototype.minDependenciesUnsafe__sci_Set__sci_Map__sci
                             return new $c_T3().init___O__O__O(exclCmp$4, xIsMin, yIsMin)
                           })
                         })(this$2$1, optCmp$3, scopeCmp$3));
-                        var this$21 = new $c_sc_Iterator$$anon$10().init___sc_Iterator__F1(this$20, f$3);
+                        var this$22 = new $c_sc_Iterator$$anon$10().init___sc_Iterator__F1(this$21, f$3);
                         var p$4 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$4$2) {
                           return (function(x$15$2) {
                             var x$15 = $as_T3(x$15$2);
@@ -15128,7 +15279,7 @@ $c_Lcoursier_core_Orders$.prototype.minDependenciesUnsafe__sci_Set__sci_Map__sci
                             }
                           })
                         })(this$2$1));
-                        var this$22 = new $c_sc_Iterator$$anon$12().init___sc_Iterator__F1(this$21, p$4);
+                        var this$23 = new $c_sc_Iterator$$anon$12().init___sc_Iterator__F1(this$22, p$4);
                         var f$4 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$5$2, yDep$1$2, xDep$1$2) {
                           return (function(x$16$2) {
                             var x$16 = $as_T3(x$16$2);
@@ -15140,13 +15291,13 @@ $c_Lcoursier_core_Orders$.prototype.minDependenciesUnsafe__sci_Set__sci_Map__sci
                             }
                           })
                         })(this$2$1, yDep$1$1, xDep$1$1));
-                        return new $c_sc_Iterator$$anon$10().init___sc_Iterator__F1(this$22, f$4)
+                        return new $c_sc_Iterator$$anon$10().init___sc_Iterator__F1(this$23, f$4)
                       })
                     })($this$2, xDep$1, yDep$1, optCmp));
-                    return new $c_sc_Iterator$$anon$11().init___sc_Iterator__F1(this$23, f$5)
+                    return new $c_sc_Iterator$$anon$11().init___sc_Iterator__F1(this$24, f$5)
                   })
                 })(this$5$1, configs$1, xScope, yScope, xDep, yDep));
-                return new $c_sc_Iterator$$anon$11().init___sc_Iterator__F1(this$24, f$6)
+                return new $c_sc_Iterator$$anon$11().init___sc_Iterator__F1(this$25, f$6)
               }
             }
           }
@@ -15155,15 +15306,15 @@ $c_Lcoursier_core_Orders$.prototype.minDependenciesUnsafe__sci_Set__sci_Map__sci
       throw new $c_s_MatchError().init___O(x$17)
     })
   })(this, configs));
-  var remove = new $c_sc_Iterator$$anon$11().init___sc_Iterator__F1(this$25, f$7);
+  var remove = new $c_sc_Iterator$$anon$11().init___sc_Iterator__F1(this$26, f$7);
   var f$8 = (function(this$6$1) {
     return (function(x$18$2) {
       var x$18 = $as_T2(x$18$2);
       return $as_Lcoursier_core_Dependency(x$18.$$und2__O())
     })
   })(this);
-  var this$26 = $m_sci_List$();
-  var bf$1 = this$26.ReusableCBFInstance$2;
+  var this$27 = $m_sci_List$();
+  var bf$1 = this$27.ReusableCBFInstance$2;
   if ((bf$1 === $m_sci_List$().ReusableCBFInstance$2)) {
     if ((groupedDependencies === $m_sci_Nil$())) {
       var jsx$3 = $m_sci_Nil$()
@@ -15191,8 +15342,8 @@ $c_Lcoursier_core_Orders$.prototype.minDependenciesUnsafe__sci_Set__sci_Map__sci
     };
     var jsx$3 = b.result__O()
   };
-  var this$27 = $as_sc_TraversableOnce(jsx$3).toSet__sci_Set();
-  return $as_sci_Set($f_scg_Subtractable__$$minus$minus__sc_GenTraversableOnce__scg_Subtractable(this$27, remove))
+  var this$28 = $as_sc_TraversableOnce(jsx$3).toSet__sci_Set();
+  return $as_sci_Set($f_scg_Subtractable__$$minus$minus__sc_GenTraversableOnce__scg_Subtractable(this$28, remove))
 });
 $c_Lcoursier_core_Orders$.prototype.fallbackConfigIfNecessary__p1__Lcoursier_core_Dependency__sci_Set__Lcoursier_core_Dependency = (function(dep, configs) {
   var x1 = $m_Lcoursier_core_Parse$().withFallbackConfig__T__s_Option(dep.configuration$1);
@@ -15216,10 +15367,11 @@ $c_Lcoursier_core_Orders$.prototype.fallbackConfigIfNecessary__p1__Lcoursier_cor
       var x$2 = dep.module$1;
       var x$3 = dep.version$1;
       var x$4 = dep.exclusions$1;
-      var x$5 = dep.attributes$1;
+      var this$1 = dep.publication$1;
+      var x$5 = new $c_Lcoursier_core_Attributes().init___T__T(this$1.type$1, this$1.classifier$1);
       var x$6 = dep.optional$1;
       var x$7 = dep.transitive$1;
-      return new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(x$2, x$3, config0, x$4, x$5, x$6, x$7)
+      return dep.copy__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(x$2, x$3, config0, x$4, x$5, x$6, x$7)
     }
   };
   return dep
@@ -15232,13 +15384,14 @@ $c_Lcoursier_core_Orders$.prototype.minDependencies__sci_Set__F1__sci_Set = (fun
       var x$2 = $m_sci_Set$EmptySet$();
       var x$4 = x$19.module$1;
       var x$5 = x$19.version$1;
-      var x$6 = x$19.attributes$1;
+      var this$2 = x$19.publication$1;
+      var x$6 = new $c_Lcoursier_core_Attributes().init___T__T(this$2.type$1, this$2.classifier$1);
       var x$7 = x$19.transitive$1;
-      return new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(x$4, x$5, x$1, x$2, x$6, false, x$7)
+      return x$19.copy__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(x$4, x$5, x$1, x$2, x$6, false, x$7)
     })
   })(this));
   var this$3 = $f_sc_TraversableLike__groupBy__F1__sci_Map(dependencies, f);
-  var f$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2, configs$1) {
+  var f$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$1, configs$1) {
     return (function(deps$2) {
       var deps = $as_sci_Set(deps$2);
       return $m_Lcoursier_core_Orders$().minDependenciesUnsafe__sci_Set__sci_Map__sci_Set(deps, $as_sci_Map(configs$1.apply__O__O($as_Lcoursier_core_Dependency(deps.head__O()).moduleVersion__T2())))
@@ -15799,14 +15952,21 @@ $c_Lcoursier_core_Resolution$DepMgmt$.prototype.addSeq__sci_Map__sc_Seq__sci_Map
   })(this))))
 });
 $c_Lcoursier_core_Resolution$DepMgmt$.prototype.key__Lcoursier_core_Dependency__T3 = (function(dep) {
-  var jsx$2 = new $c_Lcoursier_core_Organization().init___T(dep.module$1.organization$1);
-  var jsx$1 = new $c_Lcoursier_core_ModuleName().init___T(dep.module$1.name$1);
+  var jsx$3 = new $c_Lcoursier_core_Organization().init___T(dep.module$1.organization$1);
+  var jsx$2 = new $c_Lcoursier_core_ModuleName().init___T(dep.module$1.name$1);
   $m_Lcoursier_core_Type$();
-  var $$this = dep.attributes$1.type$1;
+  var this$1 = dep.publication$1;
+  var $$this = new $c_Lcoursier_core_Attributes().init___T__T(this$1.type$1, this$1.classifier$1).type$1;
   if (($$this === null)) {
     throw new $c_jl_NullPointerException().init___()
   };
-  return new $c_T3().init___O__O__O(jsx$2, jsx$1, (($$this === "") ? new $c_Lcoursier_core_Type().init___T($m_Lcoursier_core_Type$().jar$1) : new $c_Lcoursier_core_Type().init___T(dep.attributes$1.type$1)))
+  if (($$this === "")) {
+    var jsx$1 = new $c_Lcoursier_core_Type().init___T($m_Lcoursier_core_Type$().jar$1)
+  } else {
+    var this$4 = dep.publication$1;
+    var jsx$1 = new $c_Lcoursier_core_Type().init___T(new $c_Lcoursier_core_Attributes().init___T__T(this$4.type$1, this$4.classifier$1).type$1)
+  };
+  return new $c_T3().init___O__O__O(jsx$3, jsx$2, jsx$1)
 });
 $c_Lcoursier_core_Resolution$DepMgmt$.prototype.add__sci_Map__T2__sci_Map = (function(dict, item) {
   var key0 = this.key__Lcoursier_core_Dependency__T3($as_Lcoursier_core_Dependency(item.$$und2__O()));
@@ -16997,6 +17157,7 @@ $c_Lcoursier_maven_Pom$.prototype.dependency__Lcoursier_util_Xml$Node__s_util_Ei
       var this$22 = $m_Lcoursier_util_Xml$().text__Lcoursier_util_Xml$Node__T__T__s_util_Either(node, "optional", "");
       var optional = new $c_s_util_Either$RightProjection().init___s_util_Either(this$22).toSeq__sc_Seq().contains__O__Z("true");
       var self = (scopeOpt.isEmpty__Z() ? new $c_Lcoursier_core_Configuration().init___T($m_Lcoursier_core_Configuration$().empty$1) : scopeOpt.get__O());
+      var jsx$4 = $m_Lcoursier_core_Dependency$();
       var jsx$3 = $m_Lcoursier_core_Configuration$().empty$1;
       var jsx$2 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$1) {
         return (function(mod$2) {
@@ -17005,7 +17166,7 @@ $c_Lcoursier_maven_Pom$.prototype.dependency__Lcoursier_util_Xml$Node__s_util_Ei
         })
       })(this));
       var this$24 = $m_sc_Seq$();
-      var y = new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(mod, version0, jsx$3, $as_sc_TraversableOnce(exclusions.map__F1__scg_CanBuildFrom__O(jsx$2, this$24.ReusableCBFInstance$2)).toSet__sci_Set(), new $c_Lcoursier_core_Attributes().init___T__T($as_Lcoursier_core_Type((typeOpt.isEmpty__Z() ? new $c_Lcoursier_core_Type().init___T($m_Lcoursier_core_Type$().empty$1) : typeOpt.get__O())).value$1, $as_Lcoursier_core_Classifier((classifierOpt.isEmpty__Z() ? new $c_Lcoursier_core_Classifier().init___T($m_Lcoursier_core_Classifier$().empty$1) : classifierOpt.get__O())).value$1), optional, true);
+      var y = jsx$4.apply__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(mod, version0, jsx$3, $as_sc_TraversableOnce(exclusions.map__F1__scg_CanBuildFrom__O(jsx$2, this$24.ReusableCBFInstance$2)).toSet__sci_Set(), new $c_Lcoursier_core_Attributes().init___T__T($as_Lcoursier_core_Type((typeOpt.isEmpty__Z() ? new $c_Lcoursier_core_Type().init___T($m_Lcoursier_core_Type$().empty$1) : typeOpt.get__O())).value$1, $as_Lcoursier_core_Classifier((classifierOpt.isEmpty__Z() ? new $c_Lcoursier_core_Classifier().init___T($m_Lcoursier_core_Classifier$().empty$1) : classifierOpt.get__O())).value$1), optional, true);
       return new $c_s_util_Right().init___O(new $c_T2().init___O__O(self, y))
     } else {
       return this$21.e$1
@@ -18098,37 +18259,36 @@ $c_Lcoursier_maven_Pom$.prototype.project__Lcoursier_util_Xml$Node__s_util_Eithe
                                       };
                                       var relocatedVersion = $as_T(jsx$29);
                                       var self$1 = new $c_Lcoursier_core_Configuration().init___T($m_Lcoursier_core_Configuration$().empty$1);
+                                      var jsx$30 = $m_Lcoursier_core_Dependency$();
                                       var attributes$1 = finalProjModule.attributes$1;
-                                      var y$1 = new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(new $c_Lcoursier_core_Module().init___T__T__sci_Map(relocatedGroupId, relocatedArtifactId, attributes$1), relocatedVersion, $m_Lcoursier_core_Configuration$().empty$1, $as_sci_Set($m_s_Predef$().Set$2.apply__sc_Seq__sc_GenTraversable($m_sci_Nil$())), $m_Lcoursier_core_Attributes$().empty$1, false, true);
+                                      var y$1 = jsx$30.apply__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(new $c_Lcoursier_core_Module().init___T__T__sci_Map(relocatedGroupId, relocatedArtifactId, attributes$1), relocatedVersion, $m_Lcoursier_core_Configuration$().empty$1, $m_sci_Set$EmptySet$(), $m_Lcoursier_core_Attributes$().empty$1, false, true);
                                       var relocationDependencyOpt = new $c_s_Some().init___O(new $c_T2().init___O__O(self$1, y$1))
                                     };
-                                    var this$147 = relocationDependencyOpt.toList__sci_List();
-                                    var this$148 = $m_sc_Seq$();
-                                    var jsx$34 = $as_sc_TraversableLike(this$147.$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O(deps, this$148.ReusableCBFInstance$2));
-                                    var jsx$33 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$19$1, extraAttrsMap$1) {
+                                    var this$148 = relocationDependencyOpt.toList__sci_List();
+                                    var this$149 = $m_sc_Seq$();
+                                    var jsx$39 = $as_sc_TraversableLike(this$148.$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O(deps, this$149.ReusableCBFInstance$2));
+                                    var jsx$34 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$19$1, extraAttrsMap$1) {
                                       return (function(x0$2$2) {
                                         var x0$2 = $as_T2(x0$2$2);
                                         if ((x0$2 !== null)) {
                                           var config = $as_Lcoursier_core_Configuration(x0$2.$$und1__O()).value$1;
                                           var dep0 = $as_Lcoursier_core_Dependency(x0$2.$$und2__O());
-                                          var this$149 = extraAttrsMap$1.get__O__s_Option(dep0.moduleVersion__T2());
-                                          if (this$149.isEmpty__Z()) {
+                                          var this$150 = extraAttrsMap$1.get__O__s_Option(dep0.moduleVersion__T2());
+                                          if (this$150.isEmpty__Z()) {
                                             var dep = dep0
                                           } else {
-                                            var arg1$23 = this$149.get__O();
+                                            var arg1$23 = this$150.get__O();
                                             var attrs = $as_sci_Map(arg1$23);
-                                            var this$150 = dep0.module$1;
-                                            var x$5 = this$150.organization$1;
                                             var this$151 = dep0.module$1;
-                                            var x$6 = this$151.name$1;
-                                            var module = new $c_Lcoursier_core_Module().init___T__T__sci_Map(x$5, x$6, attrs);
-                                            var version$1 = dep0.version$1;
-                                            var configuration = dep0.configuration$1;
-                                            var exclusions = dep0.exclusions$1;
-                                            var attributes$2 = dep0.attributes$1;
-                                            var optional = dep0.optional$1;
-                                            var transitive = dep0.transitive$1;
-                                            var dep = new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(module, version$1, configuration, exclusions, attributes$2, optional, transitive)
+                                            var x$5 = this$151.organization$1;
+                                            var this$152 = dep0.module$1;
+                                            var x$6 = this$152.name$1;
+                                            var jsx$38 = new $c_Lcoursier_core_Module().init___T__T__sci_Map(x$5, x$6, attrs);
+                                            var jsx$37 = dep0.version$1;
+                                            var jsx$36 = dep0.configuration$1;
+                                            var jsx$35 = dep0.exclusions$1;
+                                            var this$154 = dep0.publication$1;
+                                            var dep = dep0.copy__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(jsx$38, jsx$37, jsx$36, jsx$35, new $c_Lcoursier_core_Attributes().init___T__T(this$154.type$1, this$154.classifier$1), dep0.optional$1, dep0.transitive$1)
                                           };
                                           var self$2 = new $c_Lcoursier_core_Configuration().init___T(config);
                                           return new $c_T2().init___O__O(self$2, dep)
@@ -18137,17 +18297,17 @@ $c_Lcoursier_maven_Pom$.prototype.project__Lcoursier_util_Xml$Node__s_util_Eithe
                                         }
                                       })
                                     })(this, extraAttrsMap));
-                                    var this$155 = $m_sc_Seq$();
-                                    var jsx$32 = $as_sc_Seq(jsx$34.map__F1__scg_CanBuildFrom__O(jsx$33, this$155.ReusableCBFInstance$2));
-                                    var jsx$31 = $m_sci_Map$EmptyMap$();
+                                    var this$157 = $m_sc_Seq$();
+                                    var jsx$33 = $as_sc_Seq(jsx$39.map__F1__scg_CanBuildFrom__O(jsx$34, this$157.ReusableCBFInstance$2));
+                                    var jsx$32 = $m_sci_Map$EmptyMap$();
                                     if (parentModuleOpt.isEmpty__Z()) {
-                                      var jsx$30 = $m_s_None$()
+                                      var jsx$31 = $m_s_None$()
                                     } else {
                                       var arg1$24 = parentModuleOpt.get__O();
                                       var x$62 = $as_Lcoursier_core_Module(arg1$24);
-                                      var jsx$30 = new $c_s_Some().init___O(new $c_T2().init___O__O(x$62, (parentVersionOpt.isEmpty__Z() ? "" : parentVersionOpt.get__O())))
+                                      var jsx$31 = new $c_s_Some().init___O(new $c_T2().init___O__O(x$62, (parentVersionOpt.isEmpty__Z() ? "" : parentVersionOpt.get__O())))
                                     };
-                                    return new $c_s_util_Right().init___O(new $c_Lcoursier_core_Project().init___Lcoursier_core_Module__T__sc_Seq__sci_Map__s_Option__sc_Seq__sc_Seq__sc_Seq__s_Option__s_Option__s_Option__Z__s_Option__sc_Seq__Lcoursier_core_Info(finalProjModule, version, jsx$32, jsx$31, jsx$30, depMgmts, properties, profiles, $m_s_None$(), $m_s_None$(), $m_Lcoursier_maven_Pom$().packagingOpt__Lcoursier_util_Xml$Node__s_Option(pom), relocationDependencyOpt.isDefined__Z(), $m_s_None$(), $m_sci_Nil$(), new $c_Lcoursier_core_Info().init___T__T__sc_Seq__sc_Seq__s_Option(description, homePage, licenses, developers, $m_s_None$())))
+                                    return new $c_s_util_Right().init___O(new $c_Lcoursier_core_Project().init___Lcoursier_core_Module__T__sc_Seq__sci_Map__s_Option__sc_Seq__sc_Seq__sc_Seq__s_Option__s_Option__s_Option__Z__s_Option__sc_Seq__Lcoursier_core_Info(finalProjModule, version, jsx$33, jsx$32, jsx$31, depMgmts, properties, profiles, $m_s_None$(), $m_s_None$(), $m_Lcoursier_maven_Pom$().packagingOpt__Lcoursier_util_Xml$Node__s_Option(pom), relocationDependencyOpt.isDefined__Z(), $m_s_None$(), $m_sci_Nil$(), new $c_Lcoursier_core_Info().init___T__T__sc_Seq__sc_Seq__s_Option(description, homePage, licenses, developers, $m_s_None$())))
                                   } else {
                                     return this$95.e$1
                                   }
@@ -19725,6 +19885,7 @@ $c_Lcoursier_maven_PomParser$State.prototype.project__s_util_Either = (function(
               };
               if (jsx$6) {
                 var self$1 = new $c_Lcoursier_core_Configuration().init___T($m_Lcoursier_core_Configuration$().empty$1);
+                var jsx$9 = $m_Lcoursier_core_Dependency$();
                 var this$53 = this.relocationGroupIdOpt$1;
                 var organization = $as_Lcoursier_core_Organization((this$53.isEmpty__Z() ? new $c_Lcoursier_core_Organization().init___T(projModule.organization$1) : this$53.get__O())).value$1;
                 var this$54 = this.relocationArtifactIdOpt$1;
@@ -19732,37 +19893,35 @@ $c_Lcoursier_maven_PomParser$State.prototype.project__s_util_Either = (function(
                 var attributes = projModule.attributes$1;
                 var jsx$8 = new $c_Lcoursier_core_Module().init___T__T__sci_Map(organization, name, attributes);
                 var this$55 = this.relocationVersionOpt$1;
-                var y$1 = new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(jsx$8, $as_T((this$55.isEmpty__Z() ? finalVersion : this$55.get__O())), $m_Lcoursier_core_Configuration$().empty$1, $as_sci_Set($m_s_Predef$().Set$2.apply__sc_Seq__sc_GenTraversable($m_sci_Nil$())), $m_Lcoursier_core_Attributes$().empty$1, false, true);
+                var y$1 = jsx$9.apply__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(jsx$8, $as_T((this$55.isEmpty__Z() ? finalVersion : this$55.get__O())), $m_Lcoursier_core_Configuration$().empty$1, $m_sci_Set$EmptySet$(), $m_Lcoursier_core_Attributes$().empty$1, false, true);
                 var relocationDependencyOpt = new $c_s_Some().init___O(new $c_T2().init___O__O(self$1, y$1))
               } else {
                 var relocationDependencyOpt = $m_s_None$()
               };
               var x$11 = relocationDependencyOpt.toList__sci_List();
-              var this$64 = this.dependencies$1.toList__sci_List().$$colon$colon$colon__sci_List__sci_List(x$11);
+              var this$66 = this.dependencies$1.toList__sci_List().$$colon$colon$colon__sci_List__sci_List(x$11);
               var f = (function(this$6$1, extraAttrsMap$1) {
                 return (function(x0$2$2) {
                   var x0$2 = $as_T2(x0$2$2);
                   if ((x0$2 !== null)) {
                     var config = $as_Lcoursier_core_Configuration(x0$2.$$und1__O()).value$1;
                     var dep0 = $as_Lcoursier_core_Dependency(x0$2.$$und2__O());
-                    var this$57 = extraAttrsMap$1.get__O__s_Option(dep0.moduleVersion__T2());
-                    if (this$57.isEmpty__Z()) {
+                    var this$58 = extraAttrsMap$1.get__O__s_Option(dep0.moduleVersion__T2());
+                    if (this$58.isEmpty__Z()) {
                       var dep = dep0
                     } else {
-                      var arg1$6 = this$57.get__O();
+                      var arg1$6 = this$58.get__O();
                       var attrs = $as_sci_Map(arg1$6);
-                      var this$58 = dep0.module$1;
-                      var x$5$1 = this$58.organization$1;
                       var this$59 = dep0.module$1;
-                      var x$6$1 = this$59.name$1;
-                      var module = new $c_Lcoursier_core_Module().init___T__T__sci_Map(x$5$1, x$6$1, attrs);
-                      var version = dep0.version$1;
-                      var configuration = dep0.configuration$1;
-                      var exclusions = dep0.exclusions$1;
-                      var attributes$1 = dep0.attributes$1;
-                      var optional = dep0.optional$1;
-                      var transitive = dep0.transitive$1;
-                      var dep = new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(module, version, configuration, exclusions, attributes$1, optional, transitive)
+                      var x$5$1 = this$59.organization$1;
+                      var this$60 = dep0.module$1;
+                      var x$6$1 = this$60.name$1;
+                      var jsx$13 = new $c_Lcoursier_core_Module().init___T__T__sci_Map(x$5$1, x$6$1, attrs);
+                      var jsx$12 = dep0.version$1;
+                      var jsx$11 = dep0.configuration$1;
+                      var jsx$10 = dep0.exclusions$1;
+                      var this$62 = dep0.publication$1;
+                      var dep = dep0.copy__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(jsx$13, jsx$12, jsx$11, jsx$10, new $c_Lcoursier_core_Attributes().init___T__T(this$62.type$1, this$62.classifier$1), dep0.optional$1, dep0.transitive$1)
                     };
                     var self$2 = new $c_Lcoursier_core_Configuration().init___T(config);
                     return new $c_T2().init___O__O(self$2, dep)
@@ -19771,16 +19930,16 @@ $c_Lcoursier_maven_PomParser$State.prototype.project__s_util_Either = (function(
                   }
                 })
               })(this, extraAttrsMap);
-              var this$63 = $m_sci_List$();
-              var bf = this$63.ReusableCBFInstance$2;
+              var this$65 = $m_sci_List$();
+              var bf = this$65.ReusableCBFInstance$2;
               if ((bf === $m_sci_List$().ReusableCBFInstance$2)) {
-                if ((this$64 === $m_sci_Nil$())) {
-                  var jsx$9 = $m_sci_Nil$()
+                if ((this$66 === $m_sci_Nil$())) {
+                  var jsx$14 = $m_sci_Nil$()
                 } else {
-                  var arg1$7 = this$64.head__O();
+                  var arg1$7 = this$66.head__O();
                   var h = new $c_sci_$colon$colon().init___O__sci_List(f(arg1$7), $m_sci_Nil$());
                   var t = h;
-                  var rest = $as_sci_List(this$64.tail__O());
+                  var rest = $as_sci_List(this$66.tail__O());
                   while ((rest !== $m_sci_Nil$())) {
                     var arg1$8 = rest.head__O();
                     var nx = new $c_sci_$colon$colon().init___O__sci_List(f(arg1$8), $m_sci_Nil$());
@@ -19788,19 +19947,19 @@ $c_Lcoursier_maven_PomParser$State.prototype.project__s_util_Either = (function(
                     t = nx;
                     rest = $as_sci_List(rest.tail__O())
                   };
-                  var jsx$9 = h
+                  var jsx$14 = h
                 }
               } else {
-                var b$6 = $f_sc_TraversableLike__builder$1__psc_TraversableLike__scg_CanBuildFrom__scm_Builder(this$64, bf);
-                var these = this$64;
+                var b$6 = $f_sc_TraversableLike__builder$1__psc_TraversableLike__scg_CanBuildFrom__scm_Builder(this$66, bf);
+                var these = this$66;
                 while ((!these.isEmpty__Z())) {
                   var arg1$9 = these.head__O();
                   b$6.$$plus$eq__O__scm_Builder(f(arg1$9));
                   these = $as_sci_List(these.tail__O())
                 };
-                var jsx$9 = b$6.result__O()
+                var jsx$14 = b$6.result__O()
               };
-              return new $c_s_util_Right().init___O(new $c_Lcoursier_core_Project().init___Lcoursier_core_Module__T__sc_Seq__sci_Map__s_Option__sc_Seq__sc_Seq__sc_Seq__s_Option__s_Option__s_Option__Z__s_Option__sc_Seq__Lcoursier_core_Info(projModule, finalVersion, $as_sc_Seq(jsx$9), $m_sci_Map$EmptyMap$(), parentOpt, this.dependencyManagement$1.toList__sci_List(), properties0, this.profiles$1.toList__sci_List(), $m_s_None$(), $m_s_None$(), this.packagingOpt$1, relocationDependencyOpt.isDefined__Z(), $m_s_None$(), $m_sci_Nil$(), new $c_Lcoursier_core_Info().init___T__T__sc_Seq__sc_Seq__s_Option(this.description$1, this.url$1, $m_sci_Nil$(), $m_sci_Nil$(), $m_s_None$())))
+              return new $c_s_util_Right().init___O(new $c_Lcoursier_core_Project().init___Lcoursier_core_Module__T__sc_Seq__sci_Map__s_Option__sc_Seq__sc_Seq__sc_Seq__s_Option__s_Option__s_Option__Z__s_Option__sc_Seq__Lcoursier_core_Info(projModule, finalVersion, $as_sc_Seq(jsx$14), $m_sci_Map$EmptyMap$(), parentOpt, this.dependencyManagement$1.toList__sci_List(), properties0, this.profiles$1.toList__sci_List(), $m_s_None$(), $m_s_None$(), this.packagingOpt$1, relocationDependencyOpt.isDefined__Z(), $m_s_None$(), $m_sci_Nil$(), new $c_Lcoursier_core_Info().init___T__T__sc_Seq__sc_Seq__s_Option(this.description$1, this.url$1, $m_sci_Nil$(), $m_sci_Nil$(), $m_s_None$())))
             } else {
               return this$43.e$1
             }
@@ -20362,98 +20521,98 @@ $c_Lcoursier_web_App$.prototype.init___ = (function() {
           var module = $as_Lcoursier_core_Module(p2.$$und1__O());
           var version = $as_T(p2.$$und2__O());
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$77 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var jsx$85 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$76 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal fade", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var jsx$84 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal fade", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
           var this$58 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
           var t = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$75 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t, this$58.name$1, "moduleEdit");
+          var jsx$83 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t, this$58.name$1, "moduleEdit");
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
           var this$61 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
           var t$1 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$74 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$1, this$61.name$1, "dialog");
+          var jsx$82 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$1, this$61.name$1, "dialog");
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.aria__Ljapgolly_scalajs_react_vdom_HtmlAttrs$aria$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
           var this$64 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-labelledby");
           var t$2 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$73 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$2, this$64.name$1, "moduleEditTitle");
-          var jsx$72 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var jsx$81 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$2, this$64.name$1, "moduleEditTitle");
+          var jsx$80 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$71 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal-dialog", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-          var jsx$70 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var jsx$79 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal-dialog", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var jsx$78 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$69 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal-content", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-          var jsx$68 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var jsx$77 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal-content", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var jsx$76 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$67 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal-header", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-          var jsx$66 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var jsx$75 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal-header", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var jsx$74 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$65 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.type$1.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("button", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-          var jsx$64 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("close", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var jsx$73 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.type$1.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("button", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var jsx$72 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("close", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
           var this$74 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-dismiss");
           var t$3 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$63 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$3, this$74.name$1, "modal");
+          var jsx$71 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$3, this$74.name$1, "modal");
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.aria__Ljapgolly_scalajs_react_vdom_HtmlAttrs$aria$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
           var this$77 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-label");
           var t$4 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$62 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$4, this$77.name$1, "Close");
-          var jsx$61 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var jsx$70 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$4, this$77.name$1, "Close");
+          var jsx$69 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.aria__Ljapgolly_scalajs_react_vdom_HtmlAttrs$aria$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
           var this$81 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-hidden");
           var t$5 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$60 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$5, this$81.name$1, "true");
+          var jsx$68 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$5, this$81.name$1, "true");
           $m_Ljapgolly_scalajs_react_vdom_HtmlAttrs$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
           var this$84 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("dangerouslySetInnerHTML");
           var t$6 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtInnerHtml__F2();
-          var array$9 = [jsx$60, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$6, this$84.name$1, "&times;")];
-          var array$10 = [jsx$65, jsx$64, jsx$63, jsx$62, jsx$61.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("span", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$9))];
-          var jsx$59 = jsx$66.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("button", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$10));
-          var jsx$58 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var array$9 = [jsx$68, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$6, this$84.name$1, "&times;")];
+          var array$10 = [jsx$73, jsx$72, jsx$71, jsx$70, jsx$69.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("span", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$9))];
+          var jsx$67 = jsx$74.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("button", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$10));
+          var jsx$66 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$57 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal-title", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var jsx$65 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal-title", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
           var this$93 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
           var t$7 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var array$11 = [jsx$57, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$7, this$93.name$1, "moduleEditTitle"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Dependency"))];
-          var array$12 = [jsx$67, jsx$59, jsx$58.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("h4", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$11))];
-          var jsx$56 = jsx$68.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$12));
-          var jsx$55 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var array$11 = [jsx$65, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$7, this$93.name$1, "moduleEditTitle"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Dependency"))];
+          var array$12 = [jsx$75, jsx$67, jsx$66.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("h4", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$11))];
+          var jsx$64 = jsx$76.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$12));
+          var jsx$63 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$54 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal-body", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-          var jsx$53 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var jsx$62 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal-body", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var jsx$61 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$52 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var jsx$60 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$51 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("form-group", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-          var jsx$50 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var jsx$59 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("form-group", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var jsx$58 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
           var this$108 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("htmlFor");
           var t$8 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
           var array$13 = [$m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$8, this$108.name$1, "inputOrganization"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Organization"))];
-          var jsx$49 = jsx$50.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("label", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$13));
-          var jsx$48 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.input__Ljapgolly_scalajs_react_vdom_HtmlTags$input$();
-          var jsx$47 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("form-control", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var jsx$57 = jsx$58.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("label", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$13));
+          var jsx$56 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.input__Ljapgolly_scalajs_react_vdom_HtmlTags$input$();
+          var jsx$55 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("form-control", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
           var this$116 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
           var t$9 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$46 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$9, this$116.name$1, "inputOrganization");
+          var jsx$54 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$9, this$116.name$1, "inputOrganization");
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
           var this$119 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("placeholder");
           var t$10 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$45 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$10, this$119.name$1, "Organization");
-          var jsx$44 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onChange$1;
+          var jsx$53 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$10, this$119.name$1, "Organization");
+          var jsx$52 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onChange$1;
           var eta$0$1 = new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function($this$3) {
             return (function(dep$2$1, value$2) {
               var dep$4 = $as_Lcoursier_core_Dependency(dep$2$1);
@@ -20462,72 +20621,68 @@ $c_Lcoursier_web_App$.prototype.init___ = (function() {
               var name$1 = this$120.name$1;
               var this$121 = dep$4.module$1;
               var attributes = this$121.attributes$1;
-              var module$1 = new $c_Lcoursier_core_Module().init___T__T__sci_Map(value, name$1, attributes);
-              var version$1 = dep$4.version$1;
-              var configuration = dep$4.configuration$1;
-              var exclusions = dep$4.exclusions$1;
-              var attributes$1 = dep$4.attributes$1;
-              var optional = dep$4.optional$1;
-              var transitive = dep$4.transitive$1;
-              return new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(module$1, version$1, configuration, exclusions, attributes$1, optional, transitive)
+              var jsx$51 = new $c_Lcoursier_core_Module().init___T__T__sci_Map(value, name$1, attributes);
+              var jsx$50 = dep$4.version$1;
+              var jsx$49 = dep$4.configuration$1;
+              var jsx$48 = dep$4.exclusions$1;
+              var this$123 = dep$4.publication$1;
+              return dep$4.copy__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(jsx$51, jsx$50, jsx$49, jsx$48, new $c_Lcoursier_core_Attributes().init___T__T(this$123.type$1, this$123.classifier$1), dep$4.optional$1, dep$4.transitive$1)
             })
           })(this$4$1));
-          var array$14 = [jsx$47, jsx$46, jsx$45, jsx$44.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$4, backend$3, moduleIdx$1, eta$0$1$1) {
+          var array$14 = [jsx$55, jsx$54, jsx$53, jsx$52.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$4, backend$3, moduleIdx$1, eta$0$1$1) {
             return (function(e$2) {
               return new $c_Ljapgolly_scalajs_react_CallbackTo().init___F0(backend$3.updateModule__I__F2__Ljapgolly_scalajs_react_raw_SyntheticEvent__F0(moduleIdx$1, eta$0$1$1, e$2))
             })
           })(this$4$1, backend$2, moduleIdx, eta$0$1)), null), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.value$1.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod(module.organization$1, $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2)];
-          var array$15 = [jsx$51, jsx$49, jsx$48.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$14))];
-          var jsx$43 = jsx$52.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$15));
-          var jsx$42 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var array$15 = [jsx$59, jsx$57, jsx$56.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$14))];
+          var jsx$47 = jsx$60.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$15));
+          var jsx$46 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$41 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("form-group", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-          var jsx$40 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var jsx$45 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("form-group", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var jsx$44 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-          var this$133 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("htmlFor");
+          var this$134 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("htmlFor");
           var t$11 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var array$16 = [$m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$11, this$133.name$1, "inputName"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Name"))];
-          var jsx$39 = jsx$40.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("label", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$16));
-          var jsx$38 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.input__Ljapgolly_scalajs_react_vdom_HtmlTags$input$();
-          var jsx$37 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("form-control", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var array$16 = [$m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$11, this$134.name$1, "inputName"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Name"))];
+          var jsx$43 = jsx$44.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("label", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$16));
+          var jsx$42 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.input__Ljapgolly_scalajs_react_vdom_HtmlTags$input$();
+          var jsx$41 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("form-control", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-          var this$141 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
+          var this$142 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
           var t$12 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$36 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$12, this$141.name$1, "inputName");
+          var jsx$40 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$12, this$142.name$1, "inputName");
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-          var this$144 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("placeholder");
+          var this$145 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("placeholder");
           var t$13 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$35 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$13, this$144.name$1, "Name");
-          var jsx$34 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onChange$1;
+          var jsx$39 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$13, this$145.name$1, "Name");
+          var jsx$38 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onChange$1;
           var eta$0$2 = new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$3$2) {
             return (function(dep$3$2$1, value$3$2) {
               var dep$3$1 = $as_Lcoursier_core_Dependency(dep$3$2$1);
               var value$3 = $as_T(value$3$2);
-              var this$145 = dep$3$1.module$1;
-              var x$2$1 = this$145.organization$1;
               var this$146 = dep$3$1.module$1;
-              var x$3$1 = this$146.attributes$1;
-              var module$2 = new $c_Lcoursier_core_Module().init___T__T__sci_Map(x$2$1, value$3, x$3$1);
-              var version$2 = dep$3$1.version$1;
-              var configuration$1 = dep$3$1.configuration$1;
-              var exclusions$1 = dep$3$1.exclusions$1;
-              var attributes$2 = dep$3$1.attributes$1;
-              var optional$1 = dep$3$1.optional$1;
-              var transitive$1 = dep$3$1.transitive$1;
-              return new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(module$2, version$2, configuration$1, exclusions$1, attributes$2, optional$1, transitive$1)
+              var x$2$1 = this$146.organization$1;
+              var this$147 = dep$3$1.module$1;
+              var x$3$1 = this$147.attributes$1;
+              var jsx$37 = new $c_Lcoursier_core_Module().init___T__T__sci_Map(x$2$1, value$3, x$3$1);
+              var jsx$36 = dep$3$1.version$1;
+              var jsx$35 = dep$3$1.configuration$1;
+              var jsx$34 = dep$3$1.exclusions$1;
+              var this$149 = dep$3$1.publication$1;
+              return dep$3$1.copy__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(jsx$37, jsx$36, jsx$35, jsx$34, new $c_Lcoursier_core_Attributes().init___T__T(this$149.type$1, this$149.classifier$1), dep$3$1.optional$1, dep$3$1.transitive$1)
             })
           })(this$4$1));
-          var array$17 = [jsx$37, jsx$36, jsx$35, jsx$34.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$4$2, backend$4, moduleIdx$2, eta$0$2$1) {
+          var array$17 = [jsx$41, jsx$40, jsx$39, jsx$38.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$4$2, backend$4, moduleIdx$2, eta$0$2$1) {
             return (function(e$3$2) {
               return new $c_Ljapgolly_scalajs_react_CallbackTo().init___F0(backend$4.updateModule__I__F2__Ljapgolly_scalajs_react_raw_SyntheticEvent__F0(moduleIdx$2, eta$0$2$1, e$3$2))
             })
           })(this$4$1, backend$2, moduleIdx, eta$0$2)), null), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.value$1.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod(module.name$1, $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2)];
-          var array$18 = [jsx$41, jsx$39, jsx$38.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$17))];
-          var jsx$33 = jsx$42.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$18));
+          var array$18 = [jsx$45, jsx$43, jsx$42.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$17))];
+          var jsx$33 = jsx$46.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$18));
           var jsx$32 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           var jsx$31 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("form-group", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
@@ -20535,22 +20690,22 @@ $c_Lcoursier_web_App$.prototype.init___ = (function() {
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-          var this$158 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("htmlFor");
+          var this$160 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("htmlFor");
           var t$14 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var array$19 = [$m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$14, this$158.name$1, "inputVersion"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Version"))];
+          var array$19 = [$m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$14, this$160.name$1, "inputVersion"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Version"))];
           var jsx$29 = jsx$30.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("label", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$19));
           var jsx$28 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.input__Ljapgolly_scalajs_react_vdom_HtmlTags$input$();
           var jsx$27 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("form-control", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-          var this$166 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
+          var this$168 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
           var t$15 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$26 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$15, this$166.name$1, "inputVersion");
+          var jsx$26 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$15, this$168.name$1, "inputVersion");
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-          var this$169 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("placeholder");
+          var this$171 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("placeholder");
           var t$16 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$25 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$16, this$169.name$1, "Version");
+          var jsx$25 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$16, this$171.name$1, "Version");
           var jsx$24 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onChange$1;
           var eta$0$3 = new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$5$1) {
             return (function(dep$4$2, value$4$2) {
@@ -20559,10 +20714,11 @@ $c_Lcoursier_web_App$.prototype.init___ = (function() {
               var x$5 = dep$4$1.module$1;
               var x$6 = dep$4$1.configuration$1;
               var x$7 = dep$4$1.exclusions$1;
-              var x$8 = dep$4$1.attributes$1;
+              var this$172 = dep$4$1.publication$1;
+              var x$8 = new $c_Lcoursier_core_Attributes().init___T__T(this$172.type$1, this$172.classifier$1);
               var x$9 = dep$4$1.optional$1;
               var x$10 = dep$4$1.transitive$1;
-              return new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(x$5, value$4, x$6, x$7, x$8, x$9, x$10)
+              return dep$4$1.copy__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(x$5, value$4, x$6, x$7, x$8, x$9, x$10)
             })
           })(this$4$1));
           var array$20 = [jsx$27, jsx$26, jsx$25, jsx$24.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$6$1, backend$5, moduleIdx$3, eta$0$3$1) {
@@ -20579,16 +20735,16 @@ $c_Lcoursier_web_App$.prototype.init___ = (function() {
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           var jsx$19 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.type$1.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("submit", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
           var jsx$18 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("btn btn-primary", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-          var this$180 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-dismiss");
+          var this$183 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-dismiss");
           var t$17 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var array$22 = [jsx$19, jsx$18, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$17, this$180.name$1, "modal"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Done"))];
+          var array$22 = [jsx$19, jsx$18, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$17, this$183.name$1, "modal"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Done"))];
           var array$23 = [jsx$21, jsx$20.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("button", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$22))];
-          var array$24 = [jsx$43, jsx$33, jsx$23, jsx$22.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$23))];
-          var array$25 = [jsx$54, jsx$53.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("form", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$24))];
-          var array$26 = [jsx$69, jsx$56, jsx$55.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$25))];
-          var array$27 = [jsx$71, jsx$70.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$26))];
-          var array$28 = [jsx$76, jsx$75, jsx$74, jsx$73, jsx$72.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$27))];
-          var a$1 = jsx$77.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$28));
+          var array$24 = [jsx$47, jsx$33, jsx$23, jsx$22.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$23))];
+          var array$25 = [jsx$62, jsx$61.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("form", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$24))];
+          var array$26 = [jsx$77, jsx$64, jsx$63.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$25))];
+          var array$27 = [jsx$79, jsx$78.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$26))];
+          var array$28 = [jsx$84, jsx$83, jsx$82, jsx$81, jsx$80.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$27))];
+          var a$1 = jsx$85.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$28));
           return a$1.render__Ljapgolly_scalajs_react_vdom_VdomElement()
         }
       };
@@ -20609,87 +20765,87 @@ $c_Lcoursier_web_App$.prototype.init___ = (function() {
         var editModuleIdx = $uI(x0$3.$$und2$1);
         var backend$6 = $as_Lcoursier_web_Backend(x0$3.$$und3$1);
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-        var jsx$104 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$112 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-        var jsx$103 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$111 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-        var jsx$102 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$110 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-        var jsx$101 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.type$1.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("button", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-        var jsx$100 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("btn btn-default customButton", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-        var jsx$99 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onClick$1.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this$4, backend$7) {
+        var jsx$109 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.type$1.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("button", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+        var jsx$108 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("btn btn-default customButton", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+        var jsx$107 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onClick$1.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this$4, backend$7) {
           return (function(e$2$1) {
             return new $c_Ljapgolly_scalajs_react_CallbackTo().init___F0(backend$7.addModule__Ljapgolly_scalajs_react_raw_SyntheticEvent__F0(e$2$1))
           })
         })(this$6$2, backend$6)), null);
-        var this$206 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-toggle");
+        var this$209 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-toggle");
         var t$18 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-        var jsx$98 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$18, this$206.name$1, "modal");
-        var this$208 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-target");
+        var jsx$106 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$18, this$209.name$1, "modal");
+        var this$211 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-target");
         var t$19 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-        var array$29 = [jsx$101, jsx$100, jsx$99, jsx$98, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$19, this$208.name$1, "#moduleEdit"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Add"))];
-        var array$30 = [jsx$102.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("button", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$29))];
-        var jsx$97 = jsx$103.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("p", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$30));
-        var jsx$96 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var array$29 = [jsx$109, jsx$108, jsx$107, jsx$106, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$19, this$211.name$1, "#moduleEdit"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Add"))];
+        var array$30 = [jsx$110.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("button", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$29))];
+        var jsx$105 = jsx$111.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("p", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$30));
+        var jsx$104 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-        var jsx$95 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("table", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-        var jsx$94 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$103 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("table", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+        var jsx$102 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-        var jsx$93 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$101 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-        var jsx$92 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$100 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
         var array$31 = [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Organization"))];
-        var jsx$91 = jsx$92.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("th", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$31));
-        var jsx$90 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$99 = jsx$100.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("th", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$31));
+        var jsx$98 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
         var array$32 = [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Name"))];
-        var jsx$89 = jsx$90.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("th", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$32));
-        var jsx$88 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$97 = jsx$98.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("th", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$32));
+        var jsx$96 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
         var array$33 = [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Version"))];
-        var jsx$87 = jsx$88.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("th", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$33));
-        var jsx$86 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$95 = jsx$96.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("th", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$33));
+        var jsx$94 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
         var array$34 = [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(""))];
-        var jsx$85 = jsx$86.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("th", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$34));
-        var jsx$84 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$93 = jsx$94.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("th", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$34));
+        var jsx$92 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
         var array$35 = [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(""))];
-        var array$36 = [jsx$91, jsx$89, jsx$87, jsx$85, jsx$84.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("th", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$35))];
-        var array$37 = [jsx$93.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("tr", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$36))];
-        var jsx$83 = jsx$94.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("thead", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$37));
-        var jsx$82 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var array$36 = [jsx$99, jsx$97, jsx$95, jsx$93, jsx$92.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("th", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$35))];
+        var array$37 = [jsx$101.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("tr", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$36))];
+        var jsx$91 = jsx$102.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("thead", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$37));
+        var jsx$90 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-        var this$249 = $m_sc_Seq$();
-        var jsx$80 = $as_sc_TraversableLike(deps.zipWithIndex__scg_CanBuildFrom__O(this$249.ReusableCBFInstance$2));
-        var this$250 = new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$2$5, backend$8) {
+        var this$252 = $m_sc_Seq$();
+        var jsx$88 = $as_sc_TraversableLike(deps.zipWithIndex__scg_CanBuildFrom__O(this$252.ReusableCBFInstance$2));
+        var this$253 = new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$2$5, backend$8) {
           return (function(dep$2$2, idx$2) {
             var dep$5 = $as_Lcoursier_core_Dependency(dep$2$2);
             var idx = $uI(idx$2);
             return this$2$5.depItem$2__p1__Lcoursier_core_Dependency__I__Lcoursier_web_Backend__Ljapgolly_scalajs_react_vdom_TagOf(dep$5, idx, backend$8)
           })
         })(this$6$2, backend$6));
-        var jsx$79 = $f_F2__tupled__F1(this$250);
-        var this$251 = $m_sc_Seq$();
-        var as$1 = $as_sc_TraversableOnce(jsx$80.map__F1__scg_CanBuildFrom__O(jsx$79, this$251.ReusableCBFInstance$2));
+        var jsx$87 = $f_F2__tupled__F1(this$253);
+        var this$254 = $m_sc_Seq$();
+        var as$1 = $as_sc_TraversableOnce(jsx$88.map__F1__scg_CanBuildFrom__O(jsx$87, this$254.ReusableCBFInstance$2));
         var $$this$1 = as$1;
         var f$5 = $m_s_Predef$().singleton$und$less$colon$less$2;
-        var jsx$81 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
-        var this$254 = $$this$1.toIterator__sc_Iterator();
-        var array$38 = [jsx$81.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sc_Iterator$$anon$10().init___sc_Iterator__F1(this$254, f$5))];
-        var array$39 = [jsx$95, jsx$83, jsx$82.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("tbody", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$38))];
-        var jsx$78 = jsx$96.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("table", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$39));
+        var jsx$89 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
+        var this$257 = $$this$1.toIterator__sc_Iterator();
+        var array$38 = [jsx$89.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sc_Iterator$$anon$10().init___sc_Iterator__F1(this$257, f$5))];
+        var array$39 = [jsx$103, jsx$91, jsx$90.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("tbody", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$38))];
+        var jsx$86 = jsx$104.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("table", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$39));
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
         var c = $m_Lcoursier_web_App$().moduleEditModal$1;
-        var this$267 = $as_Ljapgolly_scalajs_react_CtorType$Props(c.ctor__Ljapgolly_scalajs_react_CtorType());
-        var this$260 = new $c_s_PartialFunction$Lifted().init___s_PartialFunction(deps);
-        var this$266 = this$260.apply__O__s_Option(editModuleIdx);
+        var this$270 = $as_Ljapgolly_scalajs_react_CtorType$Props(c.ctor__Ljapgolly_scalajs_react_CtorType());
+        var this$263 = new $c_s_PartialFunction$Lifted().init___s_PartialFunction(deps);
+        var this$269 = this$263.apply__O__s_Option(editModuleIdx);
         var ifEmpty = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$3$3) {
           return (function() {
-            var attributes$3 = $m_sci_Map$EmptyMap$();
-            var self = new $c_Lcoursier_core_Module().init___T__T__sci_Map("", "", attributes$3);
+            var attributes$1 = $m_sci_Map$EmptyMap$();
+            var self = new $c_Lcoursier_core_Module().init___T__T__sci_Map("", "", attributes$1);
             var $$this$2 = self;
             return new $c_T2().init___O__O($$this$2, "")
           })
@@ -20700,10 +20856,10 @@ $c_Lcoursier_web_App$.prototype.init___ = (function() {
             return x$5$1.moduleVersion__T2()
           })
         })(this$6$2));
-        var props = new $c_T3().init___O__O__O((this$266.isEmpty__Z() ? ifEmpty.apply__O() : f$6.apply__O__O(this$266.get__O())), editModuleIdx, backend$6);
-        var u = $as_Ljapgolly_scalajs_react_component_Generic$UnmountedWithRoot(this$267.construct$2.apply__O__O__O(props, this$267.mods$2));
-        var array$40 = [jsx$97, jsx$78, u.vdomElement__Ljapgolly_scalajs_react_vdom_VdomElement()];
-        var a$2 = jsx$104.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$40));
+        var props = new $c_T3().init___O__O__O((this$269.isEmpty__Z() ? ifEmpty.apply__O() : f$6.apply__O__O(this$269.get__O())), editModuleIdx, backend$6);
+        var u = $as_Ljapgolly_scalajs_react_component_Generic$UnmountedWithRoot(this$270.construct$2.apply__O__O__O(props, this$270.mods$2));
+        var array$40 = [jsx$105, jsx$86, u.vdomElement__Ljapgolly_scalajs_react_vdom_VdomElement()];
+        var a$2 = jsx$112.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$40));
         return a$2.render__Ljapgolly_scalajs_react_vdom_VdomElement()
       } else {
         throw new $c_s_MatchError().init___O(x0$3)
@@ -20727,98 +20883,98 @@ $c_Lcoursier_web_App$.prototype.init___ = (function() {
           var name$3 = $as_T(p2$1.$$und1__O());
           var repo = $as_Lcoursier_maven_MavenRepository(p2$1.$$und2__O());
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$155 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var jsx$163 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$154 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal fade", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var jsx$162 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal fade", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-          var this$278 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
+          var this$281 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
           var t$20 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$153 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$20, this$278.name$1, "repoEdit");
+          var jsx$161 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$20, this$281.name$1, "repoEdit");
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-          var this$281 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+          var this$284 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
           var t$21 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$152 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$21, this$281.name$1, "dialog");
+          var jsx$160 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$21, this$284.name$1, "dialog");
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.aria__Ljapgolly_scalajs_react_vdom_HtmlAttrs$aria$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-          var this$284 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-labelledby");
+          var this$287 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-labelledby");
           var t$22 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$151 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$22, this$284.name$1, "repoEditTitle");
-          var jsx$150 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var jsx$159 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$22, this$287.name$1, "repoEditTitle");
+          var jsx$158 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$149 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal-dialog", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-          var jsx$148 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var jsx$157 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal-dialog", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var jsx$156 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$147 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal-content", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-          var jsx$146 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var jsx$155 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal-content", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var jsx$154 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$145 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal-header", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-          var jsx$144 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var jsx$153 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal-header", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var jsx$152 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$143 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.type$1.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("button", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-          var jsx$142 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("close", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-          var this$294 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-dismiss");
+          var jsx$151 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.type$1.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("button", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var jsx$150 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("close", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var this$297 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-dismiss");
           var t$23 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$141 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$23, this$294.name$1, "modal");
+          var jsx$149 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$23, this$297.name$1, "modal");
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.aria__Ljapgolly_scalajs_react_vdom_HtmlAttrs$aria$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-          var this$297 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-label");
+          var this$300 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-label");
           var t$24 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$140 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$24, this$297.name$1, "Close");
-          var jsx$139 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var jsx$148 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$24, this$300.name$1, "Close");
+          var jsx$147 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.aria__Ljapgolly_scalajs_react_vdom_HtmlAttrs$aria$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-          var this$301 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-hidden");
+          var this$304 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-hidden");
           var t$25 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$138 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$25, this$301.name$1, "true");
+          var jsx$146 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$25, this$304.name$1, "true");
           $m_Ljapgolly_scalajs_react_vdom_HtmlAttrs$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-          var this$304 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("dangerouslySetInnerHTML");
+          var this$307 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("dangerouslySetInnerHTML");
           var t$26 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtInnerHtml__F2();
-          var array$41 = [jsx$138, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$26, this$304.name$1, "&times;")];
-          var array$42 = [jsx$143, jsx$142, jsx$141, jsx$140, jsx$139.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("span", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$41))];
-          var jsx$137 = jsx$144.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("button", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$42));
+          var array$41 = [jsx$146, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$26, this$307.name$1, "&times;")];
+          var array$42 = [jsx$151, jsx$150, jsx$149, jsx$148, jsx$147.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("span", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$41))];
+          var jsx$145 = jsx$152.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("button", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$42));
+          var jsx$144 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+          var jsx$143 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal-title", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+          $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
+          var this$316 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
+          var t$27 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+          var array$43 = [jsx$143, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$27, this$316.name$1, "repoEditTitle"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Repository"))];
+          var array$44 = [jsx$153, jsx$145, jsx$144.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("h4", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$43))];
+          var jsx$142 = jsx$154.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$44));
+          var jsx$141 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+          var jsx$140 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal-body", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var jsx$139 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+          var jsx$138 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+          var jsx$137 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("form-group", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
           var jsx$136 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$135 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal-title", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-          var this$313 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
-          var t$27 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var array$43 = [jsx$135, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$27, this$313.name$1, "repoEditTitle"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Repository"))];
-          var array$44 = [jsx$145, jsx$137, jsx$136.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("h4", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$43))];
-          var jsx$134 = jsx$146.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$44));
-          var jsx$133 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
-          $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$132 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal-body", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-          var jsx$131 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
-          $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$130 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
-          $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$129 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("form-group", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-          var jsx$128 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
-          $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-          var this$328 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("htmlFor");
+          var this$331 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("htmlFor");
           var t$28 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var array$45 = [$m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$28, this$328.name$1, "inputName"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Name"))];
-          var jsx$127 = jsx$128.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("label", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$45));
-          var jsx$126 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.input__Ljapgolly_scalajs_react_vdom_HtmlTags$input$();
-          var jsx$125 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("form-control", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var array$45 = [$m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$28, this$331.name$1, "inputName"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Name"))];
+          var jsx$135 = jsx$136.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("label", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$45));
+          var jsx$134 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.input__Ljapgolly_scalajs_react_vdom_HtmlTags$input$();
+          var jsx$133 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("form-control", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-          var this$336 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
+          var this$339 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
           var t$29 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$124 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$29, this$336.name$1, "inputName");
+          var jsx$132 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$29, this$339.name$1, "inputName");
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-          var this$339 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("placeholder");
+          var this$342 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("placeholder");
           var t$30 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$123 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$30, this$339.name$1, "Name");
-          var jsx$122 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onChange$1;
+          var jsx$131 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$30, this$342.name$1, "Name");
+          var jsx$130 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onChange$1;
           var eta$0$4 = new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function($this$5) {
             return (function(item$2, value$2$1) {
               var item = $as_T2(item$2);
@@ -20826,76 +20982,76 @@ $c_Lcoursier_web_App$.prototype.init___ = (function() {
               return new $c_T2().init___O__O(value$1, item.$$und2__O())
             })
           })(this$8$1));
-          var array$46 = [jsx$125, jsx$124, jsx$123, jsx$122.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$6, backend$10, repoIdx$1, eta$0$4$1) {
+          var array$46 = [jsx$133, jsx$132, jsx$131, jsx$130.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$6, backend$10, repoIdx$1, eta$0$4$1) {
             return (function(e$2$2) {
               return new $c_Ljapgolly_scalajs_react_CallbackTo().init___F0(backend$10.updateRepo__I__F2__Ljapgolly_scalajs_react_raw_SyntheticEvent__F0(repoIdx$1, eta$0$4$1, e$2$2))
             })
           })(this$8$1, backend$9, repoIdx, eta$0$4)), null), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.value$1.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod(name$3, $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2)];
-          var array$47 = [jsx$129, jsx$127, jsx$126.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$46))];
-          var jsx$121 = jsx$130.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$47));
-          var jsx$120 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var array$47 = [jsx$137, jsx$135, jsx$134.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$46))];
+          var jsx$129 = jsx$138.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$47));
+          var jsx$128 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$119 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("form-group", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-          var jsx$118 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var jsx$127 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("form-group", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var jsx$126 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-          var this$350 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("htmlFor");
+          var this$353 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("htmlFor");
           var t$31 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var array$48 = [$m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$31, this$350.name$1, "inputVersion"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Root"))];
-          var jsx$117 = jsx$118.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("label", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$48));
-          var jsx$116 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.input__Ljapgolly_scalajs_react_vdom_HtmlTags$input$();
-          var jsx$115 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("form-control", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var array$48 = [$m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$31, this$353.name$1, "inputVersion"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Root"))];
+          var jsx$125 = jsx$126.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("label", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$48));
+          var jsx$124 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.input__Ljapgolly_scalajs_react_vdom_HtmlTags$input$();
+          var jsx$123 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("form-control", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-          var this$358 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
+          var this$361 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
           var t$32 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$114 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$32, this$358.name$1, "inputVersion");
+          var jsx$122 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$32, this$361.name$1, "inputVersion");
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-          var this$361 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("placeholder");
+          var this$364 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("placeholder");
           var t$33 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$113 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$33, this$361.name$1, "Root");
-          var jsx$112 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onChange$1;
+          var jsx$121 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$33, this$364.name$1, "Root");
+          var jsx$120 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onChange$1;
           var eta$0$5 = new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$3$4) {
             return (function(item$3$2, value$3$2$1) {
               var item$3 = $as_T2(item$3$2);
               var value$3$1 = $as_T(value$3$2$1);
-              var jsx$111 = item$3.$$und1__O();
+              var jsx$119 = item$3.$$und1__O();
               $as_Lcoursier_maven_MavenRepository(item$3.$$und2__O());
-              var this$362 = $as_Lcoursier_maven_MavenRepository(item$3.$$und2__O());
-              var changing = this$362.changing$1;
-              var this$363 = $as_Lcoursier_maven_MavenRepository(item$3.$$und2__O());
-              var sbtAttrStub = this$363.sbtAttrStub$1;
-              var this$364 = $as_Lcoursier_maven_MavenRepository(item$3.$$und2__O());
-              var authentication = this$364.authentication$1;
-              return new $c_T2().init___O__O(jsx$111, new $c_Lcoursier_maven_MavenRepository().init___T__s_Option__Z__s_Option(value$3$1, changing, sbtAttrStub, authentication))
+              var this$365 = $as_Lcoursier_maven_MavenRepository(item$3.$$und2__O());
+              var changing = this$365.changing$1;
+              var this$366 = $as_Lcoursier_maven_MavenRepository(item$3.$$und2__O());
+              var sbtAttrStub = this$366.sbtAttrStub$1;
+              var this$367 = $as_Lcoursier_maven_MavenRepository(item$3.$$und2__O());
+              var authentication = this$367.authentication$1;
+              return new $c_T2().init___O__O(jsx$119, new $c_Lcoursier_maven_MavenRepository().init___T__s_Option__Z__s_Option(value$3$1, changing, sbtAttrStub, authentication))
             })
           })(this$8$1));
-          var array$49 = [jsx$115, jsx$114, jsx$113, jsx$112.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$4$4, backend$11, repoIdx$2, eta$0$5$1) {
+          var array$49 = [jsx$123, jsx$122, jsx$121, jsx$120.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$4$4, backend$11, repoIdx$2, eta$0$5$1) {
             return (function(e$3$2$1) {
               return new $c_Ljapgolly_scalajs_react_CallbackTo().init___F0(backend$11.updateRepo__I__F2__Ljapgolly_scalajs_react_raw_SyntheticEvent__F0(repoIdx$2, eta$0$5$1, e$3$2$1))
             })
           })(this$8$1, backend$9, repoIdx, eta$0$5)), null), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.value$1.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod(repo.root$1, $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2)];
-          var array$50 = [jsx$119, jsx$117, jsx$116.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$49))];
-          var jsx$110 = jsx$120.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$50));
-          var jsx$109 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var array$50 = [jsx$127, jsx$125, jsx$124.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$49))];
+          var jsx$118 = jsx$128.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$50));
+          var jsx$117 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$108 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal-footer", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-          var jsx$107 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var jsx$116 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("modal-footer", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var jsx$115 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$106 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.type$1.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("submit", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-          var jsx$105 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("btn btn-primary", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-          var this$376 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-dismiss");
+          var jsx$114 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.type$1.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("submit", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var jsx$113 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("btn btn-primary", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var this$379 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-dismiss");
           var t$34 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var array$51 = [jsx$106, jsx$105, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$34, this$376.name$1, "modal"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Done"))];
-          var array$52 = [jsx$108, jsx$107.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("button", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$51))];
-          var array$53 = [jsx$121, jsx$110, jsx$109.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$52))];
-          var array$54 = [jsx$132, jsx$131.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("form", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$53))];
-          var array$55 = [jsx$147, jsx$134, jsx$133.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$54))];
-          var array$56 = [jsx$149, jsx$148.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$55))];
-          var array$57 = [jsx$154, jsx$153, jsx$152, jsx$151, jsx$150.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$56))];
-          var a$3 = jsx$155.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$57));
+          var array$51 = [jsx$114, jsx$113, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$34, this$379.name$1, "modal"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Done"))];
+          var array$52 = [jsx$116, jsx$115.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("button", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$51))];
+          var array$53 = [jsx$129, jsx$118, jsx$117.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$52))];
+          var array$54 = [jsx$140, jsx$139.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("form", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$53))];
+          var array$55 = [jsx$155, jsx$142, jsx$141.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$54))];
+          var array$56 = [jsx$157, jsx$156.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$55))];
+          var array$57 = [jsx$162, jsx$161, jsx$160, jsx$159, jsx$158.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$56))];
+          var a$3 = jsx$163.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$57));
           return a$3.render__Ljapgolly_scalajs_react_vdom_VdomElement()
         }
       };
@@ -20916,97 +21072,97 @@ $c_Lcoursier_web_App$.prototype.init___ = (function() {
         var editRepoIdx = $uI(x0$5.$$und2$1);
         var backend$12 = $as_Lcoursier_web_Backend(x0$5.$$und3$1);
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-        var jsx$187 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$195 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-        var jsx$186 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$194 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-        var jsx$185 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$193 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-        var jsx$184 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.type$1.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("button", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-        var jsx$183 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("btn btn-default customButton", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-        var jsx$182 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onClick$1.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this$6, backend$13) {
+        var jsx$192 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.type$1.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("button", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+        var jsx$191 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("btn btn-default customButton", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+        var jsx$190 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onClick$1.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this$6, backend$13) {
           return (function(e$2$3) {
             return new $c_Ljapgolly_scalajs_react_CallbackTo().init___F0(backend$13.addRepo__Ljapgolly_scalajs_react_raw_SyntheticEvent__F0(e$2$3))
           })
         })(this$10$1, backend$12)), null);
-        var this$402 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-toggle");
+        var this$405 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-toggle");
         var t$35 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-        var jsx$181 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$35, this$402.name$1, "modal");
-        var this$404 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-target");
+        var jsx$189 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$35, this$405.name$1, "modal");
+        var this$407 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-target");
         var t$36 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-        var array$58 = [jsx$184, jsx$183, jsx$182, jsx$181, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$36, this$404.name$1, "#repoEdit"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Add"))];
-        var array$59 = [jsx$185.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("button", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$58))];
-        var jsx$180 = jsx$186.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("p", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$59));
-        var jsx$179 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var array$58 = [jsx$192, jsx$191, jsx$190, jsx$189, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$36, this$407.name$1, "#repoEdit"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Add"))];
+        var array$59 = [jsx$193.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("button", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$58))];
+        var jsx$188 = jsx$194.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("p", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$59));
+        var jsx$187 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-        var jsx$178 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("table", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-        var jsx$177 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$186 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("table", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+        var jsx$185 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-        var jsx$176 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$184 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-        var jsx$175 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$183 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
         var array$60 = [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Name"))];
-        var jsx$174 = jsx$175.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("th", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$60));
-        var jsx$173 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$182 = jsx$183.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("th", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$60));
+        var jsx$181 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
         var array$61 = [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Root"))];
-        var jsx$172 = jsx$173.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("th", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$61));
-        var jsx$171 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$180 = jsx$181.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("th", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$61));
+        var jsx$179 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
         var array$62 = [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(""))];
-        var jsx$170 = jsx$171.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("th", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$62));
-        var jsx$169 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$178 = jsx$179.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("th", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$62));
+        var jsx$177 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
         var array$63 = [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(""))];
-        var jsx$168 = jsx$169.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("th", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$63));
-        var jsx$167 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$176 = jsx$177.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("th", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$63));
+        var jsx$175 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
         var array$64 = [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(""))];
-        var jsx$166 = jsx$167.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("th", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$64));
-        var jsx$165 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$174 = jsx$175.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("th", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$64));
+        var jsx$173 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
         var array$65 = [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(""))];
-        var array$66 = [jsx$174, jsx$172, jsx$170, jsx$168, jsx$166, jsx$165.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("th", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$65))];
-        var array$67 = [jsx$176.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("tr", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$66))];
-        var jsx$164 = jsx$177.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("thead", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$67));
-        var jsx$163 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var array$66 = [jsx$182, jsx$180, jsx$178, jsx$176, jsx$174, jsx$173.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("th", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$65))];
+        var array$67 = [jsx$184.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("tr", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$66))];
+        var jsx$172 = jsx$185.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("thead", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$67));
+        var jsx$171 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-        var jsx$161 = $as_sc_IterableLike(repos.init__O());
-        var this$450 = $m_sc_Seq$();
-        var jsx$160 = $as_sc_TraversableLike(jsx$161.zipWithIndex__scg_CanBuildFrom__O(this$450.ReusableCBFInstance$2));
-        var jsx$159 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$7, backend$14) {
+        var jsx$169 = $as_sc_IterableLike(repos.init__O());
+        var this$453 = $m_sc_Seq$();
+        var jsx$168 = $as_sc_TraversableLike(jsx$169.zipWithIndex__scg_CanBuildFrom__O(this$453.ReusableCBFInstance$2));
+        var jsx$167 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$7, backend$14) {
           return (function(t$2$1) {
             var t$37 = $as_T2(t$2$1);
             return this$2$7.repoItem$1__p1__T2__I__Z__Lcoursier_web_Backend__Ljapgolly_scalajs_react_vdom_TagOf($as_T2(t$37.$$und1__O()), t$37.$$und2$mcI$sp__I(), false, backend$14)
           })
         })(this$10$1, backend$12));
-        var this$451 = $m_sc_Seq$();
-        var jsx$158 = $as_sc_TraversableLike(jsx$160.map__F1__scg_CanBuildFrom__O(jsx$159, this$451.ReusableCBFInstance$2));
-        var this$452 = repos.lastOption__s_Option();
+        var this$454 = $m_sc_Seq$();
+        var jsx$166 = $as_sc_TraversableLike(jsx$168.map__F1__scg_CanBuildFrom__O(jsx$167, this$454.ReusableCBFInstance$2));
+        var this$455 = repos.lastOption__s_Option();
         var f$9 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$3$5, repos$1, backend$15) {
           return (function(x$6$2) {
             var x$6$1 = $as_T2(x$6$2);
             return this$3$5.repoItem$1__p1__T2__I__Z__Lcoursier_web_Backend__Ljapgolly_scalajs_react_vdom_TagOf(x$6$1, (((-1) + repos$1.length__I()) | 0), true, backend$15)
           })
         })(this$10$1, repos, backend$12));
-        var xo = (this$452.isEmpty__Z() ? $m_s_None$() : new $c_s_Some().init___O(f$9.apply__O__O(this$452.get__O())));
-        var jsx$157 = xo.toList__sci_List();
-        var this$454 = $m_sc_Seq$();
-        var as$2 = $as_sc_TraversableOnce(jsx$158.$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O(jsx$157, this$454.ReusableCBFInstance$2));
+        var xo = (this$455.isEmpty__Z() ? $m_s_None$() : new $c_s_Some().init___O(f$9.apply__O__O(this$455.get__O())));
+        var jsx$165 = xo.toList__sci_List();
+        var this$457 = $m_sc_Seq$();
+        var as$2 = $as_sc_TraversableOnce(jsx$166.$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O(jsx$165, this$457.ReusableCBFInstance$2));
         var $$this$3 = as$2;
         var f$10 = $m_s_Predef$().singleton$und$less$colon$less$2;
-        var jsx$162 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
-        var this$457 = $$this$3.toIterator__sc_Iterator();
-        var array$68 = [jsx$162.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sc_Iterator$$anon$10().init___sc_Iterator__F1(this$457, f$10))];
-        var array$69 = [jsx$178, jsx$164, jsx$163.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("tbody", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$68))];
-        var jsx$156 = jsx$179.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("table", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$69));
+        var jsx$170 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
+        var this$460 = $$this$3.toIterator__sc_Iterator();
+        var array$68 = [jsx$170.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sc_Iterator$$anon$10().init___sc_Iterator__F1(this$460, f$10))];
+        var array$69 = [jsx$186, jsx$172, jsx$171.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("tbody", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$68))];
+        var jsx$164 = jsx$187.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("table", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$69));
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
         var c$1 = $m_Lcoursier_web_App$().repoEditModal$1;
-        var this$470 = $as_Ljapgolly_scalajs_react_CtorType$Props(c$1.ctor__Ljapgolly_scalajs_react_CtorType());
-        var this$463 = new $c_s_PartialFunction$Lifted().init___s_PartialFunction(repos);
-        var this$469 = this$463.apply__O__s_Option(editRepoIdx);
+        var this$473 = $as_Ljapgolly_scalajs_react_CtorType$Props(c$1.ctor__Ljapgolly_scalajs_react_CtorType());
+        var this$466 = new $c_s_PartialFunction$Lifted().init___s_PartialFunction(repos);
+        var this$472 = this$466.apply__O__s_Option(editRepoIdx);
         var $default = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$4$5) {
           return (function() {
             $m_Lcoursier_package$();
@@ -21020,10 +21176,10 @@ $c_Lcoursier_web_App$.prototype.init___ = (function() {
             return new $c_T2().init___O__O("", y)
           })
         })(this$10$1));
-        var props$1 = new $c_T3().init___O__O__O((this$469.isEmpty__Z() ? $default.apply__O() : this$469.get__O()), editRepoIdx, backend$12);
-        var u$1 = $as_Ljapgolly_scalajs_react_component_Generic$UnmountedWithRoot(this$470.construct$2.apply__O__O__O(props$1, this$470.mods$2));
-        var array$70 = [jsx$180, jsx$156, u$1.vdomElement__Ljapgolly_scalajs_react_vdom_VdomElement()];
-        var a$4 = jsx$187.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$70));
+        var props$1 = new $c_T3().init___O__O__O((this$472.isEmpty__Z() ? $default.apply__O() : this$472.get__O()), editRepoIdx, backend$12);
+        var u$1 = $as_Ljapgolly_scalajs_react_component_Generic$UnmountedWithRoot(this$473.construct$2.apply__O__O__O(props$1, this$473.mods$2));
+        var array$70 = [jsx$188, jsx$164, u$1.vdomElement__Ljapgolly_scalajs_react_vdom_VdomElement()];
+        var a$4 = jsx$195.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$70));
         return a$4.render__Ljapgolly_scalajs_react_vdom_VdomElement()
       } else {
         throw new $c_s_MatchError().init___O(x0$5)
@@ -21043,15 +21199,15 @@ $c_Lcoursier_web_App$.prototype.init___ = (function() {
         var options = $as_Lcoursier_web_ResolutionOptions(x0$6.$$und1__O());
         var backend$16 = $as_Lcoursier_web_Backend(x0$6.$$und2__O());
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-        var jsx$194 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$202 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-        var jsx$193 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$201 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-        var jsx$192 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("checkbox", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-        var jsx$191 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+        var jsx$200 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("checkbox", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+        var jsx$199 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-        var jsx$190 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.input__Ljapgolly_scalajs_react_vdom_HtmlTags$input$().checkbox$2;
-        var jsx$189 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onChange$1.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this$7, backend$17) {
+        var jsx$198 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.input__Ljapgolly_scalajs_react_vdom_HtmlTags$input$().checkbox$2;
+        var jsx$197 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onChange$1.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this$7, backend$17) {
           return (function(e$2$4) {
             return new $c_Ljapgolly_scalajs_react_CallbackTo().init___F0(backend$17.options__Lcoursier_web_Backend$options$().toggleOptional__Ljapgolly_scalajs_react_raw_SyntheticEvent__F0(e$2$4))
           })
@@ -21059,19 +21215,19 @@ $c_Lcoursier_web_App$.prototype.init___ = (function() {
         if (options.followOptional$1) {
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-          var this$484 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("checked");
+          var this$487 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("checked");
           var t$38 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtBoolean$2;
-          var jsx$188 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$38, this$484.name$1, true)
+          var jsx$196 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$38, this$487.name$1, true)
         } else {
-          var this$485 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
+          var this$488 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
           var ms = $m_sci_Nil$();
-          var jsx$188 = this$485.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms)
+          var jsx$196 = this$488.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms)
         };
-        var array$71 = [jsx$189, jsx$188];
-        var array$72 = [jsx$190.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$71)), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Follow optional dependencies"))];
-        var array$73 = [jsx$192, jsx$191.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("label", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$72))];
-        var array$74 = [jsx$193.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$73))];
-        var a$5 = jsx$194.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$74));
+        var array$71 = [jsx$197, jsx$196];
+        var array$72 = [jsx$198.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$71)), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Follow optional dependencies"))];
+        var array$73 = [jsx$200, jsx$199.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("label", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$72))];
+        var array$74 = [jsx$201.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$73))];
+        var a$5 = jsx$202.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$74));
         return a$5.render__Ljapgolly_scalajs_react_vdom_VdomElement()
       } else {
         throw new $c_s_MatchError().init___O(x0$6)
@@ -21094,23 +21250,23 @@ $c_Lcoursier_web_App$.prototype.init___ = (function() {
           var x2 = $as_s_Some(resOpt);
           var res$2 = $as_Lcoursier_core_Resolution(x2.value$2);
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$199 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var jsx$207 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$198 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var jsx$206 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-          var jsx$197 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("page-header", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-          var jsx$196 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var jsx$205 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("page-header", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+          var jsx$204 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           var array$75 = [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Resolution"))];
-          var array$76 = [jsx$197, jsx$196.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("h1", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$75))];
-          var jsx$195 = jsx$198.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$76));
+          var array$76 = [jsx$205, jsx$204.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("h1", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$75))];
+          var jsx$203 = jsx$206.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$76));
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           var c$2 = $m_Lcoursier_web_App$().resultDependencies$1;
-          var this$510 = $as_Ljapgolly_scalajs_react_CtorType$Props(c$2.ctor__Ljapgolly_scalajs_react_CtorType());
+          var this$513 = $as_Ljapgolly_scalajs_react_CtorType$Props(c$2.ctor__Ljapgolly_scalajs_react_CtorType());
           var props$2 = new $c_T2().init___O__O(res$2, backend$18);
-          var u$2 = $as_Ljapgolly_scalajs_react_component_Generic$UnmountedWithRoot(this$510.construct$2.apply__O__O__O(props$2, this$510.mods$2));
-          var array$77 = [jsx$195, u$2.vdomElement__Ljapgolly_scalajs_react_vdom_VdomElement()];
-          var a$6 = jsx$199.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$77));
+          var u$2 = $as_Ljapgolly_scalajs_react_component_Generic$UnmountedWithRoot(this$513.construct$2.apply__O__O__O(props$2, this$513.mods$2));
+          var array$77 = [jsx$203, u$2.vdomElement__Ljapgolly_scalajs_react_vdom_VdomElement()];
+          var a$6 = jsx$207.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$77));
           return a$6.render__Ljapgolly_scalajs_react_vdom_VdomElement()
         } else {
           var x = $m_s_None$();
@@ -21128,16 +21284,16 @@ $c_Lcoursier_web_App$.prototype.init___ = (function() {
     })
   })(this))).build__Ljapgolly_scalajs_react_CtorType$Summoner__Ljapgolly_scalajs_react_internal_JsRepr__Ljapgolly_scalajs_react_component_JsBaseComponentTemplate$ComponentWithRoot($m_Ljapgolly_scalajs_react_CtorType$Summoner$().summonP__Ljapgolly_scalajs_react_internal_Singleton$Not__Ljapgolly_scalajs_react_CtorType$Summoner(($m_Ljapgolly_scalajs_react_internal_Singleton$(), null)), $m_Ljapgolly_scalajs_react_internal_JsRepr$().unit$1);
   $m_sci_List$();
-  var module$3 = new $c_Lcoursier_core_Module().init___T__T__sci_Map("io.get-coursier", "coursier-cache_2.12", $as_sci_Map($m_sci_Map$().apply__sc_Seq__sc_GenMap($m_sci_Nil$())));
-  var configuration$2 = $m_Lcoursier_core_Configuration$().empty$1;
+  var module$1 = new $c_Lcoursier_core_Module().init___T__T__sci_Map("io.get-coursier", "coursier-cache_2.12", $as_sci_Map($m_sci_Map$().apply__sc_Seq__sc_GenMap($m_sci_Nil$())));
+  var configuration = $m_Lcoursier_core_Configuration$().empty$1;
   var type = $m_Lcoursier_package$().Type$1.empty$1;
   var classifier = $m_Lcoursier_package$().Classifier$1.empty$1;
-  var attributes$4 = new $c_Lcoursier_core_Attributes().init___T__T(type, classifier);
-  var exclusions$2 = $m_sci_Set$EmptySet$();
-  var array$78 = [new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(module$3, "1.1.0-M7", configuration$2, exclusions$2, attributes$4, false, true)];
+  var attributes$2 = new $c_Lcoursier_core_Attributes().init___T__T(type, classifier);
+  var exclusions = $m_sci_Set$EmptySet$();
+  var array$78 = [$m_Lcoursier_core_Dependency$().apply__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(module$1, "1.1.0-M7", configuration, exclusions, attributes$2, false, true)];
   var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$78);
-  var jsx$201 = $f_sc_IndexedSeqOptimized__toList__sci_List(xs);
-  var jsx$200 = $m_sc_Seq$();
+  var jsx$209 = $f_sc_IndexedSeqOptimized__toList__sci_List(xs);
+  var jsx$208 = $m_sc_Seq$();
   $m_Lcoursier_package$();
   $m_Lcoursier_package$();
   var changing$2 = $m_s_None$();
@@ -21147,8 +21303,8 @@ $c_Lcoursier_web_App$.prototype.init___ = (function() {
   var authentication$2 = $m_s_None$();
   var y$1 = new $c_Lcoursier_maven_MavenRepository().init___T__s_Option__Z__s_Option("https://repo1.maven.org/maven2", changing$2, sbtAttrStub$2, authentication$2);
   var array$79 = [new $c_T2().init___O__O("central", y$1)];
-  this.initialState$1 = new $c_Lcoursier_web_State().init___sc_Seq__sc_Seq__Lcoursier_web_ResolutionOptions__s_Option__I__I__Z__Z__sc_Seq(jsx$201, $as_sc_Seq(jsx$200.apply__sc_Seq__sc_GenTraversable(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$79))), new $c_Lcoursier_web_ResolutionOptions().init___Z(false), $m_s_None$(), (-1), (-1), false, false, $m_sci_Nil$());
-  var this$901 = ($m_Ljapgolly_scalajs_react_package$(), new $c_Ljapgolly_scalajs_react_component_builder_Builder$Step1().init___T("Coursier")).initialState__F0__Ljapgolly_scalajs_react_component_builder_Builder$Step2(new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$15$1) {
+  this.initialState$1 = new $c_Lcoursier_web_State().init___sc_Seq__sc_Seq__Lcoursier_web_ResolutionOptions__s_Option__I__I__Z__Z__sc_Seq(jsx$209, $as_sc_Seq(jsx$208.apply__sc_Seq__sc_GenTraversable(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$79))), new $c_Lcoursier_web_ResolutionOptions().init___Z(false), $m_s_None$(), (-1), (-1), false, false, $m_sci_Nil$());
+  var this$904 = ($m_Ljapgolly_scalajs_react_package$(), new $c_Ljapgolly_scalajs_react_component_builder_Builder$Step1().init___T("Coursier")).initialState__F0__Ljapgolly_scalajs_react_component_builder_Builder$Step2(new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$15$1) {
     return (function() {
       return $m_Lcoursier_web_App$().initialState$1
     })
@@ -21161,493 +21317,493 @@ $c_Lcoursier_web_App$.prototype.init___ = (function() {
   var r = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$17$1) {
     return (function(scope$2) {
       var scope = $as_Ljapgolly_scalajs_react_component_builder_Lifecycle$RenderScope(scope$2).raw$1;
-      var this$536 = new $c_Ljapgolly_scalajs_react_component_builder_Lifecycle$RenderScope().init___Ljapgolly_scalajs_react_raw_React$Component(scope);
-      var S = $as_Lcoursier_web_State($f_Ljapgolly_scalajs_react_component_builder_Lifecycle$Base__mountedImpure__Ljapgolly_scalajs_react_component_Scala$MountedWithRoot(this$536).state__O());
-      var this$537 = new $c_Ljapgolly_scalajs_react_component_builder_Lifecycle$RenderScope().init___Ljapgolly_scalajs_react_raw_React$Component(scope);
-      var backend$19 = $as_Lcoursier_web_Backend($f_Ljapgolly_scalajs_react_component_builder_Lifecycle$Base__backend__O(this$537));
+      var this$539 = new $c_Ljapgolly_scalajs_react_component_builder_Lifecycle$RenderScope().init___Ljapgolly_scalajs_react_raw_React$Component(scope);
+      var S = $as_Lcoursier_web_State($f_Ljapgolly_scalajs_react_component_builder_Lifecycle$Base__mountedImpure__Ljapgolly_scalajs_react_component_Scala$MountedWithRoot(this$539).state__O());
+      var this$540 = new $c_Ljapgolly_scalajs_react_component_builder_Lifecycle$RenderScope().init___Ljapgolly_scalajs_react_raw_React$Component(scope);
+      var backend$19 = $as_Lcoursier_web_Backend($f_Ljapgolly_scalajs_react_component_builder_Lifecycle$Base__backend__O(this$540));
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      var jsx$338 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var jsx$346 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      var jsx$337 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var jsx$345 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$542 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var this$545 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
       var t$39 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$336 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$39, this$542.name$1, "tabpanel");
-      var jsx$335 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var jsx$344 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$39, this$545.name$1, "tabpanel");
+      var jsx$343 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      var jsx$334 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("nav nav-tabs", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+      var jsx$342 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("nav nav-tabs", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$547 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var this$550 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
       var t$40 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$333 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$40, this$547.name$1, "tablist");
-      var jsx$332 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var jsx$341 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$40, this$550.name$1, "tablist");
+      var jsx$340 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$551 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var this$554 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
       var t$41 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$331 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$41, this$551.name$1, "presentation");
-      var jsx$330 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("active", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-      var jsx$329 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.a__Ljapgolly_scalajs_react_vdom_HtmlTags$a$();
+      var jsx$339 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$41, this$554.name$1, "presentation");
+      var jsx$338 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("active", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+      var jsx$337 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.a__Ljapgolly_scalajs_react_vdom_HtmlTags$a$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$555 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("href");
+      var this$558 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("href");
       var t$42 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$328 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$42, this$555.name$1, "#dependencies");
+      var jsx$336 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$42, this$558.name$1, "#dependencies");
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.aria__Ljapgolly_scalajs_react_vdom_HtmlAttrs$aria$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$558 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-controls");
+      var this$561 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-controls");
       var t$43 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$327 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$43, this$558.name$1, "dependencies");
+      var jsx$335 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$43, this$561.name$1, "dependencies");
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$561 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var this$564 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
       var t$44 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$326 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$44, this$561.name$1, "tab");
-      var this$563 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-toggle");
+      var jsx$334 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$44, this$564.name$1, "tab");
+      var this$566 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-toggle");
       var t$45 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$325 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$45, this$563.name$1, "tab");
+      var jsx$333 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$45, this$566.name$1, "tab");
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       var v = (("Dependencies (" + S.modules$1.length__I()) + ")");
       $m_Ljapgolly_scalajs_react_vdom_VdomNode$();
-      var array$80 = [jsx$328, jsx$327, jsx$326, jsx$325, new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(v)];
-      var array$81 = [jsx$331, jsx$330, jsx$329.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$80))];
-      var jsx$324 = jsx$332.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("li", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$81));
+      var array$80 = [jsx$336, jsx$335, jsx$334, jsx$333, new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(v)];
+      var array$81 = [jsx$339, jsx$338, jsx$337.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$80))];
+      var jsx$332 = jsx$340.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("li", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$81));
+      var jsx$331 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
+      var this$576 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var t$46 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+      var jsx$330 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$46, this$576.name$1, "presentation");
+      var jsx$329 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.a__Ljapgolly_scalajs_react_vdom_HtmlTags$a$();
+      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
+      var this$579 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("href");
+      var t$47 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+      var jsx$328 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$47, this$579.name$1, "#repositories");
+      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.aria__Ljapgolly_scalajs_react_vdom_HtmlAttrs$aria$();
+      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
+      var this$582 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-controls");
+      var t$48 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+      var jsx$327 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$48, this$582.name$1, "repositories");
+      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
+      var this$585 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var t$49 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+      var jsx$326 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$49, this$585.name$1, "tab");
+      var this$587 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-toggle");
+      var t$50 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+      var jsx$325 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$50, this$587.name$1, "tab");
+      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+      var v$1 = (("Repositories (" + S.repositories$1.length__I()) + ")");
+      $m_Ljapgolly_scalajs_react_vdom_VdomNode$();
+      var array$82 = [jsx$328, jsx$327, jsx$326, jsx$325, new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(v$1)];
+      var array$83 = [jsx$330, jsx$329.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$82))];
+      var jsx$324 = jsx$331.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("li", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$83));
       var jsx$323 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$573 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
-      var t$46 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$322 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$46, this$573.name$1, "presentation");
+      var this$597 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var t$51 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+      var jsx$322 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$51, this$597.name$1, "presentation");
       var jsx$321 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.a__Ljapgolly_scalajs_react_vdom_HtmlTags$a$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$576 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("href");
-      var t$47 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$320 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$47, this$576.name$1, "#repositories");
-      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.aria__Ljapgolly_scalajs_react_vdom_HtmlAttrs$aria$();
-      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$579 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-controls");
-      var t$48 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$319 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$48, this$579.name$1, "repositories");
-      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$582 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
-      var t$49 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$318 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$49, this$582.name$1, "tab");
-      var this$584 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-toggle");
-      var t$50 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$317 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$50, this$584.name$1, "tab");
-      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      var v$1 = (("Repositories (" + S.repositories$1.length__I()) + ")");
-      $m_Ljapgolly_scalajs_react_vdom_VdomNode$();
-      var array$82 = [jsx$320, jsx$319, jsx$318, jsx$317, new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(v$1)];
-      var array$83 = [jsx$322, jsx$321.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$82))];
-      var jsx$316 = jsx$323.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("li", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$83));
-      var jsx$315 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
-      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$594 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
-      var t$51 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$314 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$51, this$594.name$1, "presentation");
-      var jsx$313 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.a__Ljapgolly_scalajs_react_vdom_HtmlTags$a$();
-      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$597 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("href");
+      var this$600 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("href");
       var t$52 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$312 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$52, this$597.name$1, "#options");
+      var jsx$320 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$52, this$600.name$1, "#options");
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.aria__Ljapgolly_scalajs_react_vdom_HtmlAttrs$aria$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$600 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-controls");
+      var this$603 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-controls");
       var t$53 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$311 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$53, this$600.name$1, "options");
+      var jsx$319 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$53, this$603.name$1, "options");
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$603 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var this$606 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
       var t$54 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$310 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$54, this$603.name$1, "tab");
-      var this$605 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-toggle");
+      var jsx$318 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$54, this$606.name$1, "tab");
+      var this$608 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-toggle");
       var t$55 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var array$84 = [jsx$312, jsx$311, jsx$310, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$55, this$605.name$1, "tab"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Options"))];
-      var array$85 = [jsx$314, jsx$313.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$84))];
-      var array$86 = [jsx$334, jsx$333, jsx$324, jsx$316, jsx$315.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("li", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$85))];
-      var jsx$309 = jsx$335.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("ul", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$86));
-      var jsx$308 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var array$84 = [jsx$320, jsx$319, jsx$318, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$55, this$608.name$1, "tab"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Options"))];
+      var array$85 = [jsx$322, jsx$321.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$84))];
+      var array$86 = [jsx$342, jsx$341, jsx$332, jsx$324, jsx$323.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("li", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$85))];
+      var jsx$317 = jsx$343.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("ul", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$86));
+      var jsx$316 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      var jsx$307 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("tab-content", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-      var jsx$306 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var jsx$315 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("tab-content", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+      var jsx$314 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$619 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var this$622 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
       var t$56 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$305 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$56, this$619.name$1, "tabpanel");
-      var jsx$304 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("tab-pane active", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+      var jsx$313 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$56, this$622.name$1, "tabpanel");
+      var jsx$312 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("tab-pane active", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$623 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
+      var this$626 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
       var t$57 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$303 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$57, this$623.name$1, "dependencies");
+      var jsx$311 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$57, this$626.name$1, "dependencies");
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       var c$3 = $m_Lcoursier_web_App$().modules$1;
-      var this$625 = $as_Ljapgolly_scalajs_react_CtorType$Props(c$3.ctor__Ljapgolly_scalajs_react_CtorType());
+      var this$628 = $as_Ljapgolly_scalajs_react_CtorType$Props(c$3.ctor__Ljapgolly_scalajs_react_CtorType());
       var props$3 = new $c_T3().init___O__O__O(S.modules$1, S.editModuleIdx$1, backend$19);
-      var u$3 = $as_Ljapgolly_scalajs_react_component_Generic$UnmountedWithRoot(this$625.construct$2.apply__O__O__O(props$3, this$625.mods$2));
-      var array$87 = [jsx$305, jsx$304, jsx$303, u$3.vdomElement__Ljapgolly_scalajs_react_vdom_VdomElement()];
-      var jsx$302 = jsx$306.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$87));
-      var jsx$301 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var u$3 = $as_Ljapgolly_scalajs_react_component_Generic$UnmountedWithRoot(this$628.construct$2.apply__O__O__O(props$3, this$628.mods$2));
+      var array$87 = [jsx$313, jsx$312, jsx$311, u$3.vdomElement__Ljapgolly_scalajs_react_vdom_VdomElement()];
+      var jsx$310 = jsx$314.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$87));
+      var jsx$309 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$632 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var this$635 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
       var t$58 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$300 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$58, this$632.name$1, "tabpanel");
-      var jsx$299 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("tab-pane", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+      var jsx$308 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$58, this$635.name$1, "tabpanel");
+      var jsx$307 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("tab-pane", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$636 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
+      var this$639 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
       var t$59 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$298 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$59, this$636.name$1, "repositories");
+      var jsx$306 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$59, this$639.name$1, "repositories");
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       var c$4 = $m_Lcoursier_web_App$().repositories$1;
-      var this$638 = $as_Ljapgolly_scalajs_react_CtorType$Props(c$4.ctor__Ljapgolly_scalajs_react_CtorType());
+      var this$641 = $as_Ljapgolly_scalajs_react_CtorType$Props(c$4.ctor__Ljapgolly_scalajs_react_CtorType());
       var props$4 = new $c_T3().init___O__O__O(S.repositories$1, S.editRepoIdx$1, backend$19);
-      var u$4 = $as_Ljapgolly_scalajs_react_component_Generic$UnmountedWithRoot(this$638.construct$2.apply__O__O__O(props$4, this$638.mods$2));
-      var array$88 = [jsx$300, jsx$299, jsx$298, u$4.vdomElement__Ljapgolly_scalajs_react_vdom_VdomElement()];
-      var jsx$297 = jsx$301.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$88));
-      var jsx$296 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var u$4 = $as_Ljapgolly_scalajs_react_component_Generic$UnmountedWithRoot(this$641.construct$2.apply__O__O__O(props$4, this$641.mods$2));
+      var array$88 = [jsx$308, jsx$307, jsx$306, u$4.vdomElement__Ljapgolly_scalajs_react_vdom_VdomElement()];
+      var jsx$305 = jsx$309.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$88));
+      var jsx$304 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$645 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var this$648 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
       var t$60 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$295 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$60, this$645.name$1, "tabpanel");
-      var jsx$294 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("tab-pane", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+      var jsx$303 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$60, this$648.name$1, "tabpanel");
+      var jsx$302 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("tab-pane", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$649 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
+      var this$652 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
       var t$61 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$293 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$61, this$649.name$1, "options");
+      var jsx$301 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$61, this$652.name$1, "options");
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       var c$5 = $m_Lcoursier_web_App$().options$1;
-      var this$651 = $as_Ljapgolly_scalajs_react_CtorType$Props(c$5.ctor__Ljapgolly_scalajs_react_CtorType());
+      var this$654 = $as_Ljapgolly_scalajs_react_CtorType$Props(c$5.ctor__Ljapgolly_scalajs_react_CtorType());
       var props$5 = new $c_T2().init___O__O(S.options$1, backend$19);
-      var u$5 = $as_Ljapgolly_scalajs_react_component_Generic$UnmountedWithRoot(this$651.construct$2.apply__O__O__O(props$5, this$651.mods$2));
-      var array$89 = [jsx$295, jsx$294, jsx$293, u$5.vdomElement__Ljapgolly_scalajs_react_vdom_VdomElement()];
-      var array$90 = [jsx$307, jsx$302, jsx$297, jsx$296.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$89))];
-      var array$91 = [jsx$336, jsx$309, jsx$308.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$90))];
-      var jsx$292 = jsx$337.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$91));
-      var jsx$291 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var u$5 = $as_Ljapgolly_scalajs_react_component_Generic$UnmountedWithRoot(this$654.construct$2.apply__O__O__O(props$5, this$654.mods$2));
+      var array$89 = [jsx$303, jsx$302, jsx$301, u$5.vdomElement__Ljapgolly_scalajs_react_vdom_VdomElement()];
+      var array$90 = [jsx$315, jsx$310, jsx$305, jsx$304.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$89))];
+      var array$91 = [jsx$344, jsx$317, jsx$316.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$90))];
+      var jsx$300 = jsx$345.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$91));
+      var jsx$299 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      var jsx$290 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var jsx$298 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      var jsx$289 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), new $c_Ljapgolly_scalajs_react_vdom_Attr$Event().init___T("onSubmit")).$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this$8, backend$20) {
+      var jsx$297 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), new $c_Ljapgolly_scalajs_react_vdom_Attr$Event().init___T("onSubmit")).$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this$8, backend$20) {
         return (function(e$2$5) {
           return new $c_Ljapgolly_scalajs_react_CallbackTo().init___F0(backend$20.handleResolve__Ljapgolly_scalajs_react_raw_SyntheticEvent__F0(e$2$5))
         })
       })(this$17$1, backend$19)), null);
-      var jsx$288 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var jsx$296 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      var jsx$287 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.type$1.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("submit", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+      var jsx$295 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.type$1.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("submit", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$667 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
+      var this$670 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
       var t$62 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$286 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$62, this$667.name$1, "resolveButton");
-      var jsx$285 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("btn btn-lg btn-primary", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+      var jsx$294 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$62, this$670.name$1, "resolveButton");
+      var jsx$293 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("btn btn-lg btn-primary", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$671 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("disabled");
+      var this$674 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("disabled");
       var a$8 = S.resolving$1;
       var t$63 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtBoolean$2;
-      var array$92 = [jsx$287, jsx$286, jsx$285, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$63, this$671.name$1, a$8), (S.resolving$1 ? ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Resolving...")) : ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Resolve")))];
-      var array$93 = [jsx$289, jsx$288.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("button", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$92))];
-      var array$94 = [jsx$290.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("form", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$93))];
-      var jsx$284 = jsx$291.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$94));
-      var jsx$283 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var array$92 = [jsx$295, jsx$294, jsx$293, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$63, this$674.name$1, a$8), (S.resolving$1 ? ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Resolving...")) : ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Resolve")))];
+      var array$93 = [jsx$297, jsx$296.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("button", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$92))];
+      var array$94 = [jsx$298.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("form", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$93))];
+      var jsx$292 = jsx$299.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$94));
+      var jsx$291 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$685 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var this$688 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
       var t$64 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$282 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$64, this$685.name$1, "tabpanel");
+      var jsx$290 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$64, this$688.name$1, "tabpanel");
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$688 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
+      var this$691 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
       var t$65 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$281 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$65, this$688.name$1, "results");
-      var jsx$280 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var jsx$289 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$65, this$691.name$1, "results");
+      var jsx$288 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      var jsx$279 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("nav nav-tabs", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+      var jsx$287 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("nav nav-tabs", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$693 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var this$696 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
       var t$66 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$278 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$66, this$693.name$1, "tablist");
+      var jsx$286 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$66, this$696.name$1, "tablist");
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$696 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
+      var this$699 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
       var t$67 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$277 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$67, this$696.name$1, "resTabs");
+      var jsx$285 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$67, this$699.name$1, "resTabs");
+      var jsx$284 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
+      var this$703 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var t$68 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+      var jsx$283 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$68, this$703.name$1, "presentation");
+      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
+      var this$706 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
+      var t$69 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+      var jsx$282 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$69, this$706.name$1, "resResTab");
+      var jsx$281 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.a__Ljapgolly_scalajs_react_vdom_HtmlTags$a$();
+      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
+      var this$709 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("href");
+      var t$70 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+      var jsx$280 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$70, this$709.name$1, "#resolution");
+      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.aria__Ljapgolly_scalajs_react_vdom_HtmlAttrs$aria$();
+      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
+      var this$712 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-controls");
+      var t$71 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+      var jsx$279 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$71, this$712.name$1, "resolution");
+      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
+      var this$715 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var t$72 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+      var jsx$278 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$72, this$715.name$1, "tab");
+      var this$717 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-toggle");
+      var t$73 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+      var array$95 = [jsx$280, jsx$279, jsx$278, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$73, this$717.name$1, "tab"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Resolution"))];
+      var array$96 = [jsx$283, jsx$282, jsx$281.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$95))];
+      var jsx$277 = jsx$284.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("li", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$96));
       var jsx$276 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$700 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
-      var t$68 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$275 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$68, this$700.name$1, "presentation");
+      var this$727 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var t$74 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+      var jsx$275 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$74, this$727.name$1, "presentation");
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$703 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
-      var t$69 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$274 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$69, this$703.name$1, "resResTab");
+      var this$730 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
+      var t$75 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+      var jsx$274 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$75, this$730.name$1, "resLogTab");
       var jsx$273 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.a__Ljapgolly_scalajs_react_vdom_HtmlTags$a$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$706 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("href");
-      var t$70 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$272 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$70, this$706.name$1, "#resolution");
+      var this$733 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("href");
+      var t$76 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+      var jsx$272 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$76, this$733.name$1, "#log");
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.aria__Ljapgolly_scalajs_react_vdom_HtmlAttrs$aria$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$709 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-controls");
-      var t$71 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$271 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$71, this$709.name$1, "resolution");
+      var this$736 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-controls");
+      var t$77 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+      var jsx$271 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$77, this$736.name$1, "log");
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$712 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
-      var t$72 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$270 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$72, this$712.name$1, "tab");
-      var this$714 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-toggle");
-      var t$73 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var array$95 = [jsx$272, jsx$271, jsx$270, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$73, this$714.name$1, "tab"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Resolution"))];
-      var array$96 = [jsx$275, jsx$274, jsx$273.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$95))];
-      var jsx$269 = jsx$276.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("li", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$96));
+      var this$739 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var t$78 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+      var jsx$270 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$78, this$739.name$1, "tab");
+      var this$741 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-toggle");
+      var t$79 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+      var array$97 = [jsx$272, jsx$271, jsx$270, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$79, this$741.name$1, "tab"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Log"))];
+      var array$98 = [jsx$275, jsx$274, jsx$273.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$97))];
+      var jsx$269 = jsx$276.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("li", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$98));
       var jsx$268 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$724 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
-      var t$74 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$267 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$74, this$724.name$1, "presentation");
-      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$727 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
-      var t$75 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$266 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$75, this$727.name$1, "resLogTab");
-      var jsx$265 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.a__Ljapgolly_scalajs_react_vdom_HtmlTags$a$();
-      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$730 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("href");
-      var t$76 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$264 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$76, this$730.name$1, "#log");
-      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.aria__Ljapgolly_scalajs_react_vdom_HtmlAttrs$aria$();
-      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$733 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-controls");
-      var t$77 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$263 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$77, this$733.name$1, "log");
-      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$736 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
-      var t$78 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$262 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$78, this$736.name$1, "tab");
-      var this$738 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-toggle");
-      var t$79 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var array$97 = [jsx$264, jsx$263, jsx$262, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$79, this$738.name$1, "tab"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Log"))];
-      var array$98 = [jsx$267, jsx$266, jsx$265.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$97))];
-      var jsx$261 = jsx$268.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("li", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$98));
-      var jsx$260 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
-      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$748 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var this$751 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
       var t$80 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$259 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$80, this$748.name$1, "presentation");
-      var jsx$258 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.a__Ljapgolly_scalajs_react_vdom_HtmlTags$a$();
+      var jsx$267 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$80, this$751.name$1, "presentation");
+      var jsx$266 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.a__Ljapgolly_scalajs_react_vdom_HtmlTags$a$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$751 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("href");
+      var this$754 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("href");
       var t$81 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$257 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$81, this$751.name$1, "#depgraph");
+      var jsx$265 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$81, this$754.name$1, "#depgraph");
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.aria__Ljapgolly_scalajs_react_vdom_HtmlAttrs$aria$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$754 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-controls");
+      var this$757 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-controls");
       var t$82 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$256 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$82, this$754.name$1, "depgraph");
+      var jsx$264 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$82, this$757.name$1, "depgraph");
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$757 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var this$760 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
       var t$83 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$255 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$83, this$757.name$1, "tab");
-      var this$759 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-toggle");
+      var jsx$263 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$83, this$760.name$1, "tab");
+      var this$762 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-toggle");
       var t$84 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var array$99 = [jsx$257, jsx$256, jsx$255, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$84, this$759.name$1, "tab"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Graph"))];
-      var array$100 = [jsx$259, jsx$258.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$99))];
-      var jsx$254 = jsx$260.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("li", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$100));
-      var jsx$253 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var array$99 = [jsx$265, jsx$264, jsx$263, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$84, this$762.name$1, "tab"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Graph"))];
+      var array$100 = [jsx$267, jsx$266.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$99))];
+      var jsx$262 = jsx$268.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("li", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$100));
+      var jsx$261 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$769 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var this$772 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
       var t$85 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$252 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$85, this$769.name$1, "presentation");
-      var jsx$251 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.a__Ljapgolly_scalajs_react_vdom_HtmlTags$a$();
+      var jsx$260 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$85, this$772.name$1, "presentation");
+      var jsx$259 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.a__Ljapgolly_scalajs_react_vdom_HtmlTags$a$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$772 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("href");
+      var this$775 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("href");
       var t$86 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$250 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$86, this$772.name$1, "#deptreepanel");
+      var jsx$258 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$86, this$775.name$1, "#deptreepanel");
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.aria__Ljapgolly_scalajs_react_vdom_HtmlAttrs$aria$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$775 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-controls");
+      var this$778 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("aria-controls");
       var t$87 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$249 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$87, this$775.name$1, "deptreepanel");
+      var jsx$257 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$87, this$778.name$1, "deptreepanel");
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$778 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var this$781 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
       var t$88 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$248 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$88, this$778.name$1, "tab");
-      var this$780 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-toggle");
+      var jsx$256 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$88, this$781.name$1, "tab");
+      var this$783 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("data-toggle");
       var t$89 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var array$101 = [jsx$250, jsx$249, jsx$248, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$89, this$780.name$1, "tab"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Tree"))];
-      var array$102 = [jsx$252, jsx$251.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$101))];
-      var array$103 = [jsx$279, jsx$278, jsx$277, jsx$269, jsx$261, jsx$254, jsx$253.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("li", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$102))];
-      var jsx$247 = jsx$280.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("ul", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$103));
-      var jsx$246 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var array$101 = [jsx$258, jsx$257, jsx$256, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$89, this$783.name$1, "tab"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Tree"))];
+      var array$102 = [jsx$260, jsx$259.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$101))];
+      var array$103 = [jsx$287, jsx$286, jsx$285, jsx$277, jsx$269, jsx$262, jsx$261.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("li", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$102))];
+      var jsx$255 = jsx$288.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("ul", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$103));
+      var jsx$254 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      var jsx$245 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("tab-content", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-      var jsx$244 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var jsx$253 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("tab-content", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+      var jsx$252 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$794 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var this$797 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
       var t$90 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$243 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$90, this$794.name$1, "tabpanel");
-      var jsx$242 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("tab-pane", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+      var jsx$251 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$90, this$797.name$1, "tabpanel");
+      var jsx$250 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("tab-pane", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$798 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
+      var this$801 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
       var t$91 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$241 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$91, this$798.name$1, "resolution");
+      var jsx$249 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$91, this$801.name$1, "resolution");
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       var c$6 = $m_Lcoursier_web_App$().resolution$1;
-      var this$800 = $as_Ljapgolly_scalajs_react_CtorType$Props(c$6.ctor__Ljapgolly_scalajs_react_CtorType());
+      var this$803 = $as_Ljapgolly_scalajs_react_CtorType$Props(c$6.ctor__Ljapgolly_scalajs_react_CtorType());
       var props$6 = new $c_T2().init___O__O(S.resolutionOpt$1, backend$19);
-      var u$6 = $as_Ljapgolly_scalajs_react_component_Generic$UnmountedWithRoot(this$800.construct$2.apply__O__O__O(props$6, this$800.mods$2));
-      var array$104 = [jsx$243, jsx$242, jsx$241, u$6.vdomElement__Ljapgolly_scalajs_react_vdom_VdomElement()];
-      var jsx$240 = jsx$244.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$104));
-      var jsx$239 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var u$6 = $as_Ljapgolly_scalajs_react_component_Generic$UnmountedWithRoot(this$803.construct$2.apply__O__O__O(props$6, this$803.mods$2));
+      var array$104 = [jsx$251, jsx$250, jsx$249, u$6.vdomElement__Ljapgolly_scalajs_react_vdom_VdomElement()];
+      var jsx$248 = jsx$252.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$104));
+      var jsx$247 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$807 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var this$810 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
       var t$92 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$238 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$92, this$807.name$1, "tabpanel");
-      var jsx$237 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("tab-pane", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+      var jsx$246 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$92, this$810.name$1, "tabpanel");
+      var jsx$245 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("tab-pane", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$811 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
+      var this$814 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
       var t$93 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$236 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$93, this$811.name$1, "log");
-      var jsx$235 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var jsx$244 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$93, this$814.name$1, "log");
+      var jsx$243 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       var array$105 = [$m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.type$1.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("button", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("btn btn-default", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onClick$1.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$8, backend$21) {
         return (function(e$3$2$2) {
           return new $c_Ljapgolly_scalajs_react_CallbackTo().init___F0(backend$21.clearLog__Ljapgolly_scalajs_react_raw_SyntheticEvent__F0(e$3$2$2))
         })
       })(this$17$1, backend$19)), null), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Clear"))];
-      var jsx$234 = jsx$235.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("button", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$105));
-      var jsx$233 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var jsx$242 = jsx$243.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("button", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$105));
+      var jsx$241 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      var jsx$232 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("well", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-      var jsx$231 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var jsx$240 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("well", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+      var jsx$239 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      var jsx$230 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("log", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+      var jsx$238 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("log", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      var jsx$228 = S.log$1;
-      var jsx$226 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$3$6) {
+      var jsx$236 = S.log$1;
+      var jsx$234 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$3$6) {
         return (function(e$4$2$1) {
           var e$4 = $as_T(e$4$2$1);
-          var jsx$227 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+          var jsx$235 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           var array$106 = [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(e$4))];
-          return jsx$227.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("li", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$106))
+          return jsx$235.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("li", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$106))
         })
       })(this$17$1));
-      var this$828 = $m_sc_Seq$();
-      var as$3 = $as_sc_TraversableOnce(jsx$228.map__F1__scg_CanBuildFrom__O(jsx$226, this$828.ReusableCBFInstance$2));
+      var this$831 = $m_sc_Seq$();
+      var as$3 = $as_sc_TraversableOnce(jsx$236.map__F1__scg_CanBuildFrom__O(jsx$234, this$831.ReusableCBFInstance$2));
       var $$this$4 = as$3;
       var f$15 = $m_s_Predef$().singleton$und$less$colon$less$2;
-      var jsx$229 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
-      var this$831 = $$this$4.toIterator__sc_Iterator();
-      var array$107 = [jsx$230, jsx$229.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sc_Iterator$$anon$10().init___sc_Iterator__F1(this$831, f$15))];
-      var array$108 = [jsx$232, jsx$231.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("ul", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$107))];
-      var array$109 = [jsx$238, jsx$237, jsx$236, jsx$234, jsx$233.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$108))];
-      var jsx$225 = jsx$239.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$109));
-      var jsx$224 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var jsx$237 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
+      var this$834 = $$this$4.toIterator__sc_Iterator();
+      var array$107 = [jsx$238, jsx$237.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sc_Iterator$$anon$10().init___sc_Iterator__F1(this$834, f$15))];
+      var array$108 = [jsx$240, jsx$239.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("ul", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$107))];
+      var array$109 = [jsx$246, jsx$245, jsx$244, jsx$242, jsx$241.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$108))];
+      var jsx$233 = jsx$247.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$109));
+      var jsx$232 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$841 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var this$844 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
       var t$94 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$223 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$94, this$841.name$1, "tabpanel");
-      var jsx$222 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("tab-pane", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+      var jsx$231 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$94, this$844.name$1, "tabpanel");
+      var jsx$230 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("tab-pane", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$845 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
+      var this$848 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
       var t$95 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$221 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$95, this$845.name$1, "depgraph");
-      var jsx$220 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var jsx$229 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$95, this$848.name$1, "depgraph");
+      var jsx$228 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      var jsx$219 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.type$1.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("button", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-      var jsx$218 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("btn btn-default", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-      var jsx$217 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onClick$1;
-      var this$848 = S.resolutionOpt$1;
+      var jsx$227 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.type$1.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("button", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+      var jsx$226 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("btn btn-default", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+      var jsx$225 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onClick$1;
+      var this$851 = S.resolutionOpt$1;
       var $default$1 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$4$6) {
         return (function() {
           return $m_Lcoursier_package$Resolution$().empty$1
         })
       })(this$17$1));
-      var eta$0$6 = $as_Lcoursier_core_Resolution((this$848.isEmpty__Z() ? $default$1.apply__O() : this$848.get__O()));
-      var array$110 = [jsx$219, jsx$218, jsx$217.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$5$3, backend$22, eta$0$6$1) {
+      var eta$0$6 = $as_Lcoursier_core_Resolution((this$851.isEmpty__Z() ? $default$1.apply__O() : this$851.get__O()));
+      var array$110 = [jsx$227, jsx$226, jsx$225.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$5$3, backend$22, eta$0$6$1) {
         return (function(e$5$2) {
           return new $c_Ljapgolly_scalajs_react_CallbackTo().init___F0(backend$22.updateDepGraphBtn__Lcoursier_core_Resolution__Ljapgolly_scalajs_react_raw_SyntheticEvent__F0(eta$0$6$1, e$5$2))
         })
       })(this$17$1, backend$19, eta$0$6)), null), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Redraw"))];
-      var jsx$216 = jsx$220.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("button", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$110));
+      var jsx$224 = jsx$228.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("button", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$110));
+      var jsx$223 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
+      var this$860 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
+      var t$96 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+      var array$111 = [$m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$96, this$860.name$1, "depgraphcanvas")];
+      var array$112 = [jsx$231, jsx$230, jsx$229, jsx$224, jsx$223.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$111))];
+      var jsx$222 = jsx$232.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$112));
+      var jsx$221 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
+      var this$868 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
+      var t$97 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+      var jsx$220 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$97, this$868.name$1, "tabpanel");
+      var jsx$219 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("tab-pane", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
+      var this$872 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
+      var t$98 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+      var jsx$218 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$98, this$872.name$1, "deptreepanel");
+      var jsx$217 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+      var jsx$216 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("checkbox", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
       var jsx$215 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$857 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
-      var t$96 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var array$111 = [$m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$96, this$857.name$1, "depgraphcanvas")];
-      var array$112 = [jsx$223, jsx$222, jsx$221, jsx$216, jsx$215.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$111))];
-      var jsx$214 = jsx$224.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$112));
-      var jsx$213 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
-      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$865 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("role");
-      var t$97 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$212 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$97, this$865.name$1, "tabpanel");
-      var jsx$211 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("tab-pane", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$869 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
-      var t$98 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var jsx$210 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$98, this$869.name$1, "deptreepanel");
-      var jsx$209 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
-      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      var jsx$208 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("checkbox", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-      var jsx$207 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
-      $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-      var jsx$206 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.input__Ljapgolly_scalajs_react_vdom_HtmlTags$input$().checkbox$2;
-      var jsx$205 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onChange$1.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$6$3, backend$23) {
+      var jsx$214 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.input__Ljapgolly_scalajs_react_vdom_HtmlTags$input$().checkbox$2;
+      var jsx$213 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onChange$1.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$6$3, backend$23) {
         return (function(e$6$2) {
           return new $c_Ljapgolly_scalajs_react_CallbackTo().init___F0(backend$23.toggleReverseTree__Ljapgolly_scalajs_react_raw_SyntheticEvent__F0(e$6$2))
         })
@@ -21655,34 +21811,34 @@ $c_Lcoursier_web_App$.prototype.init___ = (function() {
       if (S.reverseTree$1) {
         $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
         $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-        var this$876 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("checked");
+        var this$879 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("checked");
         var t$99 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtBoolean$2;
-        var jsx$204 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$99, this$876.name$1, true)
+        var jsx$212 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$99, this$879.name$1, true)
       } else {
-        var this$877 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
+        var this$880 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
         var ms$1 = $m_sci_Nil$();
-        var jsx$204 = this$877.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$1)
+        var jsx$212 = this$880.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$1)
       };
-      var array$113 = [jsx$205, jsx$204];
-      var array$114 = [jsx$206.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$113)), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Reverse"))];
-      var array$115 = [jsx$208, jsx$207.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("label", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$114))];
-      var jsx$203 = jsx$209.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$115));
-      var jsx$202 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+      var array$113 = [jsx$213, jsx$212];
+      var array$114 = [jsx$214.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$113)), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Reverse"))];
+      var array$115 = [jsx$216, jsx$215.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("label", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$114))];
+      var jsx$211 = jsx$217.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$115));
+      var jsx$210 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
       $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-      var this$889 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
+      var this$892 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("id");
       var t$100 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-      var array$116 = [$m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$100, this$889.name$1, "deptree")];
-      var array$117 = [jsx$212, jsx$211, jsx$210, jsx$203, jsx$202.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$116))];
-      var array$118 = [jsx$245, jsx$240, jsx$225, jsx$214, jsx$213.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$117))];
-      var array$119 = [jsx$282, jsx$281, jsx$247, jsx$246.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$118))];
-      var array$120 = [jsx$292, jsx$284, jsx$283.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$119))];
-      var a$9 = jsx$338.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$120));
+      var array$116 = [$m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$100, this$892.name$1, "deptree")];
+      var array$117 = [jsx$220, jsx$219, jsx$218, jsx$211, jsx$210.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$116))];
+      var array$118 = [jsx$253, jsx$248, jsx$233, jsx$222, jsx$221.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$117))];
+      var array$119 = [jsx$290, jsx$289, jsx$255, jsx$254.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$118))];
+      var array$120 = [jsx$300, jsx$292, jsx$291.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$119))];
+      var a$9 = jsx$346.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$120));
       return a$9.render__Ljapgolly_scalajs_react_vdom_VdomElement()
     })
   })(this));
-  this.app$1 = this$901.renderWith__F1__Ljapgolly_scalajs_react_component_builder_Builder$Step4(r).build__Ljapgolly_scalajs_react_CtorType$Summoner__Ljapgolly_scalajs_react_internal_JsRepr__Ljapgolly_scalajs_react_component_JsBaseComponentTemplate$ComponentWithRoot($m_Ljapgolly_scalajs_react_CtorType$Summoner$().summonN__Ljapgolly_scalajs_react_internal_Singleton__Ljapgolly_scalajs_react_CtorType$Summoner($m_Ljapgolly_scalajs_react_internal_Singleton$().BoxUnit$1), $m_Ljapgolly_scalajs_react_internal_JsRepr$().unit$1);
+  this.app$1 = this$904.renderWith__F1__Ljapgolly_scalajs_react_component_builder_Builder$Step4(r).build__Ljapgolly_scalajs_react_CtorType$Summoner__Ljapgolly_scalajs_react_internal_JsRepr__Ljapgolly_scalajs_react_component_JsBaseComponentTemplate$ComponentWithRoot($m_Ljapgolly_scalajs_react_CtorType$Summoner$().summonN__Ljapgolly_scalajs_react_internal_Singleton__Ljapgolly_scalajs_react_CtorType$Summoner($m_Ljapgolly_scalajs_react_internal_Singleton$().BoxUnit$1), $m_Ljapgolly_scalajs_react_internal_JsRepr$().unit$1);
   return this
 });
 $c_Lcoursier_web_App$.prototype.popOver$1__p1__T__T__T__Lcoursier_web_Backend__Ljapgolly_scalajs_react_vdom_TagOf = (function(type, label, desc, backend$1) {
@@ -21822,101 +21978,111 @@ $c_Lcoursier_web_App$.prototype.repoItem$1__p1__T2__I__Z__Lcoursier_web_Backend_
   return jsx$34.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("tr", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$10))
 });
 $c_Lcoursier_web_App$.prototype.depItem$1__p1__Lcoursier_core_Dependency__s_Option__Lcoursier_core_Resolution__Lcoursier_web_Backend__Ljapgolly_scalajs_react_vdom_TagOf = (function(dep, finalVersionOpt, res$1, backend$1) {
-  var jsx$29 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+  var jsx$30 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var jsx$28 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod((res$1.errorCache$1.contains__O__Z(dep.moduleVersion__T2()) ? "danger" : ""), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-  var jsx$27 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+  var jsx$29 = ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod((res$1.errorCache$1.contains__O__Z(dep.moduleVersion__T2()) ? "danger" : ""), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+  var jsx$28 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
   var v = dep.module$1.organization$1;
   $m_Ljapgolly_scalajs_react_vdom_VdomNode$();
   var array = [new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(v)];
-  var jsx$26 = jsx$27.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("td", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
-  var jsx$25 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+  var jsx$27 = jsx$28.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("td", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
+  var jsx$26 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
   var v$1 = dep.module$1.name$1;
   $m_Ljapgolly_scalajs_react_vdom_VdomNode$();
   var array$1 = [new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(v$1)];
-  var jsx$24 = jsx$25.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("td", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1));
-  var jsx$23 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+  var jsx$25 = jsx$26.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("td", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1));
+  var jsx$24 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
   if (finalVersionOpt.isEmpty__Z()) {
-    var jsx$22 = dep.version$1
+    var jsx$23 = dep.version$1
   } else {
     var arg1 = finalVersionOpt.get__O();
     var finalVersion = $as_T(arg1);
-    var jsx$22 = (((finalVersion + " (for ") + dep.version$1) + ")")
+    var jsx$23 = (((finalVersion + " (for ") + dep.version$1) + ")")
   };
-  var v$2 = $as_T(jsx$22);
+  var v$2 = $as_T(jsx$23);
   $m_Ljapgolly_scalajs_react_vdom_VdomNode$();
   var array$2 = [new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(v$2)];
-  var jsx$21 = jsx$23.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("td", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2));
-  var jsx$20 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+  var jsx$22 = jsx$24.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("td", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2));
+  var jsx$21 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var this$59 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
+  var this$64 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
   if ((dep.configuration$1 === $m_Lcoursier_core_Configuration$().compile$1)) {
     var this$19 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
     var ms = $m_sci_Nil$();
-    var jsx$19 = this$19.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms)
+    var jsx$20 = this$19.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms)
   } else {
     var this$22 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
     var array$3 = [this.infoLabel$1__p1__T__Ljapgolly_scalajs_react_vdom_TagOf(dep.configuration$1)];
     var ms$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3);
-    var jsx$19 = this$22.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$1)
+    var jsx$20 = this$22.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$1)
   };
   $m_Lcoursier_core_Type$();
-  var $$this = dep.attributes$1.type$1;
+  var this$23 = dep.publication$1;
+  var $$this = new $c_Lcoursier_core_Attributes().init___T__T(this$23.type$1, this$23.classifier$1).type$1;
   if (($$this === null)) {
     throw new $c_jl_NullPointerException().init___()
   };
-  if ((($$this === "") || (dep.attributes$1.type$1 === $m_Lcoursier_core_Type$().jar$1))) {
-    var this$25 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
-    var ms$2 = $m_sci_Nil$();
-    var jsx$18 = this$25.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$2)
+  if (($$this === "")) {
+    var jsx$19 = true
   } else {
-    var this$28 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
-    var array$4 = [this.infoLabel$1__p1__T__Ljapgolly_scalajs_react_vdom_TagOf(dep.attributes$1.type$1)];
+    var this$26 = dep.publication$1;
+    var jsx$19 = (new $c_Lcoursier_core_Attributes().init___T__T(this$26.type$1, this$26.classifier$1).type$1 === $m_Lcoursier_core_Type$().jar$1)
+  };
+  if (jsx$19) {
+    var this$27 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
+    var ms$2 = $m_sci_Nil$();
+    var jsx$18 = this$27.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$2)
+  } else {
+    var this$31 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
+    var this$28 = dep.publication$1;
+    var array$4 = [this.infoLabel$1__p1__T__Ljapgolly_scalajs_react_vdom_TagOf(new $c_Lcoursier_core_Attributes().init___T__T(this$28.type$1, this$28.classifier$1).type$1)];
     var ms$3 = new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$4);
-    var jsx$18 = this$28.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$3)
+    var jsx$18 = this$31.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$3)
   };
   $m_Lcoursier_core_Classifier$();
-  var $$this$1 = dep.attributes$1.classifier$1;
+  var this$32 = dep.publication$1;
+  var $$this$1 = new $c_Lcoursier_core_Attributes().init___T__T(this$32.type$1, this$32.classifier$1).classifier$1;
   if (($$this$1 === null)) {
     throw new $c_jl_NullPointerException().init___()
   };
   if (($$this$1 === "")) {
-    var this$31 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
+    var this$35 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
     var ms$4 = $m_sci_Nil$();
-    var jsx$17 = this$31.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$4)
+    var jsx$17 = this$35.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$4)
   } else {
-    var this$34 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
-    var array$5 = [this.infoLabel$1__p1__T__Ljapgolly_scalajs_react_vdom_TagOf(dep.attributes$1.classifier$1)];
+    var this$39 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
+    var this$36 = dep.publication$1;
+    var array$5 = [this.infoLabel$1__p1__T__Ljapgolly_scalajs_react_vdom_TagOf(new $c_Lcoursier_core_Attributes().init___T__T(this$36.type$1, this$36.classifier$1).classifier$1)];
     var ms$5 = new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$5);
-    var jsx$17 = this$34.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$5)
+    var jsx$17 = this$39.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$5)
   };
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var this$35 = new $c_s_Some().init___O(dep.exclusions$1);
-  var arg1$1 = this$35.value$2;
+  var this$40 = new $c_s_Some().init___O(dep.exclusions$1);
+  var arg1$1 = this$40.value$2;
   var x$1 = $as_sci_Set(arg1$1);
   if ($f_sc_TraversableOnce__nonEmpty__Z(x$1)) {
-    var this$36 = this$35
+    var this$41 = this$40
   } else {
-    var this$36 = $m_s_None$()
+    var this$41 = $m_s_None$()
   };
-  if (this$36.isEmpty__Z()) {
+  if (this$41.isEmpty__Z()) {
     var xo = $m_s_None$()
   } else {
-    var arg1$2 = this$36.get__O();
+    var arg1$2 = this$41.get__O();
     var excls = $as_sci_Set(arg1$2);
-    var this$37 = $m_sci_List$();
-    var cbf = this$37.ReusableCBFInstance$2;
-    var this$39 = $as_sci_List($f_sc_TraversableLike__to__scg_CanBuildFrom__O(excls, cbf));
+    var this$42 = $m_sci_List$();
+    var cbf = this$42.ReusableCBFInstance$2;
+    var this$44 = $as_sci_List($f_sc_TraversableLike__to__scg_CanBuildFrom__O(excls, cbf));
     var ord1 = $m_Lcoursier_core_Organization$().ordering$1;
     var ord2 = $m_Lcoursier_core_ModuleName$().ordering$1;
     var ord = new $c_s_math_Ordering$$anon$12().init___s_math_Ordering__s_math_Ordering(ord1, ord2);
-    var this$41 = $as_sci_List($f_sc_SeqLike__sorted__s_math_Ordering__O(this$39, ord));
+    var this$46 = $as_sci_List($f_sc_SeqLike__sorted__s_math_Ordering__O(this$44, ord));
     var f = (function($this) {
       return (function(x0$1$2) {
         var x0$1 = $as_T2(x0$1$2);
@@ -21929,16 +22095,16 @@ $c_Lcoursier_web_App$.prototype.depItem$1__p1__Lcoursier_core_Dependency__s_Opti
         }
       })
     })(this);
-    var this$40 = $m_sci_List$();
-    var bf = this$40.ReusableCBFInstance$2;
+    var this$45 = $m_sci_List$();
+    var bf = this$45.ReusableCBFInstance$2;
     if ((bf === $m_sci_List$().ReusableCBFInstance$2)) {
-      if ((this$41 === $m_sci_Nil$())) {
+      if ((this$46 === $m_sci_Nil$())) {
         var jsx$14 = $m_sci_Nil$()
       } else {
-        var arg1$3 = this$41.head__O();
+        var arg1$3 = this$46.head__O();
         var h = new $c_sci_$colon$colon().init___O__sci_List(f(arg1$3), $m_sci_Nil$());
         var t = h;
-        var rest = $as_sci_List(this$41.tail__O());
+        var rest = $as_sci_List(this$46.tail__O());
         while ((rest !== $m_sci_Nil$())) {
           var arg1$4 = rest.head__O();
           var nx = new $c_sci_$colon$colon().init___O__sci_List(f(arg1$4), $m_sci_Nil$());
@@ -21949,8 +22115,8 @@ $c_Lcoursier_web_App$.prototype.depItem$1__p1__Lcoursier_core_Dependency__s_Opti
         var jsx$14 = h
       }
     } else {
-      var b = $f_sc_TraversableLike__builder$1__psc_TraversableLike__scg_CanBuildFrom__scm_Builder(this$41, bf);
-      var these = this$41;
+      var b = $f_sc_TraversableLike__builder$1__psc_TraversableLike__scg_CanBuildFrom__scm_Builder(this$46, bf);
+      var these = this$46;
       while ((!these.isEmpty__Z())) {
         var arg1$5 = these.head__O();
         b.$$plus$eq__O__scm_Builder(f(arg1$5));
@@ -21961,42 +22127,42 @@ $c_Lcoursier_web_App$.prototype.depItem$1__p1__Lcoursier_core_Dependency__s_Opti
     var desc = $as_sc_TraversableOnce(jsx$14).mkString__T__T("; ");
     var xo = new $c_s_Some().init___O(this.popOver$1__p1__T__T__T__Lcoursier_web_Backend__Ljapgolly_scalajs_react_vdom_TagOf("info", "Exclusions", desc, backend$1))
   };
-  var this$43 = xo.toList__sci_List();
+  var this$48 = xo.toList__sci_List();
   var f$1 = $m_s_Predef$().singleton$und$less$colon$less$2;
   var jsx$16 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
-  var this$46 = new $c_sc_LinearSeqLike$$anon$1().init___sc_LinearSeqLike(this$43);
-  var jsx$15 = jsx$16.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sc_Iterator$$anon$10().init___sc_Iterator__F1(this$46, f$1));
+  var this$51 = new $c_sc_LinearSeqLike$$anon$1().init___sc_LinearSeqLike(this$48);
+  var jsx$15 = jsx$16.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sc_Iterator$$anon$10().init___sc_Iterator__F1(this$51, f$1));
   if (dep.optional$1) {
-    var this$49 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
+    var this$54 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
     var array$6 = [this.infoLabel$1__p1__T__Ljapgolly_scalajs_react_vdom_TagOf("optional")];
     var ms$6 = new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$6);
-    var jsx$13 = this$49.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$6)
+    var jsx$13 = this$54.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$6)
   } else {
-    var this$50 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
+    var this$55 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
     var ms$7 = $m_sci_Nil$();
-    var jsx$13 = this$50.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$7)
+    var jsx$13 = this$55.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$7)
   };
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var this$51 = res$1.errorCache$1.get__O__s_Option(dep.moduleVersion__T2());
-  if (this$51.isEmpty__Z()) {
+  var this$56 = res$1.errorCache$1.get__O__s_Option(dep.moduleVersion__T2());
+  if (this$56.isEmpty__Z()) {
     var xo$1 = $m_s_None$()
   } else {
-    var arg1$6 = this$51.get__O();
+    var arg1$6 = this$56.get__O();
     var errs = $as_sc_Seq(arg1$6);
     var desc$1 = errs.mkString__T__T("; ");
     var xo$1 = new $c_s_Some().init___O(this.popOver$1__p1__T__T__T__Lcoursier_web_Backend__Ljapgolly_scalajs_react_vdom_TagOf("danger", "Error", desc$1, backend$1))
   };
-  var this$53 = xo$1.toList__sci_List();
+  var this$58 = xo$1.toList__sci_List();
   var f$2 = $m_s_Predef$().singleton$und$less$colon$less$2;
   var jsx$12 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
-  var this$56 = new $c_sc_LinearSeqLike$$anon$1().init___sc_LinearSeqLike(this$53);
-  var array$7 = [jsx$19, jsx$18, jsx$17, jsx$15, jsx$13, jsx$12.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sc_Iterator$$anon$10().init___sc_Iterator__F1(this$56, f$2))];
+  var this$61 = new $c_sc_LinearSeqLike$$anon$1().init___sc_LinearSeqLike(this$58);
+  var array$7 = [jsx$20, jsx$18, jsx$17, jsx$15, jsx$13, jsx$12.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sc_Iterator$$anon$10().init___sc_Iterator__F1(this$61, f$2))];
   var ms$8 = new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$7);
-  var array$8 = [this$59.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$8)];
-  var jsx$11 = jsx$20.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("td", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$8));
+  var array$8 = [this$64.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$8)];
+  var jsx$11 = jsx$21.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("td", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$8));
   var jsx$10 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var this$101 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
+  var this$106 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
   var x1 = res$1.projectCache$1.get__O__s_Option(dep.moduleVersion__T2());
   matchEnd6: {
     var jsx$1;
@@ -22009,26 +22175,26 @@ $c_Lcoursier_web_App$.prototype.depItem$1__p1__Lcoursier_core_Dependency__s_Opti
           var x4 = $as_Lcoursier_maven_MavenRepository(source);
           var version0 = $as_T((finalVersionOpt.isEmpty__Z() ? dep.version$1 : finalVersionOpt.get__O()));
           var x = dep.module$1.organization$1;
-          var this$64 = new $c_sci_StringOps().init___T(x);
-          var xs = $f_sci_StringLike__split__C__AT(this$64, 46);
-          var this$70 = new $c_scm_WrappedArray$ofRef().init___AO(xs);
+          var this$69 = new $c_sci_StringOps().init___T(x);
+          var xs = $f_sci_StringLike__split__C__AT(this$69, 46);
+          var this$75 = new $c_scm_WrappedArray$ofRef().init___AO(xs);
           var jsx$2 = $m_sc_Seq$();
           var array$9 = [dep.module$1.name$1, version0, ((dep.module$1.name$1 + "-") + version0)];
           var that = jsx$2.apply__sc_Seq__sc_GenTraversable(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$9));
-          var this$69 = $m_sc_Seq$();
-          var bf$1 = this$69.ReusableCBFInstance$2;
-          var relPath = $as_sc_Seq($f_sc_TraversableLike__$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O(this$70, that, bf$1));
+          var this$74 = $m_sc_Seq$();
+          var bf$1 = this$74.ReusableCBFInstance$2;
+          var relPath = $as_sc_Seq($f_sc_TraversableLike__$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O(this$75, that, bf$1));
           var x$2 = x4.root$1;
-          var this$72 = new $c_sci_StringOps().init___T(x$2);
-          var root = ($f_sci_StringLike__stripSuffix__T__T(this$72, "/") + "/");
-          var this$97 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
+          var this$77 = new $c_sci_StringOps().init___T(x$2);
+          var root = ($f_sci_StringLike__stripSuffix__T__T(this$77, "/") + "/");
+          var this$102 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
           var jsx$9 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.a__Ljapgolly_scalajs_react_vdom_HtmlTags$a$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-          var this$75 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("href");
+          var this$80 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("href");
           var a = ((root + relPath.mkString__T__T("/")) + ".pom");
           var t$1 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$8 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$1, this$75.name$1, a);
+          var jsx$8 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$1, this$80.name$1, a);
           var jsx$7 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           var array$10 = [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("label label-info", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("POM"))];
@@ -22037,30 +22203,30 @@ $c_Lcoursier_web_App$.prototype.depItem$1__p1__Lcoursier_core_Dependency__s_Opti
           var jsx$5 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.a__Ljapgolly_scalajs_react_vdom_HtmlTags$a$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-          var this$86 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("href");
+          var this$91 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("href");
           var a$1 = ((root + relPath.mkString__T__T("/")) + ".jar");
           var t$2 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-          var jsx$4 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$2, this$86.name$1, a$1);
+          var jsx$4 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$2, this$91.name$1, a$1);
           var jsx$3 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
           $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
           var array$12 = [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_Attr$ClassName$()).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("label label-info", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), $m_Ljapgolly_scalajs_react_vdom_VdomNode$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("JAR"))];
           var array$13 = [jsx$4, jsx$3.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("span", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$12))];
           var array$14 = [jsx$6, jsx$5.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$13))];
           var ms$9 = new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$14);
-          var jsx$1 = this$97.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$9);
+          var jsx$1 = this$102.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$9);
           break matchEnd6
         }
       }
     };
-    var this$98 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
+    var this$103 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
     var ms$10 = $m_sci_Nil$();
-    var jsx$1 = this$98.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$10)
+    var jsx$1 = this$103.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$10)
   };
   var array$15 = [jsx$1];
   var ms$11 = new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$15);
-  var array$16 = [this$101.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$11)];
-  var array$17 = [jsx$28, jsx$26, jsx$24, jsx$21, jsx$11, jsx$10.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("td", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$16))];
-  return jsx$29.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("tr", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$17))
+  var array$16 = [this$106.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(ms$11)];
+  var array$17 = [jsx$29, jsx$27, jsx$25, jsx$22, jsx$11, jsx$10.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("td", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$16))];
+  return jsx$30.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("tr", new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$17))
 });
 $c_Lcoursier_web_App$.prototype.depItem$2__p1__Lcoursier_core_Dependency__I__Lcoursier_web_Backend__Ljapgolly_scalajs_react_vdom_TagOf = (function(dep, idx, backend$3) {
   var jsx$20 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
@@ -22253,7 +22419,7 @@ $c_Lcoursier_web_Backend.prototype.addModule__Ljapgolly_scalajs_react_raw_Synthe
       var classifier = $m_Lcoursier_package$().Classifier$1.empty$1;
       var attributes$1 = new $c_Lcoursier_core_Attributes().init___T__T(type, classifier);
       var exclusions = $m_sci_Set$EmptySet$();
-      var jsx$1 = new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(module, "", configuration, exclusions, attributes$1, false, true);
+      var jsx$1 = $m_Lcoursier_core_Dependency$().apply__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(module, "", configuration, exclusions, attributes$1, false, true);
       var this$12 = $m_sc_Seq$();
       var modules = $as_sc_Seq(jsx$2.$$colon$plus__O__scg_CanBuildFrom__O(jsx$1, this$12.ReusableCBFInstance$2));
       var x = ("Modules:\n" + modules.mkString__T__T("\n"));
@@ -35033,41 +35199,6 @@ function $f_s_Product4__productElement__I__O($thiz, n) {
     }
   }
 }
-function $f_s_Product7__productElement__I__O($thiz, n) {
-  switch (n) {
-    case 0: {
-      return $thiz.$$und1$1;
-      break
-    }
-    case 1: {
-      return $thiz.$$und2$1;
-      break
-    }
-    case 2: {
-      return $thiz.$$und3$1;
-      break
-    }
-    case 3: {
-      return $thiz.$$und4$1;
-      break
-    }
-    case 4: {
-      return $thiz.$$und5$1;
-      break
-    }
-    case 5: {
-      return $thiz.$$und6$1;
-      break
-    }
-    case 6: {
-      return $thiz.$$und7$1;
-      break
-    }
-    default: {
-      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + n))
-    }
-  }
-}
 /** @constructor */
 function $c_s_concurrent_BlockContext$DefaultBlockContext$() {
   $c_O.call(this)
@@ -35881,17 +36012,6 @@ function $h_sr_AbstractFunction6() {
 }
 $h_sr_AbstractFunction6.prototype = $c_sr_AbstractFunction6.prototype;
 /** @constructor */
-function $c_sr_AbstractFunction7() {
-  $c_O.call(this)
-}
-$c_sr_AbstractFunction7.prototype = new $h_O();
-$c_sr_AbstractFunction7.prototype.constructor = $c_sr_AbstractFunction7;
-/** @constructor */
-function $h_sr_AbstractFunction7() {
-  /*<skip>*/
-}
-$h_sr_AbstractFunction7.prototype = $c_sr_AbstractFunction7.prototype;
-/** @constructor */
 function $c_sr_BooleanRef() {
   $c_O.call(this);
   this.elem$1 = false
@@ -36694,18 +36814,19 @@ $c_Lcoursier_core_Resolution$.prototype.withExclusions__sc_Seq__sci_Set__sc_Seq 
         var x$2 = dep$1.module$1;
         var x$3 = dep$1.version$1;
         var x$4 = dep$1.configuration$1;
-        var x$5 = dep$1.attributes$1;
+        var this$3 = dep$1.publication$1;
+        var x$5 = new $c_Lcoursier_core_Attributes().init___T__T(this$3.type$1, this$3.classifier$1);
         var x$6 = dep$1.optional$1;
         var x$7 = dep$1.transitive$1;
-        var y = new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(x$2, x$3, x$4, x$1, x$5, x$6, x$7);
+        var y = dep$1.copy__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(x$2, x$3, x$4, x$1, x$5, x$6, x$7);
         return new $c_T2().init___O__O(self, y)
       } else {
         throw new $c_s_MatchError().init___O(x0$2)
       }
     })
   })(this, exclusions));
-  var this$4 = $m_sc_Seq$();
-  return $as_sc_Seq(jsx$2.map__F1__scg_CanBuildFrom__O(jsx$1, this$4.ReusableCBFInstance$2))
+  var this$5 = $m_sc_Seq$();
+  return $as_sc_Seq(jsx$2.map__F1__scg_CanBuildFrom__O(jsx$1, this$5.ReusableCBFInstance$2))
 });
 $c_Lcoursier_core_Resolution$.prototype.profiles__Lcoursier_core_Project__sci_Map__Lcoursier_core_Activation$Os__s_Option__s_Option__sc_Seq = (function(project, properties, osInfo, jdkVersion, userActivations) {
   var this$1 = project.profiles$1;
@@ -36917,7 +37038,7 @@ $c_Lcoursier_core_Resolution$.prototype.merge__sc_TraversableOnce__sci_Map__T3 =
       }
     })
   })(this$1, b)));
-  var this$20 = $as_sci_Map(b.elems$1);
+  var this$22 = $as_sci_Map(b.elems$1);
   var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$2, forceVersions$1) {
     return (function(x0$1$2) {
       var x0$1 = $as_T2(x0$1$2);
@@ -36963,10 +37084,11 @@ $c_Lcoursier_core_Resolution$.prototype.merge__sc_TraversableOnce__sci_Map__T3 =
                 var x$2$1 = dep$1.module$1;
                 var x$3$1 = dep$1.configuration$1;
                 var x$4 = dep$1.exclusions$1;
-                var x$5 = dep$1.attributes$1;
+                var this$13 = dep$1.publication$1;
+                var x$5 = new $c_Lcoursier_core_Attributes().init___T__T(this$13.type$1, this$13.classifier$1);
                 var x$6 = dep$1.optional$1;
                 var x$7 = dep$1.transitive$1;
-                b$3.$$plus$eq__O__scm_Builder(new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(x$2$1, version, x$3$1, x$4, x$5, x$6, x$7))
+                b$3.$$plus$eq__O__scm_Builder(dep$1.copy__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(x$2$1, version, x$3$1, x$4, x$5, x$6, x$7))
               };
               var value = b$3.result__O();
               var _2$1 = new $c_s_util_Right().init___O(value)
@@ -36992,17 +37114,18 @@ $c_Lcoursier_core_Resolution$.prototype.merge__sc_TraversableOnce__sci_Map__T3 =
           $m_sci_Vector$();
           var bf$2 = $m_sc_IndexedSeq$().ReusableCBF$6;
           var b$4 = $f_sc_TraversableLike__builder$1__psc_TraversableLike__scg_CanBuildFrom__scm_Builder(deps, bf$2);
-          var this$16 = deps.iterator__sci_VectorIterator();
-          while (this$16.$$undhasNext$2) {
-            var arg1$3 = this$16.next__O();
+          var this$17 = deps.iterator__sci_VectorIterator();
+          while (this$17.$$undhasNext$2) {
+            var arg1$3 = this$17.next__O();
             var dep$3 = $as_Lcoursier_core_Dependency(arg1$3);
             var x$9 = dep$3.module$1;
             var x$10 = dep$3.configuration$1;
             var x$11 = dep$3.exclusions$1;
-            var x$12 = dep$3.attributes$1;
+            var this$18 = dep$3.publication$1;
+            var x$12 = new $c_Lcoursier_core_Attributes().init___T__T(this$18.type$1, this$18.classifier$1);
             var x$13 = dep$3.optional$1;
             var x$14 = dep$3.transitive$1;
-            b$4.$$plus$eq__O__scm_Builder(new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(x$9, forcedVersion, x$10, x$11, x$12, x$13, x$14))
+            b$4.$$plus$eq__O__scm_Builder(dep$3.copy__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(x$9, forcedVersion, x$10, x$11, x$12, x$13, x$14))
           };
           var value$1 = b$4.result__O();
           var _2$2 = new $c_s_util_Right().init___O(value$1);
@@ -37018,13 +37141,13 @@ $c_Lcoursier_core_Resolution$.prototype.merge__sc_TraversableOnce__sci_Map__T3 =
       }
     })
   })(this, forceVersions));
-  var this$19 = $m_sci_Map$();
-  var bf$3 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$19);
-  var mergedByModVer = $as_sci_Map($f_sc_TraversableLike__map__F1__scg_CanBuildFrom__O(this$20, f, bf$3));
-  var this$21 = new $c_sc_MapLike$DefaultValuesIterable().init___sc_MapLike(mergedByModVer);
+  var this$21 = $m_sci_Map$();
+  var bf$3 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$21);
+  var mergedByModVer = $as_sci_Map($f_sc_TraversableLike__map__F1__scg_CanBuildFrom__O(this$22, f, bf$3));
+  var this$23 = new $c_sc_MapLike$DefaultValuesIterable().init___sc_MapLike(mergedByModVer);
   $m_sci_Vector$();
   var cbf = $m_sc_IndexedSeq$().ReusableCBF$6;
-  var merged = $as_sci_Vector($f_sc_TraversableLike__to__scg_CanBuildFrom__O(this$21, cbf));
+  var merged = $as_sci_Vector($f_sc_TraversableLike__to__scg_CanBuildFrom__O(this$23, cbf));
   var pf = new $c_Lcoursier_core_Resolution$$anonfun$merge$7().init___();
   $m_sci_Vector$();
   var bf$4 = $m_sc_IndexedSeq$().ReusableCBF$6;
@@ -37034,8 +37157,8 @@ $c_Lcoursier_core_Resolution$.prototype.merge__sc_TraversableOnce__sci_Map__T3 =
   var bf$5 = $m_sc_IndexedSeq$().ReusableCBF$6;
   var jsx$2 = $as_scg_GenericTraversableTemplate($f_sc_TraversableLike__collect__s_PartialFunction__scg_CanBuildFrom__O(merged, pf$1, bf$5)).flatten__F1__sc_GenTraversable($m_s_Predef$().singleton$und$less$colon$less$2);
   var pf$2 = new $c_Lcoursier_core_Resolution$$anonfun$merge$9().init___();
-  var this$25 = $m_sci_Map$();
-  var bf$6 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$25);
+  var this$27 = $m_sci_Map$();
+  var bf$6 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$27);
   return new $c_T3().init___O__O__O(jsx$3, jsx$2, $f_sc_TraversableLike__collect__s_PartialFunction__scg_CanBuildFrom__O(mergedByModVer, pf$2, bf$6))
 });
 $c_Lcoursier_core_Resolution$.prototype.substituteProps__T__sci_Map__T = (function(s, properties) {
@@ -37385,17 +37508,21 @@ $c_Lcoursier_core_Resolution$.prototype.withProperties__sc_Seq__sci_Map__sc_Seq 
         var x$1 = new $c_Lcoursier_core_Module().init___T__T__sci_Map(organization, name, attributes);
         var s = dep.version$1;
         var x$2 = $this.substituteProps__T__sci_Map__T(s, properties$1);
+        var this$7 = dep.publication$1;
+        new $c_Lcoursier_core_Attributes().init___T__T(this$7.type$1, this$7.classifier$1);
         $m_Lcoursier_core_Type$();
-        var $$this$2 = dep.attributes$1.type$1;
+        var this$8 = dep.publication$1;
+        var $$this$2 = new $c_Lcoursier_core_Attributes().init___T__T(this$8.type$1, this$8.classifier$1).type$1;
         var type = $this.substituteProps__T__sci_Map__T($$this$2, properties$1);
         $m_Lcoursier_core_Classifier$();
-        var $$this$3 = dep.attributes$1.classifier$1;
+        var this$10 = dep.publication$1;
+        var $$this$3 = new $c_Lcoursier_core_Attributes().init___T__T(this$10.type$1, this$10.classifier$1).classifier$1;
         var classifier = $this.substituteProps__T__sci_Map__T($$this$3, properties$1);
         var x$3 = new $c_Lcoursier_core_Attributes().init___T__T(type, classifier);
         $m_Lcoursier_core_Configuration$();
         var $$this$4 = dep.configuration$1;
         var x$4 = $this.substituteProps__T__sci_Map__T($$this$4, properties$1);
-        var this$14 = dep.exclusions$1;
+        var this$17 = dep.exclusions$1;
         var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$7$1, properties$3) {
           return (function(x0$2$2) {
             var x0$2 = $as_T2(x0$2$2);
@@ -37408,20 +37535,20 @@ $c_Lcoursier_core_Resolution$.prototype.withProperties__sc_Seq__sci_Map__sc_Seq 
             }
           })
         })($this, properties$1));
-        var this$13 = $m_sci_Set$();
-        var bf = new $c_scg_GenSetFactory$$anon$1().init___scg_GenSetFactory(this$13);
-        var x$5 = $as_sci_Set($f_sc_TraversableLike__map__F1__scg_CanBuildFrom__O(this$14, f, bf));
+        var this$16 = $m_sci_Set$();
+        var bf = new $c_scg_GenSetFactory$$anon$1().init___scg_GenSetFactory(this$16);
+        var x$5 = $as_sci_Set($f_sc_TraversableLike__map__F1__scg_CanBuildFrom__O(this$17, f, bf));
         var x$6 = dep.optional$1;
         var x$7 = dep.transitive$1;
-        var y = new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(x$1, x$2, x$4, x$5, x$3, x$6, x$7);
+        var y = dep.copy__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(x$1, x$2, x$4, x$5, x$3, x$6, x$7);
         return new $c_T2().init___O__O(self, y)
       } else {
         throw new $c_s_MatchError().init___O(x0$1)
       }
     })
   })(this, properties));
-  var this$16 = $m_sc_Seq$();
-  return $as_sc_Seq(dependencies.map__F1__scg_CanBuildFrom__O(jsx$1, this$16.ReusableCBFInstance$2))
+  var this$19 = $m_sc_Seq$();
+  return $as_sc_Seq(dependencies.map__F1__scg_CanBuildFrom__O(jsx$1, this$19.ReusableCBFInstance$2))
 });
 $c_Lcoursier_core_Resolution$.prototype.substitute__p1__sc_Seq__sc_Seq = (function(properties0) {
   _substitute: while (true) {
@@ -37489,9 +37616,10 @@ $c_Lcoursier_core_Resolution$.prototype.finalDependencies__Lcoursier_core_Depend
           var x$3 = dep0.version$1;
           var x$4 = dep0.configuration$1;
           var x$5 = dep0.exclusions$1;
-          var x$6 = dep0.attributes$1;
+          var this$3 = dep0.publication$1;
+          var x$6 = new $c_Lcoursier_core_Attributes().init___T__T(this$3.type$1, this$3.classifier$1);
           var x$7 = dep0.transitive$1;
-          var dep = new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(x$2, x$3, x$4, x$5, x$6, true, x$7)
+          var dep = dep0.copy__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(x$2, x$3, x$4, x$5, x$6, true, x$7)
         } else {
           var dep = dep0
         };
@@ -37518,10 +37646,11 @@ $c_Lcoursier_core_Resolution$.prototype.finalDependencies__Lcoursier_core_Depend
             var x$9 = dep.module$1;
             var x$10 = dep.version$1;
             var x$11 = dep.exclusions$1;
-            var x$12 = dep.attributes$1;
+            var this$6 = dep.publication$1;
+            var x$12 = new $c_Lcoursier_core_Attributes().init___T__T(this$6.type$1, this$6.classifier$1);
             var x$13 = dep.optional$1;
             var x$14 = dep.transitive$1;
-            var array = [new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(x$9, x$10, depConfig, x$11, x$12, x$13, x$14)];
+            var array = [dep.copy__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(x$9, x$10, depConfig, x$11, x$12, x$13, x$14)];
             return $as_sc_Seq(jsx$2.apply__sc_Seq__sc_GenTraversable(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array)))
           } else {
             return $m_sci_Nil$()
@@ -37532,8 +37661,8 @@ $c_Lcoursier_core_Resolution$.prototype.finalDependencies__Lcoursier_core_Depend
       }
     })
   })(this, from, configurations, keepOpt, actualConfig$2));
-  var this$7 = $m_sc_Seq$();
-  return $as_sc_Seq(jsx$3.flatMap__F1__scg_CanBuildFrom__O(jsx$1, this$7.ReusableCBFInstance$2))
+  var this$9 = $m_sc_Seq$();
+  return $as_sc_Seq(jsx$3.flatMap__F1__scg_CanBuildFrom__O(jsx$1, this$9.ReusableCBFInstance$2))
 });
 $c_Lcoursier_core_Resolution$.prototype.default$1__p1__sci_Set__T__Lcoursier_core_Dependency__sc_Seq = (function(configurations$2, config$2, dep$2) {
   var elem = new $c_Lcoursier_core_Configuration().init___T(config$2);
@@ -37614,10 +37743,11 @@ $c_Lcoursier_core_Resolution$.prototype.depsWithDependencyManagement__sc_Seq__sc
               var x$2 = qual$1.module$1;
               var x$3 = qual$1.configuration$1;
               var x$4 = qual$1.exclusions$1;
-              var x$5$2 = qual$1.attributes$1;
+              var this$9 = qual$1.publication$1;
+              var x$5$2 = new $c_Lcoursier_core_Attributes().init___T__T(this$9.type$1, this$9.classifier$1);
               var x$6 = qual$1.optional$1;
               var x$7 = qual$1.transitive$1;
-              elem$1$1 = new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(x$2, x$1, x$3, x$4, x$5$2, x$6, x$7)
+              elem$1$1 = qual$1.copy__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(x$2, x$1, x$3, x$4, x$5$2, x$6, x$7)
             };
             $m_Lcoursier_core_Configuration$();
             var $$this = $as_T(elem$1);
@@ -37633,10 +37763,11 @@ $c_Lcoursier_core_Resolution$.prototype.depsWithDependencyManagement__sc_Seq__sc
               var x$9 = qual$2.module$1;
               var x$10 = qual$2.version$1;
               var x$11 = qual$2.configuration$1;
-              var x$12 = qual$2.attributes$1;
+              var this$12 = qual$2.publication$1;
+              var x$12 = new $c_Lcoursier_core_Attributes().init___T__T(this$12.type$1, this$12.classifier$1);
               var x$13 = qual$2.optional$1;
               var x$14 = qual$2.transitive$1;
-              elem$1$1 = new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(x$9, x$10, x$11, x$8, x$12, x$13, x$14)
+              elem$1$1 = qual$2.copy__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(x$9, x$10, x$11, x$8, x$12, x$13, x$14)
             };
             if (mgmtDep.optional$1) {
               var qual$3 = $as_Lcoursier_core_Dependency(elem$1$1);
@@ -37645,9 +37776,10 @@ $c_Lcoursier_core_Resolution$.prototype.depsWithDependencyManagement__sc_Seq__sc
               var x$17 = qual$3.version$1;
               var x$18 = qual$3.configuration$1;
               var x$19 = qual$3.exclusions$1;
-              var x$20 = qual$3.attributes$1;
+              var this$13 = qual$3.publication$1;
+              var x$20 = new $c_Lcoursier_core_Attributes().init___T__T(this$13.type$1, this$13.classifier$1);
               var x$21 = qual$3.transitive$1;
-              elem$1$1 = new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(x$16, x$17, x$18, x$19, x$20, x$15, x$21)
+              elem$1$1 = qual$3.copy__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(x$16, x$17, x$18, x$19, x$20, x$15, x$21)
             }
           } else {
             throw new $c_s_MatchError().init___O(x$5)
@@ -37659,8 +37791,8 @@ $c_Lcoursier_core_Resolution$.prototype.depsWithDependencyManagement__sc_Seq__sc
       }
     })
   })(this, dict$lzy, dependencyManagement));
-  var this$11 = $m_sc_Seq$();
-  return $as_sc_Seq(dependencies.map__F1__scg_CanBuildFrom__O(jsx$1, this$11.ReusableCBFInstance$2))
+  var this$14 = $m_sc_Seq$();
+  return $as_sc_Seq(dependencies.map__F1__scg_CanBuildFrom__O(jsx$1, this$14.ReusableCBFInstance$2))
 });
 $c_Lcoursier_core_Resolution$.prototype.mergeVersions__sc_Seq__s_Option = (function(versions) {
   if (versions.isEmpty__Z()) {
@@ -37697,10 +37829,11 @@ $c_Lcoursier_core_Resolution$.prototype.withDefaultConfig__Lcoursier_core_Depend
     var x$2 = dep.module$1;
     var x$3 = dep.version$1;
     var x$4 = dep.exclusions$1;
-    var x$5 = dep.attributes$1;
+    var this$3 = dep.publication$1;
+    var x$5 = new $c_Lcoursier_core_Attributes().init___T__T(this$3.type$1, this$3.classifier$1);
     var x$6 = dep.optional$1;
     var x$7 = dep.transitive$1;
-    return new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(x$2, x$3, x$1, x$4, x$5, x$6, x$7)
+    return dep.copy__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(x$2, x$3, x$1, x$4, x$5, x$6, x$7)
   } else {
     return dep
   }
@@ -38813,7 +38946,7 @@ function $h_Lcoursier_maven_PomParser$$anon$4() {
 }
 $h_Lcoursier_maven_PomParser$$anon$4.prototype = $c_Lcoursier_maven_PomParser$$anon$4.prototype;
 $c_Lcoursier_maven_PomParser$$anon$4.prototype.end__Lcoursier_maven_PomParser$State__V = (function(state) {
-  var d = new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(new $c_Lcoursier_core_Module().init___T__T__sci_Map($as_Lcoursier_core_Organization(state.dependencyGroupIdOpt$1.get__O()).value$1, $as_Lcoursier_core_ModuleName(state.dependencyArtifactIdOpt$1.get__O()).value$1, $m_sci_Map$EmptyMap$()), state.dependencyVersion$1, $m_Lcoursier_core_Configuration$().empty$1, state.dependencyExclusions$1, new $c_Lcoursier_core_Attributes().init___T__T(state.dependencyType$1, state.dependencyClassifier$1), state.dependencyOptional$1, true);
+  var d = $m_Lcoursier_core_Dependency$().apply__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(new $c_Lcoursier_core_Module().init___T__T__sci_Map($as_Lcoursier_core_Organization(state.dependencyGroupIdOpt$1.get__O()).value$1, $as_Lcoursier_core_ModuleName(state.dependencyArtifactIdOpt$1.get__O()).value$1, $m_sci_Map$EmptyMap$()), state.dependencyVersion$1, $m_Lcoursier_core_Configuration$().empty$1, state.dependencyExclusions$1, new $c_Lcoursier_core_Attributes().init___T__T(state.dependencyType$1, state.dependencyClassifier$1), state.dependencyOptional$1, true);
   this.add$2$3.apply__O__O__O__O(state, new $c_Lcoursier_core_Configuration().init___T(state.dependencyScope$1), d)
 });
 $c_Lcoursier_maven_PomParser$$anon$4.prototype.init___sci_List__F3 = (function(prefix$2, add$2) {
@@ -45889,197 +46022,6 @@ var $d_Lcoursier_core_Configuration = new $TypeData().initClass({
 });
 $c_Lcoursier_core_Configuration.prototype.$classData = $d_Lcoursier_core_Configuration;
 /** @constructor */
-function $c_Lcoursier_core_Dependency() {
-  $c_O.call(this);
-  this.moduleVersion$1 = null;
-  this.hashCode$1 = 0;
-  this.module$1 = null;
-  this.version$1 = null;
-  this.configuration$1 = null;
-  this.exclusions$1 = null;
-  this.attributes$1 = null;
-  this.optional$1 = false;
-  this.transitive$1 = false;
-  this.bitmap$0$1 = 0
-}
-$c_Lcoursier_core_Dependency.prototype = new $h_O();
-$c_Lcoursier_core_Dependency.prototype.constructor = $c_Lcoursier_core_Dependency;
-/** @constructor */
-function $h_Lcoursier_core_Dependency() {
-  /*<skip>*/
-}
-$h_Lcoursier_core_Dependency.prototype = $c_Lcoursier_core_Dependency.prototype;
-$c_Lcoursier_core_Dependency.prototype.productPrefix__T = (function() {
-  return "Dependency"
-});
-$c_Lcoursier_core_Dependency.prototype.productArity__I = (function() {
-  return 7
-});
-$c_Lcoursier_core_Dependency.prototype.moduleVersion$lzycompute__p1__T2 = (function() {
-  if (((((1 & this.bitmap$0$1) << 24) >> 24) === 0)) {
-    this.moduleVersion$1 = new $c_T2().init___O__O(this.module$1, this.version$1);
-    this.bitmap$0$1 = (((1 | this.bitmap$0$1) << 24) >> 24)
-  };
-  return this.moduleVersion$1
-});
-$c_Lcoursier_core_Dependency.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else if ($is_Lcoursier_core_Dependency(x$1)) {
-    var Dependency$1 = $as_Lcoursier_core_Dependency(x$1);
-    var x = this.module$1;
-    var x$2 = Dependency$1.module$1;
-    if (((((x === null) ? (x$2 === null) : x.equals__O__Z(x$2)) && (this.version$1 === Dependency$1.version$1)) && (this.configuration$1 === Dependency$1.configuration$1))) {
-      var x$3 = this.exclusions$1;
-      var x$4 = Dependency$1.exclusions$1;
-      var jsx$2 = ((x$3 === null) ? (x$4 === null) : $f_sc_GenSetLike__equals__O__Z(x$3, x$4))
-    } else {
-      var jsx$2 = false
-    };
-    if (jsx$2) {
-      var x$5 = this.attributes$1;
-      var x$6 = Dependency$1.attributes$1;
-      var jsx$1 = ((x$5 === null) ? (x$6 === null) : x$5.equals__O__Z(x$6))
-    } else {
-      var jsx$1 = false
-    };
-    if ((jsx$1 && (this.optional$1 === Dependency$1.optional$1))) {
-      return (this.transitive$1 === Dependency$1.transitive$1)
-    } else {
-      return false
-    }
-  } else {
-    return false
-  }
-});
-$c_Lcoursier_core_Dependency.prototype.productElement__I__O = (function(x$1) {
-  switch (x$1) {
-    case 0: {
-      return this.module$1;
-      break
-    }
-    case 1: {
-      return this.version$1;
-      break
-    }
-    case 2: {
-      return new $c_Lcoursier_core_Configuration().init___T(this.configuration$1);
-      break
-    }
-    case 3: {
-      return this.exclusions$1;
-      break
-    }
-    case 4: {
-      return this.attributes$1;
-      break
-    }
-    case 5: {
-      return this.optional$1;
-      break
-    }
-    case 6: {
-      return this.transitive$1;
-      break
-    }
-    default: {
-      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
-    }
-  }
-});
-$c_Lcoursier_core_Dependency.prototype.hashCode$lzycompute__p1__I = (function() {
-  if (((((2 & this.bitmap$0$1) << 24) >> 24) === 0)) {
-    var this$1 = $as_T7($m_Lcoursier_core_Dependency$().unapply__Lcoursier_core_Dependency__s_Option(this).get__O());
-    var this$3 = $m_s_util_hashing_MurmurHash3$();
-    this.hashCode$1 = this$3.productHash__s_Product__I__I(this$1, (-889275714));
-    this.bitmap$0$1 = (((2 | this.bitmap$0$1) << 24) >> 24)
-  };
-  return this.hashCode$1
-});
-$c_Lcoursier_core_Dependency.prototype.toString__T = (function() {
-  return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
-});
-$c_Lcoursier_core_Dependency.prototype.hashCode__I = (function() {
-  return (((((2 & this.bitmap$0$1) << 24) >> 24) === 0) ? this.hashCode$lzycompute__p1__I() : this.hashCode$1)
-});
-$c_Lcoursier_core_Dependency.prototype.productIterator__sc_Iterator = (function() {
-  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
-});
-$c_Lcoursier_core_Dependency.prototype.init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z = (function(module, version, configuration, exclusions, attributes, optional, transitive) {
-  this.module$1 = module;
-  this.version$1 = version;
-  this.configuration$1 = configuration;
-  this.exclusions$1 = exclusions;
-  this.attributes$1 = attributes;
-  this.optional$1 = optional;
-  this.transitive$1 = transitive;
-  return this
-});
-$c_Lcoursier_core_Dependency.prototype.moduleVersion__T2 = (function() {
-  return (((((1 & this.bitmap$0$1) << 24) >> 24) === 0) ? this.moduleVersion$lzycompute__p1__T2() : this.moduleVersion$1)
-});
-function $is_Lcoursier_core_Dependency(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lcoursier_core_Dependency)))
-}
-function $as_Lcoursier_core_Dependency(obj) {
-  return (($is_Lcoursier_core_Dependency(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "coursier.core.Dependency"))
-}
-function $isArrayOf_Lcoursier_core_Dependency(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lcoursier_core_Dependency)))
-}
-function $asArrayOf_Lcoursier_core_Dependency(obj, depth) {
-  return (($isArrayOf_Lcoursier_core_Dependency(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lcoursier.core.Dependency;", depth))
-}
-var $d_Lcoursier_core_Dependency = new $TypeData().initClass({
-  Lcoursier_core_Dependency: 0
-}, false, "coursier.core.Dependency", {
-  Lcoursier_core_Dependency: 1,
-  O: 1,
-  s_Product: 1,
-  s_Equals: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lcoursier_core_Dependency.prototype.$classData = $d_Lcoursier_core_Dependency;
-/** @constructor */
-function $c_Lcoursier_core_Dependency$() {
-  $c_sr_AbstractFunction7.call(this)
-}
-$c_Lcoursier_core_Dependency$.prototype = new $h_sr_AbstractFunction7();
-$c_Lcoursier_core_Dependency$.prototype.constructor = $c_Lcoursier_core_Dependency$;
-/** @constructor */
-function $h_Lcoursier_core_Dependency$() {
-  /*<skip>*/
-}
-$h_Lcoursier_core_Dependency$.prototype = $c_Lcoursier_core_Dependency$.prototype;
-$c_Lcoursier_core_Dependency$.prototype.init___ = (function() {
-  return this
-});
-$c_Lcoursier_core_Dependency$.prototype.toString__T = (function() {
-  return "Dependency"
-});
-$c_Lcoursier_core_Dependency$.prototype.unapply__Lcoursier_core_Dependency__s_Option = (function(x$0) {
-  return ((x$0 === null) ? $m_s_None$() : new $c_s_Some().init___O(new $c_T7().init___O__O__O__O__O__O__O(x$0.module$1, x$0.version$1, new $c_Lcoursier_core_Configuration().init___T(x$0.configuration$1), x$0.exclusions$1, x$0.attributes$1, x$0.optional$1, x$0.transitive$1)))
-});
-var $d_Lcoursier_core_Dependency$ = new $TypeData().initClass({
-  Lcoursier_core_Dependency$: 0
-}, false, "coursier.core.Dependency$", {
-  Lcoursier_core_Dependency$: 1,
-  sr_AbstractFunction7: 1,
-  O: 1,
-  F7: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lcoursier_core_Dependency$.prototype.$classData = $d_Lcoursier_core_Dependency$;
-var $n_Lcoursier_core_Dependency$ = (void 0);
-function $m_Lcoursier_core_Dependency$() {
-  if ((!$n_Lcoursier_core_Dependency$)) {
-    $n_Lcoursier_core_Dependency$ = new $c_Lcoursier_core_Dependency$().init___()
-  };
-  return $n_Lcoursier_core_Dependency$
-}
-/** @constructor */
 function $c_Lcoursier_core_Extension() {
   $c_O.call(this);
   this.value$1 = null
@@ -47163,6 +47105,77 @@ function $m_Lcoursier_core_Project$() {
   };
   return $n_Lcoursier_core_Project$
 }
+/** @constructor */
+function $c_Lcoursier_core_Publication() {
+  $c_O.call(this);
+  this.name$1 = null;
+  this.type$1 = null;
+  this.ext$1 = null;
+  this.classifier$1 = null
+}
+$c_Lcoursier_core_Publication.prototype = new $h_O();
+$c_Lcoursier_core_Publication.prototype.constructor = $c_Lcoursier_core_Publication;
+/** @constructor */
+function $h_Lcoursier_core_Publication() {
+  /*<skip>*/
+}
+$h_Lcoursier_core_Publication.prototype = $c_Lcoursier_core_Publication.prototype;
+$c_Lcoursier_core_Publication.prototype.productPrefix__T = (function() {
+  return "Publication"
+});
+$c_Lcoursier_core_Publication.prototype.productArity__I = (function() {
+  return 4
+});
+$c_Lcoursier_core_Publication.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else if ($is_Lcoursier_core_Publication(x$1)) {
+    var Publication$1 = $as_Lcoursier_core_Publication(x$1);
+    return ((((this.name$1 === Publication$1.name$1) && (this.type$1 === Publication$1.type$1)) && (this.ext$1 === Publication$1.ext$1)) && (this.classifier$1 === Publication$1.classifier$1))
+  } else {
+    return false
+  }
+});
+$c_Lcoursier_core_Publication.prototype.productElement__I__O = (function(x$1) {
+  switch (x$1) {
+    case 0: {
+      return this.name$1;
+      break
+    }
+    case 1: {
+      return new $c_Lcoursier_core_Type().init___T(this.type$1);
+      break
+    }
+    case 2: {
+      return new $c_Lcoursier_core_Extension().init___T(this.ext$1);
+      break
+    }
+    case 3: {
+      return new $c_Lcoursier_core_Classifier().init___T(this.classifier$1);
+      break
+    }
+    default: {
+      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
+    }
+  }
+});
+$c_Lcoursier_core_Publication.prototype.toString__T = (function() {
+  return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
+});
+$c_Lcoursier_core_Publication.prototype.init___T__T__T__T = (function(name, type, ext, classifier) {
+  this.name$1 = name;
+  this.type$1 = type;
+  this.ext$1 = ext;
+  this.classifier$1 = classifier;
+  return this
+});
+$c_Lcoursier_core_Publication.prototype.hashCode__I = (function() {
+  var this$2 = $m_s_util_hashing_MurmurHash3$();
+  return this$2.productHash__s_Product__I__I(this, (-889275714))
+});
+$c_Lcoursier_core_Publication.prototype.productIterator__sc_Iterator = (function() {
+  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
+});
 function $is_Lcoursier_core_Publication(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lcoursier_core_Publication)))
 }
@@ -47175,6 +47188,17 @@ function $isArrayOf_Lcoursier_core_Publication(obj, depth) {
 function $asArrayOf_Lcoursier_core_Publication(obj, depth) {
   return (($isArrayOf_Lcoursier_core_Publication(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lcoursier.core.Publication;", depth))
 }
+var $d_Lcoursier_core_Publication = new $TypeData().initClass({
+  Lcoursier_core_Publication: 0
+}, false, "coursier.core.Publication", {
+  Lcoursier_core_Publication: 1,
+  O: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lcoursier_core_Publication.prototype.$classData = $d_Lcoursier_core_Publication;
 /** @constructor */
 function $c_Lcoursier_core_Resolution() {
   $c_O.call(this);
@@ -47330,10 +47354,11 @@ $c_Lcoursier_core_Resolution.prototype.eraseVersion__p1__Lcoursier_core_Dependen
   var x$2 = dep.module$1;
   var x$3 = dep.configuration$1;
   var x$4 = dep.exclusions$1;
-  var x$5 = dep.attributes$1;
+  var this$1 = dep.publication$1;
+  var x$5 = new $c_Lcoursier_core_Attributes().init___T__T(this$1.type$1, this$1.classifier$1);
   var x$6 = dep.optional$1;
   var x$7 = dep.transitive$1;
-  return new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(x$2, "", x$3, x$4, x$5, x$6, x$7)
+  return dep.copy__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(x$2, "", x$3, x$4, x$5, x$6, x$7)
 });
 $c_Lcoursier_core_Resolution.prototype.newDependencies__sci_Set = (function() {
   return (((((64 & this.bitmap$0$1) << 24) >> 24) === 0) ? this.newDependencies$lzycompute__p1__sci_Set() : this.newDependencies$1)
@@ -54423,7 +54448,7 @@ $c_Lcoursier_core_Resolution$$anonfun$1.prototype.applyOrElse__T2__F1__O = (func
     var p2 = $as_Lcoursier_core_Configuration(x1.$$und1__O()).value$1;
     var pub = $as_Lcoursier_core_Publication(x1.$$und2__O());
     if (($m_Lcoursier_core_Configuration$().compile$1 === p2)) {
-      return new $c_Lcoursier_core_Type().init___T(pub.type__T())
+      return new $c_Lcoursier_core_Type().init___T(pub.type$1)
     }
   };
   return $default.apply__O__O(x1)
@@ -55514,9 +55539,10 @@ $c_Lcoursier_maven_Pom$$anonfun$4.prototype.applyOrElse__T2__F1__O = (function(x
       var x$3 = dep.version$1;
       var x$4 = dep.configuration$1;
       var x$5 = dep.exclusions$1;
-      var x$6 = dep.attributes$1;
+      var this$3 = dep.publication$1;
+      var x$6 = new $c_Lcoursier_core_Attributes().init___T__T(this$3.type$1, this$3.classifier$1);
       var x$7 = dep.transitive$1;
-      var y = new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(x$2, x$3, x$4, x$5, x$6, false, x$7);
+      var y = dep.copy__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(x$2, x$3, x$4, x$5, x$6, false, x$7);
       return new $c_T2().init___O__O(self, y)
     }
   };
@@ -56485,87 +56511,6 @@ var $d_T4 = new $TypeData().initClass({
   Ljava_io_Serializable: 1
 });
 $c_T4.prototype.$classData = $d_T4;
-/** @constructor */
-function $c_T7() {
-  $c_O.call(this);
-  this.$$und1$1 = null;
-  this.$$und2$1 = null;
-  this.$$und3$1 = null;
-  this.$$und4$1 = null;
-  this.$$und5$1 = null;
-  this.$$und6$1 = null;
-  this.$$und7$1 = null
-}
-$c_T7.prototype = new $h_O();
-$c_T7.prototype.constructor = $c_T7;
-/** @constructor */
-function $h_T7() {
-  /*<skip>*/
-}
-$h_T7.prototype = $c_T7.prototype;
-$c_T7.prototype.productPrefix__T = (function() {
-  return "Tuple7"
-});
-$c_T7.prototype.productArity__I = (function() {
-  return 7
-});
-$c_T7.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else if ($is_T7(x$1)) {
-    var Tuple7$1 = $as_T7(x$1);
-    return (((((($m_sr_BoxesRunTime$().equals__O__O__Z(this.$$und1$1, Tuple7$1.$$und1$1) && $m_sr_BoxesRunTime$().equals__O__O__Z(this.$$und2$1, Tuple7$1.$$und2$1)) && $m_sr_BoxesRunTime$().equals__O__O__Z(this.$$und3$1, Tuple7$1.$$und3$1)) && $m_sr_BoxesRunTime$().equals__O__O__Z(this.$$und4$1, Tuple7$1.$$und4$1)) && $m_sr_BoxesRunTime$().equals__O__O__Z(this.$$und5$1, Tuple7$1.$$und5$1)) && $m_sr_BoxesRunTime$().equals__O__O__Z(this.$$und6$1, Tuple7$1.$$und6$1)) && $m_sr_BoxesRunTime$().equals__O__O__Z(this.$$und7$1, Tuple7$1.$$und7$1))
-  } else {
-    return false
-  }
-});
-$c_T7.prototype.productElement__I__O = (function(n) {
-  return $f_s_Product7__productElement__I__O(this, n)
-});
-$c_T7.prototype.toString__T = (function() {
-  return (((((((((((((("(" + this.$$und1$1) + ",") + this.$$und2$1) + ",") + this.$$und3$1) + ",") + this.$$und4$1) + ",") + this.$$und5$1) + ",") + this.$$und6$1) + ",") + this.$$und7$1) + ")")
-});
-$c_T7.prototype.init___O__O__O__O__O__O__O = (function(_1, _2, _3, _4, _5, _6, _7) {
-  this.$$und1$1 = _1;
-  this.$$und2$1 = _2;
-  this.$$und3$1 = _3;
-  this.$$und4$1 = _4;
-  this.$$und5$1 = _5;
-  this.$$und6$1 = _6;
-  this.$$und7$1 = _7;
-  return this
-});
-$c_T7.prototype.hashCode__I = (function() {
-  var this$2 = $m_s_util_hashing_MurmurHash3$();
-  return this$2.productHash__s_Product__I__I(this, (-889275714))
-});
-$c_T7.prototype.productIterator__sc_Iterator = (function() {
-  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
-});
-function $is_T7(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.T7)))
-}
-function $as_T7(obj) {
-  return (($is_T7(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "scala.Tuple7"))
-}
-function $isArrayOf_T7(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.T7)))
-}
-function $asArrayOf_T7(obj, depth) {
-  return (($isArrayOf_T7(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lscala.Tuple7;", depth))
-}
-var $d_T7 = new $TypeData().initClass({
-  T7: 0
-}, false, "scala.Tuple7", {
-  T7: 1,
-  O: 1,
-  s_Product7: 1,
-  s_Product: 1,
-  s_Equals: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_T7.prototype.$classData = $d_T7;
 /** @constructor */
 function $c_jl_ArrayIndexOutOfBoundsException() {
   $c_jl_IndexOutOfBoundsException.call(this)
