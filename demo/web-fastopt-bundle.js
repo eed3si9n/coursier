@@ -15501,12 +15501,12 @@ $c_Lcoursier_core_Parse$.prototype.versionInterval__T__s_Option = (function(s) {
       return $m_s_None$()
     } else {
       var arg1$2 = this$19.get__O();
-      var x$5 = $as_T2(arg1$2);
-      if ((x$5 === null)) {
-        throw new $c_s_MatchError().init___O(x$5)
+      var x$6 = $as_T2(arg1$2);
+      if ((x$6 === null)) {
+        throw new $c_s_MatchError().init___O(x$6)
       };
-      var toIncluded$1 = x$5.$$und1$mcZ$sp__Z();
-      var s0$1 = $as_T(x$5.$$und2__O());
+      var toIncluded$1 = x$6.$$und1$mcZ$sp__Z();
+      var s0$1 = $as_T(x$6.$$und2__O());
       var this$20 = this.parseBounds$1__p1__Z__Z__T__s_Option(fromIncluded, toIncluded$1, s0$1);
       if (this$20.isEmpty__Z()) {
         return $m_s_None$()
@@ -15648,25 +15648,37 @@ $c_Lcoursier_core_Parse$.prototype.parseBounds$1__p1__Z__Z__T__s_Option = (funct
         var arg1$3 = this$12.get__O();
         var to = $as_s_Option(arg1$3);
         if (from.isEmpty__Z()) {
-          var jsx$3 = true
+          var jsx$5 = true
         } else {
           var arg1$4 = from.get__O();
           var x$3 = $as_Lcoursier_core_Version(arg1$4);
-          var jsx$3 = (!x$3.isEmpty__Z())
+          var jsx$5 = (!x$3.isEmpty__Z())
         };
-        if (jsx$3) {
-          var jsx$2 = from
+        if (jsx$5) {
+          var jsx$4 = from
         } else {
-          var jsx$2 = $m_s_None$()
+          var jsx$4 = $m_s_None$()
         };
         if (to.isEmpty__Z()) {
-          var jsx$1 = true
+          var jsx$3 = true
         } else {
           var arg1$5 = to.get__O();
           var x$4 = $as_Lcoursier_core_Version(arg1$5);
-          var jsx$1 = (!x$4.isEmpty__Z())
+          var jsx$3 = (!x$4.isEmpty__Z())
         };
-        return new $c_s_Some().init___O(new $c_Lcoursier_core_VersionInterval().init___s_Option__s_Option__Z__Z(jsx$2, (jsx$1 ? to : $m_s_None$()), fromIncluded, toIncluded))
+        if (jsx$3) {
+          var jsx$2 = to
+        } else {
+          var jsx$2 = $m_s_None$()
+        };
+        if (from.isEmpty__Z()) {
+          var jsx$1 = true
+        } else {
+          var arg1$6 = from.get__O();
+          var x$5 = $as_Lcoursier_core_Version(arg1$6);
+          var jsx$1 = (!x$5.isEmpty__Z())
+        };
+        return new $c_s_Some().init___O(new $c_Lcoursier_core_VersionInterval().init___s_Option__s_Option__Z__Z(jsx$4, jsx$2, (jsx$1 && fromIncluded), toIncluded))
       }
     }
   } else {
@@ -15686,8 +15698,8 @@ $c_Lcoursier_core_Parse$.prototype.parseBounds$1__p1__Z__Z__T__s_Option = (funct
       if (this$18.isEmpty__Z()) {
         return $m_s_None$()
       } else {
-        var arg1$6 = this$18.get__O();
-        var v$3 = $as_Lcoursier_core_Version(arg1$6);
+        var arg1$7 = this$18.get__O();
+        var v$3 = $as_Lcoursier_core_Version(arg1$7);
         return new $c_s_Some().init___O(new $c_Lcoursier_core_VersionInterval().init___s_Option__s_Option__Z__Z(new $c_s_Some().init___O(v$3), new $c_s_Some().init___O(v$3), fromIncluded, toIncluded))
       }
     } else {
