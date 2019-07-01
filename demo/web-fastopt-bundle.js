@@ -15459,7 +15459,7 @@ function $h_Lcoursier_core_Parse$() {
 $h_Lcoursier_core_Parse$.prototype = $c_Lcoursier_core_Parse$.prototype;
 $c_Lcoursier_core_Parse$.prototype.init___ = (function() {
   $n_Lcoursier_core_Parse$ = this;
-  var this$2 = new $c_sci_StringOps().init___T("(.*[^.-])[.-]?[+]");
+  var this$2 = new $c_sci_StringOps().init___T("(.*[^.-])([.-]?)[+]");
   var groupNames = $m_sci_Nil$();
   var $$this = this$2.repr$1;
   this.latestSubRevision$1 = new $c_s_util_matching_Regex().init___T__sc_Seq($$this, groupNames);
@@ -15501,12 +15501,12 @@ $c_Lcoursier_core_Parse$.prototype.versionInterval__T__s_Option = (function(s) {
       return $m_s_None$()
     } else {
       var arg1$2 = this$19.get__O();
-      var x$6 = $as_T2(arg1$2);
-      if ((x$6 === null)) {
-        throw new $c_s_MatchError().init___O(x$6)
+      var x$7 = $as_T2(arg1$2);
+      if ((x$7 === null)) {
+        throw new $c_s_MatchError().init___O(x$7)
       };
-      var toIncluded$1 = x$6.$$und1$mcZ$sp__Z();
-      var s0$1 = $as_T(x$6.$$und2__O());
+      var toIncluded$1 = x$7.$$und1$mcZ$sp__Z();
+      var s0$1 = $as_T(x$7.$$und2__O());
       var this$20 = this.parseBounds$1__p1__Z__Z__T__s_Option(fromIncluded, toIncluded$1, s0$1);
       if (this$20.isEmpty__Z()) {
         return $m_s_None$()
@@ -15618,8 +15618,8 @@ $c_Lcoursier_core_Parse$.prototype.parseBounds$1__p1__Z__Z__T__s_Option = (funct
         var this$9 = $m_s_None$()
       } else {
         var arg1 = this$8.get__O();
-        var x$1 = $as_Lcoursier_core_Version(arg1);
-        var this$9 = new $c_s_Some().init___O(new $c_s_Some().init___O(x$1))
+        var x$2 = $as_Lcoursier_core_Version(arg1);
+        var this$9 = new $c_s_Some().init___O(new $c_s_Some().init___O(x$2))
       }
     };
     if (this$9.isEmpty__Z()) {
@@ -15638,8 +15638,8 @@ $c_Lcoursier_core_Parse$.prototype.parseBounds$1__p1__Z__Z__T__s_Option = (funct
           var this$12 = $m_s_None$()
         } else {
           var arg1$2 = this$11.get__O();
-          var x$2 = $as_Lcoursier_core_Version(arg1$2);
-          var this$12 = new $c_s_Some().init___O(new $c_s_Some().init___O(x$2))
+          var x$3 = $as_Lcoursier_core_Version(arg1$2);
+          var this$12 = new $c_s_Some().init___O(new $c_s_Some().init___O(x$3))
         }
       };
       if (this$12.isEmpty__Z()) {
@@ -15651,8 +15651,8 @@ $c_Lcoursier_core_Parse$.prototype.parseBounds$1__p1__Z__Z__T__s_Option = (funct
           var jsx$5 = true
         } else {
           var arg1$4 = from.get__O();
-          var x$3 = $as_Lcoursier_core_Version(arg1$4);
-          var jsx$5 = (!x$3.isEmpty__Z())
+          var x$4 = $as_Lcoursier_core_Version(arg1$4);
+          var jsx$5 = (!x$4.isEmpty__Z())
         };
         if (jsx$5) {
           var jsx$4 = from
@@ -15663,8 +15663,8 @@ $c_Lcoursier_core_Parse$.prototype.parseBounds$1__p1__Z__Z__T__s_Option = (funct
           var jsx$3 = true
         } else {
           var arg1$5 = to.get__O();
-          var x$4 = $as_Lcoursier_core_Version(arg1$5);
-          var jsx$3 = (!x$4.isEmpty__Z())
+          var x$5 = $as_Lcoursier_core_Version(arg1$5);
+          var jsx$3 = (!x$5.isEmpty__Z())
         };
         if (jsx$3) {
           var jsx$2 = to
@@ -15675,8 +15675,8 @@ $c_Lcoursier_core_Parse$.prototype.parseBounds$1__p1__Z__Z__T__s_Option = (funct
           var jsx$1 = true
         } else {
           var arg1$6 = from.get__O();
-          var x$5 = $as_Lcoursier_core_Version(arg1$6);
-          var jsx$1 = (!x$5.isEmpty__Z())
+          var x$6 = $as_Lcoursier_core_Version(arg1$6);
+          var jsx$1 = (!x$6.isEmpty__Z())
         };
         return new $c_s_Some().init___O(new $c_Lcoursier_core_VersionInterval().init___s_Option__s_Option__Z__Z(jsx$4, jsx$2, (jsx$1 && fromIncluded), toIncluded))
       }
@@ -15784,7 +15784,7 @@ $c_Lcoursier_core_Parse$.prototype.ivyLatestSubRevisionInterval__T__s_Option = (
   if ((!o7.isEmpty__Z())) {
     if ((o7.get__O() !== null)) {
       var this$1 = $as_sc_LinearSeqOptimized(o7.get__O());
-      var jsx$1 = ($f_sc_LinearSeqOptimized__lengthCompare__I__I(this$1, 1) === 0)
+      var jsx$1 = ($f_sc_LinearSeqOptimized__lengthCompare__I__I(this$1, 2) === 0)
     } else {
       var jsx$1 = false
     }
@@ -15794,73 +15794,57 @@ $c_Lcoursier_core_Parse$.prototype.ivyLatestSubRevisionInterval__T__s_Option = (
   if (jsx$1) {
     var this$2 = $as_sc_LinearSeqOptimized(o7.get__O());
     var prefix = $as_T($f_sc_LinearSeqOptimized__apply__I__O(this$2, 0));
-    var this$3 = this.version__T__s_Option(prefix);
+    var this$3 = $as_sc_LinearSeqOptimized(o7.get__O());
+    var delim = $as_T($f_sc_LinearSeqOptimized__apply__I__O(this$3, 1));
+    var this$4 = this.version__T__s_Option(prefix);
     var p = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this) {
       return (function(from$2) {
         var from = $as_Lcoursier_core_Version(from$2);
         return from.rawItems__sc_Seq().nonEmpty__Z()
       })
     })(this));
-    var this$4 = new $c_s_Option$WithFilter().init___s_Option__F1(this$3, p);
-    var this$5 = this$4.$$outer$1;
-    var p$1 = this$4.p$1;
-    var this$6 = ((this$5.isEmpty__Z() || $uZ(p$1.apply__O__O(this$5.get__O()))) ? this$5 : $m_s_None$());
-    if (this$6.isEmpty__Z()) {
+    var this$5 = new $c_s_Option$WithFilter().init___s_Option__F1(this$4, p);
+    var this$6 = this$5.$$outer$1;
+    var p$1 = this$5.p$1;
+    var this$7 = ((this$6.isEmpty__Z() || $uZ(p$1.apply__O__O(this$6.get__O()))) ? this$6 : $m_s_None$());
+    if (this$7.isEmpty__Z()) {
+      var this$9 = $m_s_None$()
+    } else {
+      var arg1 = this$7.get__O();
+      var from$3 = $as_Lcoursier_core_Version(arg1);
+      if ((delim === null)) {
+        throw new $c_jl_NullPointerException().init___()
+      };
+      var max = (((delim === "") ? "." : delim) + "max");
+      var this$9 = new $c_s_Some().init___O(new $c_T2().init___O__O(from$3, max))
+    };
+    if (this$9.isEmpty__Z()) {
       return $m_s_None$()
     } else {
-      var arg1 = this$6.get__O();
-      var from$3 = $as_Lcoursier_core_Version(arg1);
-      var this$7 = new $c_s_Some().init___O(from$3.rawItems__sc_Seq().last__O());
-      var pf = new $c_Lcoursier_core_Parse$$anonfun$$nestedInanonfun$ivyLatestSubRevisionInterval$2$1().init___();
-      var this$8 = new $c_s_PartialFunction$Lifted().init___s_PartialFunction(pf);
-      var v1 = this$7.value$2;
-      var this$9 = this$8.apply__O__s_Option(v1);
-      var p$2 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this$1, from$1) {
-        return (function(last$2) {
-          var last = $as_Lcoursier_core_Version$Numeric(last$2);
-          return $m_sjsr_RuntimeString$().endsWith__T__T__Z(from$1.repr$1, last.repr__T())
+      var arg1$1 = this$9.get__O();
+      var x$1 = $as_T2(arg1$1);
+      if ((x$1 === null)) {
+        throw new $c_s_MatchError().init___O(x$1)
+      };
+      var from$1 = $as_Lcoursier_core_Version(x$1.$$und1__O());
+      var max$1 = $as_T(x$1.$$und2__O());
+      var this$10 = $m_Lcoursier_core_Parse$().version__T__s_Option((("" + prefix) + max$1));
+      var p$2 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this$1, from$4) {
+        return (function(to$2) {
+          var to = $as_Lcoursier_core_Version(to$2);
+          return $m_sr_BoxesRunTime$().equals__O__O__Z(from$4.rawItems__sc_Seq().init__O(), $as_sc_TraversableLike(to.rawItems__sc_Seq().dropRight__I__O(1)).init__O())
         })
-      })(this, from$3));
-      var this$10 = new $c_s_Option$WithFilter().init___s_Option__F1(this$9, p$2);
-      var this$11 = this$10.$$outer$1;
-      var p$3 = this$10.p$1;
-      var this$12 = ((this$11.isEmpty__Z() || $uZ(p$3.apply__O__O(this$11.get__O()))) ? this$11 : $m_s_None$());
-      if (this$12.isEmpty__Z()) {
+      })(this, from$1));
+      var this$11 = new $c_s_Option$WithFilter().init___s_Option__F1(this$10, p$2);
+      var this$12 = this$11.$$outer$1;
+      var p$3 = this$11.p$1;
+      var this$13 = ((this$12.isEmpty__Z() || $uZ(p$3.apply__O__O(this$12.get__O()))) ? this$12 : $m_s_None$());
+      if (this$13.isEmpty__Z()) {
         return $m_s_None$()
       } else {
-        var arg1$1 = this$12.get__O();
-        var last$3 = $as_Lcoursier_core_Version$Numeric(arg1$1);
-        var jsx$2 = $m_Lcoursier_core_Parse$();
-        var x = from$3.repr$1;
-        var this$14 = new $c_sci_StringOps().init___T(x);
-        var suffix = last$3.repr__T();
-        var this$15 = jsx$2.version__T__s_Option(((("" + $f_sci_StringLike__stripSuffix__T__T(this$14, suffix)) + last$3.next__Lcoursier_core_Version$Numeric().repr__T()) + "-a1"));
-        var p$4 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this$2, from$1$1) {
-          return (function(to$2) {
-            var to = $as_Lcoursier_core_Version(to$2);
-            return $m_sr_BoxesRunTime$().equals__O__O__Z(from$1$1.rawItems__sc_Seq().init__O(), $as_sc_TraversableLike(to.rawItems__sc_Seq().dropRight__I__O(2)).init__O())
-          })
-        })(this, from$3));
-        var this$18 = new $c_s_Option$WithFilter().init___s_Option__F1(this$15, p$4).withFilter__F1__s_Option$WithFilter(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$1) {
-          return (function(to$3$2) {
-            var to$3 = $as_Lcoursier_core_Version(to$3$2);
-            var x$1 = to$3.rawItems__sc_Seq().takeRight__I__O(2);
-            var jsx$3 = $m_sc_Seq$();
-            var array = [new $c_Lcoursier_core_Version$Literal().init___T("a"), new $c_Lcoursier_core_Version$Number().init___I(1)];
-            var x$2 = jsx$3.apply__sc_Seq__sc_GenTraversable(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
-            return ((x$1 === null) ? (x$2 === null) : $objectEquals(x$1, x$2))
-          })
-        })(this)));
-        var this$19 = this$18.$$outer$1;
-        var p$5 = this$18.p$1;
-        var this$20 = ((this$19.isEmpty__Z() || $uZ(p$5.apply__O__O(this$19.get__O()))) ? this$19 : $m_s_None$());
-        if (this$20.isEmpty__Z()) {
-          return $m_s_None$()
-        } else {
-          var arg1$2 = this$20.get__O();
-          var to$4 = $as_Lcoursier_core_Version(arg1$2);
-          return new $c_s_Some().init___O(new $c_Lcoursier_core_VersionInterval().init___s_Option__s_Option__Z__Z(new $c_s_Some().init___O(from$3), new $c_s_Some().init___O(to$4), true, false))
-        }
+        var arg1$2 = this$13.get__O();
+        var to$3 = $as_Lcoursier_core_Version(arg1$2);
+        return new $c_s_Some().init___O(new $c_Lcoursier_core_VersionInterval().init___s_Option__s_Option__Z__Z(new $c_s_Some().init___O(from$1), new $c_s_Some().init___O(to$3), true, true))
       }
     }
   };
@@ -15963,7 +15947,11 @@ $c_Lcoursier_core_Resolution$DepMgmt$.prototype.addSeq__sci_Map__sc_Seq__sci_Map
     })
   })(this))))
 });
-$c_Lcoursier_core_Resolution$DepMgmt$.prototype.key__Lcoursier_core_Dependency__T3 = (function(dep) {
+$c_Lcoursier_core_Resolution$DepMgmt$.prototype.add__sci_Map__T2__sci_Map = (function(dict, item) {
+  var key0 = this.key__Lcoursier_core_Dependency__T4($as_Lcoursier_core_Dependency(item.$$und2__O()));
+  return (dict.contains__O__Z(key0) ? dict : dict.$$plus__T2__sci_Map(new $c_T2().init___O__O(key0, item)))
+});
+$c_Lcoursier_core_Resolution$DepMgmt$.prototype.key__Lcoursier_core_Dependency__T4 = (function(dep) {
   var jsx$3 = new $c_Lcoursier_core_Organization().init___T(dep.module$1.organization$1);
   var jsx$2 = new $c_Lcoursier_core_ModuleName().init___T(dep.module$1.name$1);
   $m_Lcoursier_core_Type$();
@@ -15978,11 +15966,8 @@ $c_Lcoursier_core_Resolution$DepMgmt$.prototype.key__Lcoursier_core_Dependency__
     var this$4 = dep.publication$1;
     var jsx$1 = new $c_Lcoursier_core_Type().init___T(new $c_Lcoursier_core_Attributes().init___T__T(this$4.type$1, this$4.classifier$1).type$1)
   };
-  return new $c_T3().init___O__O__O(jsx$3, jsx$2, jsx$1)
-});
-$c_Lcoursier_core_Resolution$DepMgmt$.prototype.add__sci_Map__T2__sci_Map = (function(dict, item) {
-  var key0 = this.key__Lcoursier_core_Dependency__T3($as_Lcoursier_core_Dependency(item.$$und2__O()));
-  return (dict.contains__O__Z(key0) ? dict : dict.$$plus__T2__sci_Map(new $c_T2().init___O__O(key0, item)))
+  var this$5 = dep.publication$1;
+  return new $c_T4().init___O__O__O__O(jsx$3, jsx$2, jsx$1, new $c_Lcoursier_core_Classifier().init___T(new $c_Lcoursier_core_Attributes().init___T__T(this$5.type$1, this$5.classifier$1).classifier$1))
 });
 var $d_Lcoursier_core_Resolution$DepMgmt$ = new $TypeData().initClass({
   Lcoursier_core_Resolution$DepMgmt$: 0
@@ -28671,13 +28656,6 @@ function $h_s_Option$WithFilter() {
   /*<skip>*/
 }
 $h_s_Option$WithFilter.prototype = $c_s_Option$WithFilter.prototype;
-$c_s_Option$WithFilter.prototype.withFilter__F1__s_Option$WithFilter = (function(q) {
-  return new $c_s_Option$WithFilter().init___s_Option__F1(this.$$outer$1, new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, q$1) {
-    return (function(x$2) {
-      return ($uZ($this.p$1.apply__O__O(x$2)) && $uZ(q$1.apply__O__O(x$2)))
-    })
-  })(this, q)))
-});
 $c_s_Option$WithFilter.prototype.init___s_Option__F1 = (function($$outer, p) {
   this.p$1 = p;
   if (($$outer === null)) {
@@ -37472,7 +37450,7 @@ $c_Lcoursier_core_Resolution$.prototype.addDependencies__sc_Seq__sc_Seq = (funct
             var x0$2 = $as_T2(x0$2$2);
             if ((x0$2 !== null)) {
               var dep = $as_Lcoursier_core_Dependency(x0$2.$$und2__O());
-              var elem = $m_Lcoursier_core_Resolution$DepMgmt$().key__Lcoursier_core_Dependency__T3(dep);
+              var elem = $m_Lcoursier_core_Resolution$DepMgmt$().key__Lcoursier_core_Dependency__T4(dep);
               return (!set$1.contains__O__Z(elem))
             } else {
               throw new $c_s_MatchError().init___O(x0$2)
@@ -37485,7 +37463,7 @@ $c_Lcoursier_core_Resolution$.prototype.addDependencies__sc_Seq__sc_Seq = (funct
             var x0$3 = $as_T2(x0$3$2);
             if ((x0$3 !== null)) {
               var dep$1 = $as_Lcoursier_core_Dependency(x0$3.$$und2__O());
-              return $m_Lcoursier_core_Resolution$DepMgmt$().key__Lcoursier_core_Dependency__T3(dep$1)
+              return $m_Lcoursier_core_Resolution$DepMgmt$().key__Lcoursier_core_Dependency__T4(dep$1)
             } else {
               throw new $c_s_MatchError().init___O(x0$3)
             }
@@ -37730,7 +37708,7 @@ $c_Lcoursier_core_Resolution$.prototype.depsWithDependencyManagement__sc_Seq__sc
         elem$1 = config0;
         var elem$1$1 = null;
         elem$1$1 = dep0;
-        var this$3 = $this.dict$1__p1__sr_LazyRef__sc_Seq__sci_Map(dict$lzy$1, dependencyManagement$1).get__O__s_Option($m_Lcoursier_core_Resolution$DepMgmt$().key__Lcoursier_core_Dependency__T3(dep0));
+        var this$3 = $this.dict$1__p1__sr_LazyRef__sc_Seq__sci_Map(dict$lzy$1, dependencyManagement$1).get__O__s_Option($m_Lcoursier_core_Resolution$DepMgmt$().key__Lcoursier_core_Dependency__T4(dep0));
         var p = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this$1) {
           return (function(check$ifrefutable$1$2) {
             var check$ifrefutable$1 = $as_T2(check$ifrefutable$1$2);
@@ -38067,25 +38045,29 @@ $c_Lcoursier_core_Version$.prototype.postProcess__s_Option__Lcoursier_core_Versi
       while ((!these$1.isEmpty__Z())) {
         var arg1$1 = these$1.head__O();
         var t = $as_T2(arg1$1);
-        var x$1 = t.$$und1__O();
-        var x$2 = $m_Lcoursier_core_Version$Tokenizer$Hyphen$();
-        if (((x$1 !== null) && $objectEquals(x$1, x$2))) {
-          var jsx$3 = true
-        } else {
-          var x$3 = t.$$und1__O();
-          var x$4 = $m_Lcoursier_core_Version$Tokenizer$Dot$();
-          if (((x$3 !== null) && $objectEquals(x$3, x$4))) {
-            var jsx$4 = true
+        if ((!$m_Lcoursier_core_Version$().isMinMax__Lcoursier_core_Version$Item__Z($as_Lcoursier_core_Version$Item(t.$$und2__O())))) {
+          var x$1 = t.$$und1__O();
+          var x$2 = $m_Lcoursier_core_Version$Tokenizer$Hyphen$();
+          if (((x$1 !== null) && $objectEquals(x$1, x$2))) {
+            var jsx$3 = true
           } else {
-            var x$5 = t.$$und1__O();
-            var x$6 = $m_Lcoursier_core_Version$Tokenizer$None$();
-            var jsx$4 = ((x$5 !== null) && $objectEquals(x$5, x$6))
-          };
-          if (jsx$4) {
-            var jsx$3 = (!$m_Lcoursier_core_Version$().isNumeric__Lcoursier_core_Version$Item__Z($as_Lcoursier_core_Version$Item(t.$$und2__O())))
-          } else {
-            var jsx$3 = false
+            var x$3 = t.$$und1__O();
+            var x$4 = $m_Lcoursier_core_Version$Tokenizer$Dot$();
+            if (((x$3 !== null) && $objectEquals(x$3, x$4))) {
+              var jsx$4 = true
+            } else {
+              var x$5 = t.$$und1__O();
+              var x$6 = $m_Lcoursier_core_Version$Tokenizer$None$();
+              var jsx$4 = ((x$5 !== null) && $objectEquals(x$5, x$6))
+            };
+            if (jsx$4) {
+              var jsx$3 = (!$m_Lcoursier_core_Version$().isNumeric__Lcoursier_core_Version$Item__Z($as_Lcoursier_core_Version$Item(t.$$und2__O())))
+            } else {
+              var jsx$3 = false
+            }
           }
+        } else {
+          var jsx$3 = false
         };
         if ((!jsx$3)) {
           var jsx$2 = false;
@@ -38305,6 +38287,20 @@ $c_Lcoursier_core_Version$.prototype.ifFollowedByNumberElse$1__p1__Lcoursier_cor
 });
 $c_Lcoursier_core_Version$.prototype.isNumeric__Lcoursier_core_Version$Item__Z = (function(item) {
   return $is_Lcoursier_core_Version$Numeric(item)
+});
+$c_Lcoursier_core_Version$.prototype.isMinMax__Lcoursier_core_Version$Item__Z = (function(item) {
+  if (((item === $m_Lcoursier_core_Version$Min$()) || (item === $m_Lcoursier_core_Version$Max$()))) {
+    var jsx$1 = true
+  } else {
+    var x$2 = new $c_Lcoursier_core_Version$Literal().init___T("min");
+    var jsx$1 = ((item !== null) && item.equals__O__Z(x$2))
+  };
+  if (jsx$1) {
+    return true
+  } else {
+    var x$4 = new $c_Lcoursier_core_Version$Literal().init___T("max");
+    return ((item !== null) && item.equals__O__Z(x$4))
+  }
 });
 var $d_Lcoursier_core_Version$ = new $TypeData().initClass({
   Lcoursier_core_Version$: 0
@@ -54399,49 +54395,6 @@ var $d_Lcoursier_core_Orders$$anon$3 = new $TypeData().initClass({
 });
 $c_Lcoursier_core_Orders$$anon$3.prototype.$classData = $d_Lcoursier_core_Orders$$anon$3;
 /** @constructor */
-function $c_Lcoursier_core_Parse$$anonfun$$nestedInanonfun$ivyLatestSubRevisionInterval$2$1() {
-  $c_sr_AbstractPartialFunction.call(this)
-}
-$c_Lcoursier_core_Parse$$anonfun$$nestedInanonfun$ivyLatestSubRevisionInterval$2$1.prototype = new $h_sr_AbstractPartialFunction();
-$c_Lcoursier_core_Parse$$anonfun$$nestedInanonfun$ivyLatestSubRevisionInterval$2$1.prototype.constructor = $c_Lcoursier_core_Parse$$anonfun$$nestedInanonfun$ivyLatestSubRevisionInterval$2$1;
-/** @constructor */
-function $h_Lcoursier_core_Parse$$anonfun$$nestedInanonfun$ivyLatestSubRevisionInterval$2$1() {
-  /*<skip>*/
-}
-$h_Lcoursier_core_Parse$$anonfun$$nestedInanonfun$ivyLatestSubRevisionInterval$2$1.prototype = $c_Lcoursier_core_Parse$$anonfun$$nestedInanonfun$ivyLatestSubRevisionInterval$2$1.prototype;
-$c_Lcoursier_core_Parse$$anonfun$$nestedInanonfun$ivyLatestSubRevisionInterval$2$1.prototype.init___ = (function() {
-  return this
-});
-$c_Lcoursier_core_Parse$$anonfun$$nestedInanonfun$ivyLatestSubRevisionInterval$2$1.prototype.applyOrElse__Lcoursier_core_Version$Item__F1__O = (function(x1, $default) {
-  if ($is_Lcoursier_core_Version$Numeric(x1)) {
-    var x2 = $as_Lcoursier_core_Version$Numeric(x1);
-    return x2
-  } else {
-    return $default.apply__O__O(x1)
-  }
-});
-$c_Lcoursier_core_Parse$$anonfun$$nestedInanonfun$ivyLatestSubRevisionInterval$2$1.prototype.isDefinedAt__Lcoursier_core_Version$Item__Z = (function(x1) {
-  return $is_Lcoursier_core_Version$Numeric(x1)
-});
-$c_Lcoursier_core_Parse$$anonfun$$nestedInanonfun$ivyLatestSubRevisionInterval$2$1.prototype.isDefinedAt__O__Z = (function(x) {
-  return this.isDefinedAt__Lcoursier_core_Version$Item__Z($as_Lcoursier_core_Version$Item(x))
-});
-$c_Lcoursier_core_Parse$$anonfun$$nestedInanonfun$ivyLatestSubRevisionInterval$2$1.prototype.applyOrElse__O__F1__O = (function(x, $default) {
-  return this.applyOrElse__Lcoursier_core_Version$Item__F1__O($as_Lcoursier_core_Version$Item(x), $default)
-});
-var $d_Lcoursier_core_Parse$$anonfun$$nestedInanonfun$ivyLatestSubRevisionInterval$2$1 = new $TypeData().initClass({
-  Lcoursier_core_Parse$$anonfun$$nestedInanonfun$ivyLatestSubRevisionInterval$2$1: 0
-}, false, "coursier.core.Parse$$anonfun$$nestedInanonfun$ivyLatestSubRevisionInterval$2$1", {
-  Lcoursier_core_Parse$$anonfun$$nestedInanonfun$ivyLatestSubRevisionInterval$2$1: 1,
-  sr_AbstractPartialFunction: 1,
-  O: 1,
-  F1: 1,
-  s_PartialFunction: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lcoursier_core_Parse$$anonfun$$nestedInanonfun$ivyLatestSubRevisionInterval$2$1.prototype.$classData = $d_Lcoursier_core_Parse$$anonfun$$nestedInanonfun$ivyLatestSubRevisionInterval$2$1;
-/** @constructor */
 function $c_Lcoursier_core_Resolution$$anonfun$1() {
   $c_sr_AbstractPartialFunction.call(this)
 }
@@ -63362,11 +63315,6 @@ $h_Lcoursier_core_Version$BigNumber.prototype = $c_Lcoursier_core_Version$BigNum
 $c_Lcoursier_core_Version$BigNumber.prototype.productPrefix__T = (function() {
   return "BigNumber"
 });
-$c_Lcoursier_core_Version$BigNumber.prototype.repr__T = (function() {
-  var this$1 = this.value$3;
-  var this$2 = this$1.bigInteger$3;
-  return $m_Ljava_math_Conversion$().toDecimalScaledString__Ljava_math_BigInteger__T(this$2)
-});
 $c_Lcoursier_core_Version$BigNumber.prototype.productArity__I = (function() {
   return 1
 });
@@ -63399,19 +63347,11 @@ $c_Lcoursier_core_Version$BigNumber.prototype.toString__T = (function() {
 $c_Lcoursier_core_Version$BigNumber.prototype.order__I = (function() {
   return this.order$3
 });
-$c_Lcoursier_core_Version$BigNumber.prototype.next__Lcoursier_core_Version$Numeric = (function() {
-  return this.next__Lcoursier_core_Version$BigNumber()
-});
 $c_Lcoursier_core_Version$BigNumber.prototype.compareToEmpty__I = (function() {
   var this$2 = this.value$3;
   var this$1 = $m_s_math_BigInt$();
   var that = this$1.apply__I__s_math_BigInt(0);
   return this$2.bigInteger$3.compareTo__Ljava_math_BigInteger__I(that.bigInteger$3)
-});
-$c_Lcoursier_core_Version$BigNumber.prototype.next__Lcoursier_core_Version$BigNumber = (function() {
-  var jsx$1 = this.value$3;
-  var this$1 = $m_s_math_BigInt$();
-  return new $c_Lcoursier_core_Version$BigNumber().init___s_math_BigInt(jsx$1.$$plus__s_math_BigInt__s_math_BigInt(this$1.apply__I__s_math_BigInt(1)))
 });
 $c_Lcoursier_core_Version$BigNumber.prototype.hashCode__I = (function() {
   var this$2 = $m_s_util_hashing_MurmurHash3$();
@@ -63465,15 +63405,8 @@ function $h_Lcoursier_core_Version$Number() {
   /*<skip>*/
 }
 $h_Lcoursier_core_Version$Number.prototype = $c_Lcoursier_core_Version$Number.prototype;
-$c_Lcoursier_core_Version$Number.prototype.next__Lcoursier_core_Version$Number = (function() {
-  return new $c_Lcoursier_core_Version$Number().init___I(((1 + this.value$3) | 0))
-});
 $c_Lcoursier_core_Version$Number.prototype.productPrefix__T = (function() {
   return "Number"
-});
-$c_Lcoursier_core_Version$Number.prototype.repr__T = (function() {
-  var this$1 = this.value$3;
-  return ("" + this$1)
 });
 $c_Lcoursier_core_Version$Number.prototype.productArity__I = (function() {
   return 1
@@ -63504,9 +63437,6 @@ $c_Lcoursier_core_Version$Number.prototype.toString__T = (function() {
 });
 $c_Lcoursier_core_Version$Number.prototype.order__I = (function() {
   return this.order$3
-});
-$c_Lcoursier_core_Version$Number.prototype.next__Lcoursier_core_Version$Numeric = (function() {
-  return this.next__Lcoursier_core_Version$Number()
 });
 $c_Lcoursier_core_Version$Number.prototype.compareToEmpty__I = (function() {
   var x = this.value$3;
@@ -63889,11 +63819,6 @@ $c_s_math_BigInt.prototype.isValidFloat__Z = (function() {
   } else {
     return false
   }
-});
-$c_s_math_BigInt.prototype.$$plus__s_math_BigInt__s_math_BigInt = (function(that) {
-  var this$1 = this.bigInteger$3;
-  var bi = that.bigInteger$3;
-  return new $c_s_math_BigInt().init___Ljava_math_BigInteger($m_Ljava_math_Elementary$().add__Ljava_math_BigInteger__Ljava_math_BigInteger__Ljava_math_BigInteger(this$1, bi))
 });
 $c_s_math_BigInt.prototype.shortValue__S = (function() {
   return ((this.bigInteger$3.intValue__I() << 16) >> 16)
