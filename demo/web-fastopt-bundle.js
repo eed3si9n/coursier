@@ -38452,15 +38452,15 @@ $c_Lcoursier_core_VersionConstraint$.prototype.init___ = (function() {
 });
 $c_Lcoursier_core_VersionConstraint$.prototype.merge__sc_Seq__s_Option = (function(constraints) {
   var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this) {
-    return (function(x$7$2) {
-      var x$7 = $as_Lcoursier_core_VersionConstraint(x$7$2);
-      return x$7.interval$1
+    return (function(x$8$2) {
+      var x$8 = $as_Lcoursier_core_VersionConstraint(x$8$2);
+      return x$8.interval$1
     })
   })(this));
   var this$1 = $m_sc_Seq$();
   var intervals = $as_sc_Seq(constraints.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2));
-  var x$8 = $m_s_Option$().apply__O__s_Option($m_Lcoursier_core_VersionInterval$().zero$1);
-  var intervalOpt = $as_s_Option(intervals.$$div$colon__O__F2__O(x$8, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$2) {
+  var x$9 = $m_s_Option$().apply__O__s_Option($m_Lcoursier_core_VersionInterval$().zero$1);
+  var intervalOpt = $as_s_Option(intervals.$$div$colon__O__F2__O(x$9, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$2) {
     return (function(x0$1$2, x1$1$2) {
       var x0$1 = $as_s_Option(x0$1$2);
       var x1$1 = $as_Lcoursier_core_VersionInterval(x1$1$2);
@@ -38468,8 +38468,8 @@ $c_Lcoursier_core_VersionConstraint$.prototype.merge__sc_Seq__s_Option = (functi
         return $m_s_None$()
       } else {
         var arg1 = x0$1.get__O();
-        var x$9 = $as_Lcoursier_core_VersionInterval(arg1);
-        return x$9.merge__Lcoursier_core_VersionInterval__s_Option(x1$1)
+        var x$10 = $as_Lcoursier_core_VersionInterval(arg1);
+        return x$10.merge__Lcoursier_core_VersionInterval__s_Option(x1$1)
       }
     })
   })(this))));
@@ -38479,9 +38479,9 @@ $c_Lcoursier_core_VersionConstraint$.prototype.merge__sc_Seq__s_Option = (functi
     var arg1$1 = intervalOpt.get__O();
     var interval = $as_Lcoursier_core_VersionInterval(arg1$1);
     var jsx$2 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this$1) {
-      return (function(x$10$2) {
-        var x$10 = $as_Lcoursier_core_VersionConstraint(x$10$2);
-        return x$10.preferred$1
+      return (function(x$11$2) {
+        var x$11 = $as_Lcoursier_core_VersionConstraint(x$11$2);
+        return x$11.preferred$1
       })
     })(this));
     var this$3 = $m_sc_Seq$();
@@ -48736,7 +48736,7 @@ $c_Lcoursier_core_VersionConstraint.prototype.toString__T = (function() {
   return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
 });
 $c_Lcoursier_core_VersionConstraint.prototype.blend__s_Option = (function() {
-  if (this.interval$1.isValid__Z()) {
+  if (this.isValid__Z()) {
     var this$1 = this.preferred$1;
     var p = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this) {
       return (function(version$2) {
@@ -48759,6 +48759,25 @@ $c_Lcoursier_core_VersionConstraint.prototype.blend__s_Option = (function() {
   } else {
     return $m_s_None$()
   }
+});
+$c_Lcoursier_core_VersionConstraint.prototype.isValid__Z = (function() {
+  return (this.interval$1.isValid__Z() && this.preferred$1.forall__F1__Z(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this) {
+    return (function(v$2) {
+      var v = $as_Lcoursier_core_Version(v$2);
+      if ($this.interval$1.contains__Lcoursier_core_Version__Z(v)) {
+        return true
+      } else {
+        var this$1 = $this.interval$1.to$1;
+        if (this$1.isEmpty__Z()) {
+          return true
+        } else {
+          var arg1 = this$1.get__O();
+          var x$7 = $as_Lcoursier_core_Version(arg1);
+          return ($m_Lcoursier_core_Version$().listCompare__sci_List__sci_List__I(v.items__sci_List(), x$7.items__sci_List()) <= 0)
+        }
+      }
+    })
+  })(this))))
 });
 $c_Lcoursier_core_VersionConstraint.prototype.hashCode__I = (function() {
   var this$2 = $m_s_util_hashing_MurmurHash3$();
