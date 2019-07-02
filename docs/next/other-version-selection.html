@@ -3,17 +3,17 @@
  <head>
   <meta charSet="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>resolve · Coursier</title>
+  <title>Version selection · Coursier</title>
   <meta name="viewport" content="width=device-width">
   <meta name="generator" content="Docusaurus">
-  <meta name="description" content="<p>The <code>resolve</code> command resolves then prints the transitive dependencies of one</p>
+  <meta name="description" content="<p>This page aims at describing how versions are reconciled in coursier,</p>
 ">
   <meta name="docsearch:version" content="next">
   <meta name="docsearch:language" content="en">
-  <meta property="og:title" content="resolve · Coursier">
+  <meta property="og:title" content="Version selection · Coursier">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://get-coursier.io/">
-  <meta property="og:description" content="<p>The <code>resolve</code> command resolves then prints the transitive dependencies of one</p>
+  <meta property="og:description" content="<p>This page aims at describing how versions are reconciled in coursier,</p>
 ">
   <meta name="twitter:card" content="summary">
   <link rel="shortcut icon" href="../../../undefined">
@@ -58,7 +58,7 @@
            <div class="line3"></div>
           </div>
          </div>
-         <h2><i>›</i><span>Command-line</span></h2>
+         <h2><i>›</i><span>Other</span></h2>
          <div class="tocToggler" id="tocToggler">
           <i class="icon-toc"></i>
          </div>
@@ -83,7 +83,7 @@
           <h3 class="navGroupCategoryTitle">Command-line</h3>
           <ul class="">
            <li class="navListItem"><a class="navItem" href="../../../docs/next/cli-overview">Overview</a></li>
-           <li class="navListItem navListItemActive"><a class="navItem" href="../../../docs/next/cli-resolve">resolve</a></li>
+           <li class="navListItem"><a class="navItem" href="../../../docs/next/cli-resolve">resolve</a></li>
            <li class="navListItem"><a class="navItem" href="../../../docs/next/cli-fetch">fetch</a></li>
            <li class="navListItem"><a class="navItem" href="../../../docs/next/cli-launch">launch</a></li>
            <li class="navListItem"><a class="navItem" href="../../../docs/next/cli-bootstrap">bootstrap</a></li>
@@ -109,7 +109,7 @@
            <li class="navListItem"><a class="navItem" href="../../../docs/next/json-report">JSON report</a></li>
            <li class="navListItem"><a class="navItem" href="../../../docs/next/extra">Extra</a></li>
            <li class="navListItem"><a class="navItem" href="../../../docs/next/limitations">Limitations</a></li>
-           <li class="navListItem"><a class="navItem" href="../../../docs/next/other-version-selection">Version selection</a></li>
+           <li class="navListItem navListItemActive"><a class="navItem" href="../../../docs/next/other-version-selection">Version selection</a></li>
            <li class="navListItem"><a class="navItem" href="../../../docs/next/faq">FAQ</a></li>
           </ul>
          </div>
@@ -181,112 +181,109 @@
      <div class="wrapper">
       <div class="post">
        <header class="postHeader">
-        <a class="edit-page-link button" href="https://github.com/coursier/coursier/edit/master/doc/docs/cli-resolve.md" target="_blank" rel="noreferrer noopener">Edit</a>
-        <h1 class="postHeaderTitle">resolve</h1>
+        <a class="edit-page-link button" href="https://github.com/coursier/coursier/edit/master/doc/docs/other-version-selection.md" target="_blank" rel="noreferrer noopener">Edit</a>
+        <h1 class="postHeaderTitle">Version selection</h1>
        </header>
        <article>
         <div>
-         <span><p>The <code>resolve</code> command resolves then prints the transitive dependencies of one or more dependencies.</p> <p>Use like</p> <pre><code class="hljs css language-bash">$ coursier resolve org.http4s:http4s-dsl_2.12:0.18.21
-co.fs2:fs2-core_2.12:0.10.6:default
-co.fs2:fs2-io_2.12:0.10.6:default
-co.fs2:fs2-scodec_2.12:0.10.6:default
-org.http4s:http4s-core_2.12:0.18.21:default
-org.http4s:http4s-dsl_2.12:0.18.21:default
-org.http4s:http4s-websocket_2.12:0.2.1:default
-org.http4s:parboiled_2.12:1.0.0:default
-org.log4s:log4s_2.12:1.6.1:default
+         <span><p>This page aims at describing how versions are reconciled in coursier, in particular when version intervals are involved.</p> <p>First section details the general algorithm, the ones below illustrate what happens in more specific examples.</p> <h2><a class="anchor" aria-hidden="true" id="principle"></a><a href="other-version-selection.html#principle" aria-hidden="true" class="hash-link">
+            <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+             <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+            </svg></a>Principle</h2> <p>When we depend on several intervals and specific versions of a dependency, we first take the intersection of the intervals. If it's empty, there's a conflict (non overlapping intervals). If no intervals are passed, it's equivalent to have interval <code>(,)</code> (matches all versions).</p> <p>Then specific versions are compared to the resulting interval. Versions below are ignored. Versions above the interval, if any, result in a conflict. If there are versions in the interval, the highest takes over the interval.</p> <p>This results in either an interval, or a specific version.</p> <p>In the latter case, that resulting version is selected. In the case of a resulting interval, the available versions are listed, and the highest in the interval is selected.</p> <h2><a class="anchor" aria-hidden="true" id="latest-wins"></a><a href="other-version-selection.html#latest-wins" aria-hidden="true" class="hash-link">
+            <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+             <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+            </svg></a>Latest wins</h2> <p>If we depend on several versions of a dependency, the latest version is selected. It doesn't matter whether that version was depended on directly, or only via transitive dependencies.</p> <p>If we depend on version <code>1.0</code>, <code>1.1</code>, and <code>1.2</code>, version <code>1.2</code> gets selected.</p> <p>For example, argonaut-shapeless <code>1.2.0-M11</code> depends on shapeless <code>2.3.3</code>. If we depend on both argonaut-shapeless <code>1.2.0-M11</code> and shapeless <code>2.3.2</code>, shapeless <code>2.3.3</code> gets selected:</p> <pre><code class="hljs css language-bash">$ coursier resolve \
+    com.github.alexarchambault:argonaut-shapeless_6.2_2.12:1.2.0-M11 \
+    com.chuusai:shapeless_2.12:2.3.2
+com.chuusai:shapeless_2.12:2.3.3:default
+com.github.alexarchambault:argonaut-shapeless_6.2_2.12:1.2.0-M11:default
+io.argonaut:argonaut_2.12:6.2.3:default
+org.scala-lang:scala-library:2.12.8:default
+org.scala-lang:scala-reflect:2.12.8:default
+org.typelevel:macro-compat_2.12:1.1.1:default
+</code></pre> <p>This goes the other way around too: argonaut-shapeless <code>1.2.0-M7</code> depends on shapeless <code>2.3.2</code>. If we depend on both argonaut-shapeless <code>1.2.0-M7</code> and shapeless <code>2.3.3</code>, shapeless <code>2.3.3</code> gets selected:</p> <pre><code class="hljs css language-bash">$ coursier resolve \
+    com.github.alexarchambault:argonaut-shapeless_6.2_2.12:1.2.0-M7 \
+    com.chuusai:shapeless_2.12:2.3.3
+com.chuusai:shapeless_2.12:2.3.3:default
+com.github.alexarchambault:argonaut-shapeless_6.2_2.12:1.2.0-M7:default
+io.argonaut:argonaut_2.12:6.2:default
+org.scala-lang:scala-library:2.12.4:default
+org.scala-lang:scala-reflect:2.12.1:default
+org.typelevel:macro-compat_2.12:1.1.1:default
+</code></pre> <h2><a class="anchor" aria-hidden="true" id="latest-version-in-interval"></a><a href="other-version-selection.html#latest-version-in-interval" aria-hidden="true" class="hash-link">
+            <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+             <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+            </svg></a>Latest version in interval</h2> <p>If we depend on a dependency only via an interval, highest version in the interval gets selected.</p> <p>If we depend on <code>[1.0,2.0)</code> and versions <code>1.0</code>, <code>1.1</code>, and <code>1.2</code>, are available, then version <code>1.2</code> gets selected.</p> <p>For example, as of writing this, <code>2.13.0</code> is the latest scala version. It gets selected if we depend on scala-library <code>[2.12,)</code>:</p> <pre><code class="hljs css language-bash">$ coursier resolve <span class="hljs-string">'org.scala-lang:scala-library:[2.12,)'</span>
+org.scala-lang:scala-library:2.13.0:default
+</code></pre> <p><code>2.12+</code> corresponds to all <code>2.12.x</code> versions, starting from <code>2.12.0</code>. As of writing this, this selects version <code>2.12.8</code>, the latest <code>2.12</code> scala version:</p> <pre><code class="hljs css language-bash">$ coursier resolve <span class="hljs-string">'org.scala-lang:scala-library:2.12+'</span>
+org.scala-lang:scala-library:2.12.8:default
+</code></pre> <h2><a class="anchor" aria-hidden="true" id="specific-version-over-intervals"></a><a href="other-version-selection.html#specific-version-over-intervals" aria-hidden="true" class="hash-link">
+            <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+             <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+            </svg></a>Specific version over intervals</h2> <p>If we depend on both a version interval and a specific version, the specific version gets selected.</p> <p>If we depend on <code>[1.0,2.0)</code> and <code>1.2</code>, version <code>1.2</code> gets selected.</p> <p>For example:</p> <pre><code class="hljs css language-bash">$ coursier resolve \
+    <span class="hljs-string">'org.scala-lang:scala-library:2.12+'</span> \
+    org.scala-lang:scala-library:2.12.4
+org.scala-lang:scala-library:2.12.4:default
+</code></pre> <p>That's provided the specific version lies in the interval. If it's below, it's ignored. If it's above, we get a conflict.</p> <p>If we depend on <code>[1.0,2.0)</code> and <code>2.1</code>, we get a conflict.</p> <p>For example:</p> <pre><code class="hljs css language-bash">$ coursier resolve \
+    <span class="hljs-string">'org.scala-lang:scala-library:2.12+'</span> \
+    org.scala-lang:scala-library:2.13.0
+Resolution error: Conflicting dependencies:
+org.scala-lang:scala-library:2.12+:default(compile)
+org.scala-lang:scala-library:2.13.0:default(compile)
+</code></pre> <p>If the specific version lies below the interval, it is ignored.</p> <p>If we depend on <code>[1.0,2.0)</code> and <code>0.9</code>, and <code>1.0</code> / <code>1.1</code> / <code>1.2</code> are available, then <code>0.9</code> is ignored, and <code>1.2</code> is selected.</p> <p>For example, shapeless <code>2.3.2</code> depends on scala-library <code>2.12.0</code>. If we also depend on scala-library <code>[2.12.1,2.12.8]</code>, the interval takes over, even though <code>2.12.0</code> isn't in it:</p> <pre><code class="hljs css language-bash">$ coursier resolve \
+    com.chuusai:shapeless_2.12:2.3.2 \
+    <span class="hljs-string">'org.scala-lang:scala-library:[2.12.1,2.12.8]'</span>
+com.chuusai:shapeless_2.12:2.3.2:default
+org.scala-lang:scala-library:2.12.8:default
+org.typelevel:macro-compat_2.12:1.1.1:default
+</code></pre> <p>If we have both a version in the interval and one below it, the one below is ignored, and the one in the interval gets selected:</p> <pre><code class="hljs css language-bash">$ coursier resolve \
+    com.chuusai:shapeless_2.12:2.3.2 \
+    <span class="hljs-string">'org.scala-lang:scala-library:[2.12.1,2.12.8]'</span> \
+    org.scala-lang:scala-library:2.12.7
+com.chuusai:shapeless_2.12:2.3.2:default
 org.scala-lang:scala-library:2.12.7:default
-org.scala-lang:scala-reflect:2.12.6:default
-org.scodec:scodec-bits_2.12:1.1.6:default
-org.slf4j:slf4j-api:1.7.25:default
-org.typelevel:cats-core_2.12:1.4.0:default
-org.typelevel:cats-effect_2.12:0.10.1:default
-org.typelevel:cats-kernel_2.12:1.4.0:default
-org.typelevel:cats-macros_2.12:1.4.0:default
-org.typelevel:machinist_2.12:0.6.5:default
-</code></pre> <p>The <code>resolve</code> command only relies on metadata, that is <code>*.pom</code> or <code>*.xml</code> files. It doesn't fetch or check the actual artifacts (<code>*.jar</code> files typically). If you're interested in the <code>.jar</code> files or other artifacts, see the <a href="../../../docs/next/cli-fetch"><code>fetch</code> command</a> instead.</p> <h2><a class="anchor" aria-hidden="true" id="tree"></a><a href="cli-resolve.html#tree" aria-hidden="true" class="hash-link">
+org.typelevel:macro-compat_2.12:1.1.1:default
+</code></pre> <h2><a class="anchor" aria-hidden="true" id="several-intervals"></a><a href="other-version-selection.html#several-intervals" aria-hidden="true" class="hash-link">
             <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
              <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-            </svg></a>Tree</h2> <p>The default output of the <code>resolve</code> command is a simple listing of dependencies, currently sorted by organization, then name. When passed the <code>--tree</code> or <code>-t</code> option, it outputs a tree instead, like</p> <pre><code class="hljs css language-bash">$ coursier resolve -t com.github.alexarchambault:<span class="hljs-keyword">case</span>-app_2.12:2.0.0-M5
-  Result:
-└─ com.github.alexarchambault:<span class="hljs-keyword">case</span>-app_2.12:2.0.0-M5
-   ├─ com.github.alexarchambault:<span class="hljs-keyword">case</span>-app-annotations_2.12:2.0.0-M5
-   │  └─ org.scala-lang:scala-library:2.12.7
-   ├─ com.github.alexarchambault:<span class="hljs-keyword">case</span>-app-util_2.12:2.0.0-M5
-   │  ├─ com.chuusai:shapeless_2.12:2.3.3
-   │  │  ├─ org.scala-lang:scala-library:2.12.4 -&gt; 2.12.7
-   │  │  └─ org.typelevel:macro-compat_2.12:1.1.1
-   │  │     └─ org.scala-lang:scala-library:2.12.0 -&gt; 2.12.7
-   │  └─ org.scala-lang:scala-library:2.12.7
-   └─ org.scala-lang:scala-library:2.12.7
-</code></pre> <p>In this tree, each dependency has its own direct dependencies as children, which themselves have their own dependencies as children, this way recursively.</p> <h2><a class="anchor" aria-hidden="true" id="reverse-tree"></a><a href="cli-resolve.html#reverse-tree" aria-hidden="true" class="hash-link">
-            <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-             <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-            </svg></a>Reverse tree</h2> <p>Trees can also be printed the other way around, with dependees as children, via the <code>--reverse-tree</code> or <code>-T</code> options, like</p> <pre><code class="hljs css language-bash">$ coursier resolve -T com.chuusai:shapeless_2.12:2.3.3
-  Result:
-├─ com.chuusai:shapeless_2.12:2.3.3
-├─ org.scala-lang:scala-library:2.12.4
-│  ├─ com.chuusai:shapeless_2.12:2.3.3
-│  └─ org.typelevel:macro-compat_2.12:1.1.1 org.scala-lang:scala-library:2.12.0 -&gt; 2.12.4
-│     └─ com.chuusai:shapeless_2.12:2.3.3
-└─ org.typelevel:macro-compat_2.12:1.1.1
-   └─ com.chuusai:shapeless_2.12:2.3.3
-</code></pre> <h2><a class="anchor" aria-hidden="true" id="what-depends-on"></a><a href="cli-resolve.html#what-depends-on" aria-hidden="true" class="hash-link">
-            <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
-             <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-            </svg></a>What depends on</h2> <p>The printed trees can quickly grow in size (try <code>coursier resolve -T org.apache.spark:spark-sql_2.12:2.4.0</code>). If you're interested in knowing what brings a particular dependency, use the <code>--what-depends-on</code> option, like</p> <pre><code class="hljs css language-bash">$ coursier resolve org.apache.spark:spark-sql_2.12:2.4.0 \
-    --what-depends-on org.htrace:htrace-core
-  Result:
-└─ org.htrace:htrace-core:3.0.4
-   ├─ org.apache.hadoop:hadoop-common:2.6.5
-   │  └─ org.apache.hadoop:hadoop-client:2.6.5
-   │     └─ org.apache.spark:spark-core_2.12:2.4.0
-   │        ├─ org.apache.spark:spark-catalyst_2.12:2.4.0
-   │        │  └─ org.apache.spark:spark-sql_2.12:2.4.0
-   │        └─ org.apache.spark:spark-sql_2.12:2.4.0
-   └─ org.apache.hadoop:hadoop-hdfs:2.6.5
-      └─ org.apache.hadoop:hadoop-client:2.6.5
-         └─ org.apache.spark:spark-core_2.12:2.4.0
-            ├─ org.apache.spark:spark-catalyst_2.12:2.4.0
-            │  └─ org.apache.spark:spark-sql_2.12:2.4.0
-            └─ org.apache.spark:spark-sql_2.12:2.4.0
-</code></pre> <p><code>--what-depends-on</code> can be specified multiple times, like</p> <pre><code class="hljs css language-bash">$ coursier resolve org.apache.spark:spark-sql_2.12:2.4.0 \
-    --what-depends-on org.htrace:htrace-core \
-    --what-depends-on org.json4s:json4s-jackson_2.12
-  Result:
-├─ org.htrace:htrace-core:3.0.4
-│  ├─ org.apache.hadoop:hadoop-common:2.6.5
-│  │  └─ org.apache.hadoop:hadoop-client:2.6.5
-│  │     └─ org.apache.spark:spark-core_2.12:2.4.0
-│  │        ├─ org.apache.spark:spark-catalyst_2.12:2.4.0
-│  │        │  └─ org.apache.spark:spark-sql_2.12:2.4.0
-│  │        └─ org.apache.spark:spark-sql_2.12:2.4.0
-│  └─ org.apache.hadoop:hadoop-hdfs:2.6.5
-│     └─ org.apache.hadoop:hadoop-client:2.6.5
-│        └─ org.apache.spark:spark-core_2.12:2.4.0
-│           ├─ org.apache.spark:spark-catalyst_2.12:2.4.0
-│           │  └─ org.apache.spark:spark-sql_2.12:2.4.0
-│           └─ org.apache.spark:spark-sql_2.12:2.4.0
-└─ org.json4s:json4s-jackson_2.12:3.5.3
-   └─ org.apache.spark:spark-core_2.12:2.4.0
-      ├─ org.apache.spark:spark-catalyst_2.12:2.4.0
-      │  └─ org.apache.spark:spark-sql_2.12:2.4.0
-      └─ org.apache.spark:spark-sql_2.12:2.4.0
+            </svg></a>Several intervals</h2> <p>If we depend on several intervals for a dependency, their intersection is used.</p> <pre><code class="hljs css language-bash">$ coursier resolve \
+    <span class="hljs-string">'org.scala-lang:scala-library:[2.12.1,2.12.7]'</span> \
+    <span class="hljs-string">'org.scala-lang:scala-library:[2.12.2,2.12.8]'</span>
+org.scala-lang:scala-library:2.12.7:default
+</code></pre> <p>Here, <code>[2.12.1,2.12.7]</code> and <code>[2.12.2,2.12.8]</code> is equivalent to just <code>[2.12.2,2.12.7]</code>, which gives version <code>2.12.7</code> at the end.</p> <p>If the intersection of the intervals is empty, we get a conflict:</p> <pre><code class="hljs css language-bash">$ coursier resolve \
+    <span class="hljs-string">'org.scala-lang:scala-library:[2.12.1,2.12.8]'</span> \
+    <span class="hljs-string">'org.scala-lang:scala-library:2.13+'</span>
+Resolution error: Conflicting dependencies:
+org.scala-lang:scala-library:2.13+:default(compile)
+org.scala-lang:scala-library:[2.12.1,2.12.8]:default(compile)
+</code></pre> <p>If several intervals and several specific versions are passed, the intervals are replaced by their intersection. Then the rules above apply.</p> <p>For example,</p> <pre><code class="hljs css language-bash">$ coursier resolve \
+    <span class="hljs-string">'org.scala-lang:scala-library:[2.12.1,2.12.7]'</span> \
+    <span class="hljs-string">'org.scala-lang:scala-library:[2.12.2,2.12.8]'</span> \
+    org.scala-lang:scala-library:2.12.0
+org.scala-lang:scala-library:2.12.7:default
+</code></pre> <pre><code class="hljs css language-bash">$ coursier resolve \
+    <span class="hljs-string">'org.scala-lang:scala-library:[2.12.1,2.12.7]'</span> \
+    <span class="hljs-string">'org.scala-lang:scala-library:[2.12.2,2.12.8]'</span> \
+    org.scala-lang:scala-library:2.12.0 \
+    org.scala-lang:scala-library:2.12.6
+org.scala-lang:scala-library:2.12.6:default
 </code></pre> </span>
         </div>
        </article>
       </div>
       <div class="docs-prevnext">
-       <a class="docs-prev button" href="../../../docs/next/cli-overview"><span class="arrow-prev">← </span><span>Overview</span></a>
-       <a class="docs-next button" href="../../../docs/next/cli-fetch"><span>fetch</span><span class="arrow-next"> →</span></a>
+       <a class="docs-prev button" href="../../../docs/next/limitations"><span class="arrow-prev">← </span><span>Limitations</span></a>
+       <a class="docs-next button" href="../../../docs/next/faq"><span>FAQ</span><span class="arrow-next"> →</span></a>
       </div>
      </div>
     </div>
     <nav class="onPageNav">
      <ul class="toc-headings">
-      <li><a href="cli-resolve.html#tree">Tree</a></li>
-      <li><a href="cli-resolve.html#reverse-tree">Reverse tree</a></li>
-      <li><a href="cli-resolve.html#what-depends-on">What depends on</a></li>
+      <li><a href="other-version-selection.html#principle">Principle</a></li>
+      <li><a href="other-version-selection.html#latest-wins">Latest wins</a></li>
+      <li><a href="other-version-selection.html#latest-version-in-interval">Latest version in interval</a></li>
+      <li><a href="other-version-selection.html#specific-version-over-intervals">Specific version over intervals</a></li>
+      <li><a href="other-version-selection.html#several-intervals">Several intervals</a></li>
      </ul>
     </nav>
    </div>

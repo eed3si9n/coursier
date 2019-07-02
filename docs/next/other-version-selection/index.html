@@ -3,17 +3,17 @@
  <head>
   <meta charSet="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Proxy · Coursier</title>
+  <title>Version selection · Coursier</title>
   <meta name="viewport" content="width=device-width">
   <meta name="generator" content="Docusaurus">
-  <meta name="description" content="<p>By default, coursier relies on <a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html&quot;><code>java.net.HttpURLConnection</code></a></p>
+  <meta name="description" content="<p>This page aims at describing how versions are reconciled in coursier,</p>
 ">
   <meta name="docsearch:version" content="next">
   <meta name="docsearch:language" content="en">
-  <meta property="og:title" content="Proxy · Coursier">
+  <meta property="og:title" content="Version selection · Coursier">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://get-coursier.io/">
-  <meta property="og:description" content="<p>By default, coursier relies on <a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html&quot;><code>java.net.HttpURLConnection</code></a></p>
+  <meta property="og:description" content="<p>This page aims at describing how versions are reconciled in coursier,</p>
 ">
   <meta name="twitter:card" content="summary">
   <link rel="shortcut icon" href="../../../../undefined">
@@ -105,11 +105,11 @@
            <li class="navListItem"><a class="navItem" href="../../../../docs/next/ttl">TTL</a></li>
            <li class="navListItem"><a class="navItem" href="../../../../docs/next/other-repositories">Repositories</a></li>
            <li class="navListItem"><a class="navItem" href="../../../../docs/next/other-credentials">Credentials</a></li>
-           <li class="navListItem navListItemActive"><a class="navItem" href="../../../../docs/next/other-proxy">Proxy</a></li>
+           <li class="navListItem"><a class="navItem" href="../../../../docs/next/other-proxy">Proxy</a></li>
            <li class="navListItem"><a class="navItem" href="../../../../docs/next/json-report">JSON report</a></li>
            <li class="navListItem"><a class="navItem" href="../../../../docs/next/extra">Extra</a></li>
            <li class="navListItem"><a class="navItem" href="../../../../docs/next/limitations">Limitations</a></li>
-           <li class="navListItem"><a class="navItem" href="../../../../docs/next/other-version-selection">Version selection</a></li>
+           <li class="navListItem navListItemActive"><a class="navItem" href="../../../../docs/next/other-version-selection">Version selection</a></li>
            <li class="navListItem"><a class="navItem" href="../../../../docs/next/faq">FAQ</a></li>
           </ul>
          </div>
@@ -181,42 +181,109 @@
      <div class="wrapper">
       <div class="post">
        <header class="postHeader">
-        <a class="edit-page-link button" href="https://github.com/coursier/coursier/edit/master/doc/docs/other-proxy.md" target="_blank" rel="noreferrer noopener">Edit</a>
-        <h1 class="postHeaderTitle">Proxy</h1>
+        <a class="edit-page-link button" href="https://github.com/coursier/coursier/edit/master/doc/docs/other-version-selection.md" target="_blank" rel="noreferrer noopener">Edit</a>
+        <h1 class="postHeaderTitle">Version selection</h1>
        </header>
        <article>
         <div>
-         <span><p>By default, coursier relies on <a href="https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html"><code>java.net.HttpURLConnection</code></a> to handle HTTP requests. <code>java.net.HttpURLConnection</code> automatically picks up <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html">proxy related properties</a>. <code>https.proxyHost</code> and <code>https.proxyPort</code> typically need to be set.</p> <h2><a class="anchor" aria-hidden="true" id="cli"></a><a href="index.html#cli" aria-hidden="true" class="hash-link">
+         <span><p>This page aims at describing how versions are reconciled in coursier, in particular when version intervals are involved.</p> <p>First section details the general algorithm, the ones below illustrate what happens in more specific examples.</p> <h2><a class="anchor" aria-hidden="true" id="principle"></a><a href="index.html#principle" aria-hidden="true" class="hash-link">
             <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
              <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-            </svg></a>CLI</h2> <p>To set one of those properties, run the CLI like</p> <pre><code class="hljs">$ java -<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Dhttps</span>.</span></span>proxyHost=… -<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Dhttps</span>.</span></span>proxyPort=… \
-     -jar <span class="hljs-constructor">$(<span class="hljs-params">which</span> <span class="hljs-params">coursier</span>)</span> <span class="hljs-literal">[<span class="hljs-identifier">args</span>]</span>
-</code></pre> <p>instead of <code>coursier [args]</code>. Alternatively, recent versions of coursier should accept those options prefixed with <code>-J</code>, like</p> <pre><code class="hljs">$ coursier -J-<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Dhttps</span>.</span></span>proxyHost=… -J-<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Dhttps</span>.</span></span>proxyPort=… <span class="hljs-literal">[<span class="hljs-identifier">args</span>]</span>
-</code></pre> <h2><a class="anchor" aria-hidden="true" id="sbt"></a><a href="index.html#sbt" aria-hidden="true" class="hash-link">
+            </svg></a>Principle</h2> <p>When we depend on several intervals and specific versions of a dependency, we first take the intersection of the intervals. If it's empty, there's a conflict (non overlapping intervals). If no intervals are passed, it's equivalent to have interval <code>(,)</code> (matches all versions).</p> <p>Then specific versions are compared to the resulting interval. Versions below are ignored. Versions above the interval, if any, result in a conflict. If there are versions in the interval, the highest takes over the interval.</p> <p>This results in either an interval, or a specific version.</p> <p>In the latter case, that resulting version is selected. In the case of a resulting interval, the available versions are listed, and the highest in the interval is selected.</p> <h2><a class="anchor" aria-hidden="true" id="latest-wins"></a><a href="index.html#latest-wins" aria-hidden="true" class="hash-link">
             <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
              <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-            </svg></a>sbt</h2> <p>Set those properties when starting sbt, like</p> <pre><code class="hljs">$ sbt -<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Dhttps</span>.</span></span>proxyHost=… -<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Dhttps</span>.</span></span>proxyPort=… <span class="hljs-literal">[<span class="hljs-identifier">args</span>]</span>
-</code></pre> <p>Alternatively, pass those by <a href="https://stackoverflow.com/questions/13803459/how-to-use-sbt-from-behind-proxy">setting <code>JAVA_OPTS</code> in the environment</a>.</p> <h2><a class="anchor" aria-hidden="true" id="api"></a><a href="index.html#api" aria-hidden="true" class="hash-link">
+            </svg></a>Latest wins</h2> <p>If we depend on several versions of a dependency, the latest version is selected. It doesn't matter whether that version was depended on directly, or only via transitive dependencies.</p> <p>If we depend on version <code>1.0</code>, <code>1.1</code>, and <code>1.2</code>, version <code>1.2</code> gets selected.</p> <p>For example, argonaut-shapeless <code>1.2.0-M11</code> depends on shapeless <code>2.3.3</code>. If we depend on both argonaut-shapeless <code>1.2.0-M11</code> and shapeless <code>2.3.2</code>, shapeless <code>2.3.3</code> gets selected:</p> <pre><code class="hljs css language-bash">$ coursier resolve \
+    com.github.alexarchambault:argonaut-shapeless_6.2_2.12:1.2.0-M11 \
+    com.chuusai:shapeless_2.12:2.3.2
+com.chuusai:shapeless_2.12:2.3.3:default
+com.github.alexarchambault:argonaut-shapeless_6.2_2.12:1.2.0-M11:default
+io.argonaut:argonaut_2.12:6.2.3:default
+org.scala-lang:scala-library:2.12.8:default
+org.scala-lang:scala-reflect:2.12.8:default
+org.typelevel:macro-compat_2.12:1.1.1:default
+</code></pre> <p>This goes the other way around too: argonaut-shapeless <code>1.2.0-M7</code> depends on shapeless <code>2.3.2</code>. If we depend on both argonaut-shapeless <code>1.2.0-M7</code> and shapeless <code>2.3.3</code>, shapeless <code>2.3.3</code> gets selected:</p> <pre><code class="hljs css language-bash">$ coursier resolve \
+    com.github.alexarchambault:argonaut-shapeless_6.2_2.12:1.2.0-M7 \
+    com.chuusai:shapeless_2.12:2.3.3
+com.chuusai:shapeless_2.12:2.3.3:default
+com.github.alexarchambault:argonaut-shapeless_6.2_2.12:1.2.0-M7:default
+io.argonaut:argonaut_2.12:6.2:default
+org.scala-lang:scala-library:2.12.4:default
+org.scala-lang:scala-reflect:2.12.1:default
+org.typelevel:macro-compat_2.12:1.1.1:default
+</code></pre> <h2><a class="anchor" aria-hidden="true" id="latest-version-in-interval"></a><a href="index.html#latest-version-in-interval" aria-hidden="true" class="hash-link">
             <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
              <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-            </svg></a>API</h2> <p>Ensure the right Java properties are set when running your application, either from the command line when running your application, via</p> <pre><code class="hljs">$ java -<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Dhttps</span>.</span></span>proxyHost=… -<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Dhttps</span>.</span></span>proxyPort=… <span class="hljs-literal">[<span class="hljs-identifier">args</span>]</span>
-</code></pre> <p>or by setting them yourself before anything coursier is run, like</p> <pre><code class="hljs"><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>set<span class="hljs-constructor">Property(<span class="hljs-string">"https.proxyHost"</span>, <span class="hljs-string">"…"</span>)</span>
-<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>set<span class="hljs-constructor">Property(<span class="hljs-string">"https.proxyPort"</span>, <span class="hljs-string">"…"</span>)</span>
+            </svg></a>Latest version in interval</h2> <p>If we depend on a dependency only via an interval, highest version in the interval gets selected.</p> <p>If we depend on <code>[1.0,2.0)</code> and versions <code>1.0</code>, <code>1.1</code>, and <code>1.2</code>, are available, then version <code>1.2</code> gets selected.</p> <p>For example, as of writing this, <code>2.13.0</code> is the latest scala version. It gets selected if we depend on scala-library <code>[2.12,)</code>:</p> <pre><code class="hljs css language-bash">$ coursier resolve <span class="hljs-string">'org.scala-lang:scala-library:[2.12,)'</span>
+org.scala-lang:scala-library:2.13.0:default
+</code></pre> <p><code>2.12+</code> corresponds to all <code>2.12.x</code> versions, starting from <code>2.12.0</code>. As of writing this, this selects version <code>2.12.8</code>, the latest <code>2.12</code> scala version:</p> <pre><code class="hljs css language-bash">$ coursier resolve <span class="hljs-string">'org.scala-lang:scala-library:2.12+'</span>
+org.scala-lang:scala-library:2.12.8:default
+</code></pre> <h2><a class="anchor" aria-hidden="true" id="specific-version-over-intervals"></a><a href="index.html#specific-version-over-intervals" aria-hidden="true" class="hash-link">
+            <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+             <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+            </svg></a>Specific version over intervals</h2> <p>If we depend on both a version interval and a specific version, the specific version gets selected.</p> <p>If we depend on <code>[1.0,2.0)</code> and <code>1.2</code>, version <code>1.2</code> gets selected.</p> <p>For example:</p> <pre><code class="hljs css language-bash">$ coursier resolve \
+    <span class="hljs-string">'org.scala-lang:scala-library:2.12+'</span> \
+    org.scala-lang:scala-library:2.12.4
+org.scala-lang:scala-library:2.12.4:default
+</code></pre> <p>That's provided the specific version lies in the interval. If it's below, it's ignored. If it's above, we get a conflict.</p> <p>If we depend on <code>[1.0,2.0)</code> and <code>2.1</code>, we get a conflict.</p> <p>For example:</p> <pre><code class="hljs css language-bash">$ coursier resolve \
+    <span class="hljs-string">'org.scala-lang:scala-library:2.12+'</span> \
+    org.scala-lang:scala-library:2.13.0
+Resolution error: Conflicting dependencies:
+org.scala-lang:scala-library:2.12+:default(compile)
+org.scala-lang:scala-library:2.13.0:default(compile)
+</code></pre> <p>If the specific version lies below the interval, it is ignored.</p> <p>If we depend on <code>[1.0,2.0)</code> and <code>0.9</code>, and <code>1.0</code> / <code>1.1</code> / <code>1.2</code> are available, then <code>0.9</code> is ignored, and <code>1.2</code> is selected.</p> <p>For example, shapeless <code>2.3.2</code> depends on scala-library <code>2.12.0</code>. If we also depend on scala-library <code>[2.12.1,2.12.8]</code>, the interval takes over, even though <code>2.12.0</code> isn't in it:</p> <pre><code class="hljs css language-bash">$ coursier resolve \
+    com.chuusai:shapeless_2.12:2.3.2 \
+    <span class="hljs-string">'org.scala-lang:scala-library:[2.12.1,2.12.8]'</span>
+com.chuusai:shapeless_2.12:2.3.2:default
+org.scala-lang:scala-library:2.12.8:default
+org.typelevel:macro-compat_2.12:1.1.1:default
+</code></pre> <p>If we have both a version in the interval and one below it, the one below is ignored, and the one in the interval gets selected:</p> <pre><code class="hljs css language-bash">$ coursier resolve \
+    com.chuusai:shapeless_2.12:2.3.2 \
+    <span class="hljs-string">'org.scala-lang:scala-library:[2.12.1,2.12.8]'</span> \
+    org.scala-lang:scala-library:2.12.7
+com.chuusai:shapeless_2.12:2.3.2:default
+org.scala-lang:scala-library:2.12.7:default
+org.typelevel:macro-compat_2.12:1.1.1:default
+</code></pre> <h2><a class="anchor" aria-hidden="true" id="several-intervals"></a><a href="index.html#several-intervals" aria-hidden="true" class="hash-link">
+            <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+             <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+            </svg></a>Several intervals</h2> <p>If we depend on several intervals for a dependency, their intersection is used.</p> <pre><code class="hljs css language-bash">$ coursier resolve \
+    <span class="hljs-string">'org.scala-lang:scala-library:[2.12.1,2.12.7]'</span> \
+    <span class="hljs-string">'org.scala-lang:scala-library:[2.12.2,2.12.8]'</span>
+org.scala-lang:scala-library:2.12.7:default
+</code></pre> <p>Here, <code>[2.12.1,2.12.7]</code> and <code>[2.12.2,2.12.8]</code> is equivalent to just <code>[2.12.2,2.12.7]</code>, which gives version <code>2.12.7</code> at the end.</p> <p>If the intersection of the intervals is empty, we get a conflict:</p> <pre><code class="hljs css language-bash">$ coursier resolve \
+    <span class="hljs-string">'org.scala-lang:scala-library:[2.12.1,2.12.8]'</span> \
+    <span class="hljs-string">'org.scala-lang:scala-library:2.13+'</span>
+Resolution error: Conflicting dependencies:
+org.scala-lang:scala-library:2.13+:default(compile)
+org.scala-lang:scala-library:[2.12.1,2.12.8]:default(compile)
+</code></pre> <p>If several intervals and several specific versions are passed, the intervals are replaced by their intersection. Then the rules above apply.</p> <p>For example,</p> <pre><code class="hljs css language-bash">$ coursier resolve \
+    <span class="hljs-string">'org.scala-lang:scala-library:[2.12.1,2.12.7]'</span> \
+    <span class="hljs-string">'org.scala-lang:scala-library:[2.12.2,2.12.8]'</span> \
+    org.scala-lang:scala-library:2.12.0
+org.scala-lang:scala-library:2.12.7:default
+</code></pre> <pre><code class="hljs css language-bash">$ coursier resolve \
+    <span class="hljs-string">'org.scala-lang:scala-library:[2.12.1,2.12.7]'</span> \
+    <span class="hljs-string">'org.scala-lang:scala-library:[2.12.2,2.12.8]'</span> \
+    org.scala-lang:scala-library:2.12.0 \
+    org.scala-lang:scala-library:2.12.6
+org.scala-lang:scala-library:2.12.6:default
 </code></pre> </span>
         </div>
        </article>
       </div>
       <div class="docs-prevnext">
-       <a class="docs-prev button" href="../../../../docs/next/other-credentials"><span class="arrow-prev">← </span><span>Credentials</span></a>
-       <a class="docs-next button" href="../../../../docs/next/json-report"><span>JSON report</span><span class="arrow-next"> →</span></a>
+       <a class="docs-prev button" href="../../../../docs/next/limitations"><span class="arrow-prev">← </span><span>Limitations</span></a>
+       <a class="docs-next button" href="../../../../docs/next/faq"><span>FAQ</span><span class="arrow-next"> →</span></a>
       </div>
      </div>
     </div>
     <nav class="onPageNav">
      <ul class="toc-headings">
-      <li><a href="index.html#cli">CLI</a></li>
-      <li><a href="index.html#sbt">sbt</a></li>
-      <li><a href="index.html#api">API</a></li>
+      <li><a href="index.html#principle">Principle</a></li>
+      <li><a href="index.html#latest-wins">Latest wins</a></li>
+      <li><a href="index.html#latest-version-in-interval">Latest version in interval</a></li>
+      <li><a href="index.html#specific-version-over-intervals">Specific version over intervals</a></li>
+      <li><a href="index.html#several-intervals">Several intervals</a></li>
      </ul>
     </nav>
    </div>
