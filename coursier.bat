@@ -67,7 +67,7 @@ SET PSEP=;
 
 @REM Start Java program
 :runm2
-SET CMDLINE=%JAVA_EXE% -noverify %JAVA_OPTS% -Dprog.dir="%PROG_DIR:\=\\%" -jar "%JAR_PATH%" %CMD_LINE_ARGS%
+SET CMDLINE=%JAVA_EXE%  %JAVA_OPTS% -Dprog.dir="%PROG_DIR:\=\\%" -jar "%JAR_PATH%" %CMD_LINE_ARGS%
 %CMDLINE%
 if ERRORLEVEL 1 goto error
 goto end
