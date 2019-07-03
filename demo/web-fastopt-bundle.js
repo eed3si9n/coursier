@@ -14653,7 +14653,7 @@ $c_Lcoursier_core_Dependency.prototype.init___Lcoursier_core_Module__T__T__sci_S
 });
 $c_Lcoursier_core_Dependency.prototype.hashCode$lzycompute__p1__I = (function() {
   if (((((2 & this.bitmap$0$1) << 24) >> 24) === 0)) {
-    var code = ((17 + $m_sr_Statics$().anyHash__O__I("coursier.code.Dependency")) | 0);
+    var code = ((17 + $m_sr_Statics$().anyHash__O__I("coursier.core.Dependency")) | 0);
     code = (($imul(37, code) + $m_sr_Statics$().anyHash__O__I(this.module$1)) | 0);
     code = (($imul(37, code) + $m_sr_Statics$().anyHash__O__I(this.version$1)) | 0);
     code = (($imul(37, code) + $m_sr_Statics$().anyHash__O__I(new $c_Lcoursier_core_Configuration().init___T(this.configuration$1))) | 0);
@@ -35132,6 +35132,69 @@ var $d_s_Predef$$anon$1 = new $TypeData().initClass({
   scg_CanBuildFrom: 1
 });
 $c_s_Predef$$anon$1.prototype.$classData = $d_s_Predef$$anon$1;
+function $f_s_Product14__productElement__I__O($thiz, n) {
+  switch (n) {
+    case 0: {
+      return $thiz.$$und1$1;
+      break
+    }
+    case 1: {
+      return $thiz.$$und2$1;
+      break
+    }
+    case 2: {
+      return $thiz.$$und3$1;
+      break
+    }
+    case 3: {
+      return $thiz.$$und4$1;
+      break
+    }
+    case 4: {
+      return $thiz.$$und5$1;
+      break
+    }
+    case 5: {
+      return $thiz.$$und6$1;
+      break
+    }
+    case 6: {
+      return $thiz.$$und7$1;
+      break
+    }
+    case 7: {
+      return $thiz.$$und8$1;
+      break
+    }
+    case 8: {
+      return $thiz.$$und9$1;
+      break
+    }
+    case 9: {
+      return $thiz.$$und10$1;
+      break
+    }
+    case 10: {
+      return $thiz.$$und11$1;
+      break
+    }
+    case 11: {
+      return $thiz.$$und12$1;
+      break
+    }
+    case 12: {
+      return $thiz.$$und13$1;
+      break
+    }
+    case 13: {
+      return $thiz.$$und14$1;
+      break
+    }
+    default: {
+      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + n))
+    }
+  }
+}
 function $f_s_Product2__productElement__I__O($thiz, n) {
   switch (n) {
     case 0: {
@@ -37573,6 +37636,9 @@ $c_Lcoursier_core_Resolution$.prototype.substitute__p1__sc_Seq__sc_Seq = (functi
       return res$1
     }
   }
+});
+$c_Lcoursier_core_Resolution$.prototype.unapply__Lcoursier_core_Resolution__s_Option = (function(x$0) {
+  return ((x$0 === null) ? $m_s_None$() : new $c_s_Some().init___O(new $c_T14().init___O__O__O__O__O__O__O__O__O__O__O__O__O__O(x$0.rootDependencies$1, x$0.dependencies$1, x$0.forceVersions$1, x$0.conflicts$1, x$0.projectCache$1, x$0.errorCache$1, x$0.finalDependenciesCache$1, x$0.filter$1, x$0.osInfo$1, x$0.jdkVersion$1, x$0.userActivations$1, x$0.mapDependencies$1, x$0.extraProperties$1, x$0.forceProperties$1)))
 });
 $c_Lcoursier_core_Resolution$.prototype.finalDependencies__Lcoursier_core_Dependency__Lcoursier_core_Project__sc_Seq = (function(from, project) {
   var properties = project.properties$1.toMap__s_Predef$$less$colon$less__sci_Map($m_s_Predef$().singleton$und$less$colon$less$2);
@@ -47210,6 +47276,7 @@ $c_Lcoursier_core_Publication.prototype.$classData = $d_Lcoursier_core_Publicati
 /** @constructor */
 function $c_Lcoursier_core_Resolution() {
   $c_O.call(this);
+  this.hashCode$1 = 0;
   this.transitiveDependencies$1 = null;
   this.nextDependenciesAndConflicts$1 = null;
   this.missingFromCache$1 = null;
@@ -47243,7 +47310,7 @@ function $h_Lcoursier_core_Resolution() {
 }
 $h_Lcoursier_core_Resolution.prototype = $c_Lcoursier_core_Resolution.prototype;
 $c_Lcoursier_core_Resolution.prototype.missingFromCache$lzycompute__p1__sci_Set = (function() {
-  if (((((4 & this.bitmap$0$1) << 24) >> 24) === 0)) {
+  if (((8 & this.bitmap$0$1) === 0)) {
     var this$2 = this.dependencies$1;
     var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this) {
       return (function(x$10$2) {
@@ -47269,7 +47336,7 @@ $c_Lcoursier_core_Resolution.prototype.missingFromCache$lzycompute__p1__sci_Set 
         return (this$3$1.projectCache$1.contains__O__Z(mod) || this$3$1.errorCache$1.contains__O__Z(mod))
       })
     })(this))));
-    this.bitmap$0$1 = (((4 | this.bitmap$0$1) << 24) >> 24)
+    this.bitmap$0$1 = (8 | this.bitmap$0$1)
   };
   return this.missingFromCache$1
 });
@@ -47369,7 +47436,7 @@ $c_Lcoursier_core_Resolution.prototype.eraseVersion__p1__Lcoursier_core_Dependen
   return dep.copy__Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z__Lcoursier_core_Dependency(x$2, "", x$3, x$4, x$5, x$6, x$7)
 });
 $c_Lcoursier_core_Resolution.prototype.newDependencies__sci_Set = (function() {
-  return (((((64 & this.bitmap$0$1) << 24) >> 24) === 0) ? this.newDependencies$lzycompute__p1__sci_Set() : this.newDependencies$1)
+  return (((128 & this.bitmap$0$1) === 0) ? this.newDependencies$lzycompute__p1__sci_Set() : this.newDependencies$1)
 });
 $c_Lcoursier_core_Resolution.prototype.equals__O__Z = (function(x$1) {
   if ((this === x$1)) {
@@ -47749,7 +47816,7 @@ $c_Lcoursier_core_Resolution.prototype.withDependencyManagement__Lcoursier_core_
   return new $c_Lcoursier_core_Project().init___Lcoursier_core_Module__T__sc_Seq__sci_Map__s_Option__sc_Seq__sc_Seq__sc_Seq__s_Option__s_Option__s_Option__Z__s_Option__sc_Seq__Lcoursier_core_Info(x$20$3, x$17, x$18, x$21$3, x$22$3, x$19, x$23$2, x$24$3, x$25$3, x$26$2, x$16, x$27$3, x$28$3, x$29$3, x$30$3)
 });
 $c_Lcoursier_core_Resolution.prototype.nextDependenciesAndConflicts__T3 = (function() {
-  return (((((2 & this.bitmap$0$1) << 24) >> 24) === 0) ? this.nextDependenciesAndConflicts$lzycompute__p1__T3() : this.nextDependenciesAndConflicts$1)
+  return (((4 & this.bitmap$0$1) === 0) ? this.nextDependenciesAndConflicts$lzycompute__p1__T3() : this.nextDependenciesAndConflicts$1)
 });
 $c_Lcoursier_core_Resolution.prototype.productElement__I__O = (function(x$1) {
   switch (x$1) {
@@ -47815,14 +47882,23 @@ $c_Lcoursier_core_Resolution.prototype.productElement__I__O = (function(x$1) {
   }
 });
 $c_Lcoursier_core_Resolution.prototype.isDone$lzycompute__p1__Z = (function() {
-  if (((((8 & this.bitmap$0$1) << 24) >> 24) === 0)) {
+  if (((16 & this.bitmap$0$1) === 0)) {
     this.isDone$1 = (this.missingFromCache__sci_Set().isEmpty__Z() && this.isFixPoint$1__p1__Z());
-    this.bitmap$0$1 = (((8 | this.bitmap$0$1) << 24) >> 24)
+    this.bitmap$0$1 = (16 | this.bitmap$0$1)
   };
   return this.isDone$1
 });
+$c_Lcoursier_core_Resolution.prototype.hashCode$lzycompute__p1__I = (function() {
+  if (((1 & this.bitmap$0$1) === 0)) {
+    var code = ((17 + $m_sr_Statics$().anyHash__O__I("coursier.core.Resolution")) | 0);
+    code = (($imul(37, code) + $m_sr_Statics$().anyHash__O__I($m_Lcoursier_core_Resolution$().unapply__Lcoursier_core_Resolution__s_Option(this).get__O())) | 0);
+    this.hashCode$1 = $imul(37, code);
+    this.bitmap$0$1 = (1 | this.bitmap$0$1)
+  };
+  return this.hashCode$1
+});
 $c_Lcoursier_core_Resolution.prototype.nextNoMissingUnsafe__p1__Lcoursier_core_Resolution = (function() {
-  return (((((128 & this.bitmap$0$1) << 24) >> 24) === 0) ? this.nextNoMissingUnsafe$lzycompute__p1__Lcoursier_core_Resolution() : this.nextNoMissingUnsafe$1)
+  return (((256 & this.bitmap$0$1) === 0) ? this.nextNoMissingUnsafe$lzycompute__p1__Lcoursier_core_Resolution() : this.nextNoMissingUnsafe$1)
 });
 $c_Lcoursier_core_Resolution.prototype.toString__T = (function() {
   return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
@@ -47846,7 +47922,7 @@ $c_Lcoursier_core_Resolution.prototype.withFinalProperties__p1__Lcoursier_core_P
   return new $c_Lcoursier_core_Project().init___Lcoursier_core_Module__T__sc_Seq__sci_Map__s_Option__sc_Seq__sc_Seq__sc_Seq__s_Option__s_Option__s_Option__Z__s_Option__sc_Seq__Lcoursier_core_Info(x$2, x$3, x$4, x$5, x$6, x$7, x$1, x$8, x$9, x$10, x$11, x$12, x$13, x$14, x$15)
 });
 $c_Lcoursier_core_Resolution.prototype.nextDependenciesAndConflicts$lzycompute__p1__T3 = (function() {
-  if (((((2 & this.bitmap$0$1) << 24) >> 24) === 0)) {
+  if (((4 & this.bitmap$0$1) === 0)) {
     var jsx$7 = $m_Lcoursier_core_Resolution$();
     var jsx$6 = this.rootDependencies$1;
     var jsx$5 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this) {
@@ -47863,7 +47939,7 @@ $c_Lcoursier_core_Resolution.prototype.nextDependenciesAndConflicts$lzycompute__
     var jsx$1 = this.transitiveDependencies__sc_Seq();
     var this$3 = $m_sc_Seq$();
     this.nextDependenciesAndConflicts$1 = jsx$7.merge__sc_TraversableOnce__sci_Map__T3($as_sc_TraversableOnce(jsx$2.$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O(jsx$1, this$3.ReusableCBFInstance$2)), this.forceVersions$1);
-    this.bitmap$0$1 = (((2 | this.bitmap$0$1) << 24) >> 24)
+    this.bitmap$0$1 = (4 | this.bitmap$0$1)
   };
   return this.nextDependenciesAndConflicts$1
 });
@@ -47946,10 +48022,10 @@ $c_Lcoursier_core_Resolution.prototype.dependencyManagementRequirements__Lcoursi
   }
 });
 $c_Lcoursier_core_Resolution.prototype.reverseDependencies__sci_Map = (function() {
-  return (((((16 & this.bitmap$0$1) << 24) >> 24) === 0) ? this.reverseDependencies$lzycompute__p1__sci_Map() : this.reverseDependencies$1)
+  return (((32 & this.bitmap$0$1) === 0) ? this.reverseDependencies$lzycompute__p1__sci_Map() : this.reverseDependencies$1)
 });
 $c_Lcoursier_core_Resolution.prototype.remainingDependencies$lzycompute__p1__sci_Set = (function() {
-  if (((((32 & this.bitmap$0$1) << 24) >> 24) === 0)) {
+  if (((64 & this.bitmap$0$1) === 0)) {
     var jsx$4 = this.rootDependencies$1;
     var jsx$3 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this) {
       return (function(dep$2) {
@@ -47969,7 +48045,7 @@ $c_Lcoursier_core_Resolution.prototype.remainingDependencies$lzycompute__p1__sci
     var rootDependencies0 = $as_sc_TraversableOnce(jsx$2.map__F1__scg_CanBuildFrom__O(jsx$1, this$3.ReusableCBFInstance$2)).toSet__sci_Set();
     var filteredReverseDependencies = this.helper$2__p1__sci_Map__sci_Set__sci_Map(this.reverseDependencies__sci_Map(), rootDependencies0);
     this.remainingDependencies$1 = $as_sci_Set(rootDependencies0.$$plus$plus__sc_GenTraversableOnce__sc_Set(new $c_sci_MapLike$ImmutableDefaultKeySet().init___sci_MapLike(filteredReverseDependencies)));
-    this.bitmap$0$1 = (((32 | this.bitmap$0$1) << 24) >> 24)
+    this.bitmap$0$1 = (64 | this.bitmap$0$1)
   };
   return this.remainingDependencies$1
 });
@@ -47990,7 +48066,7 @@ $c_Lcoursier_core_Resolution.prototype.copyWithCache__p1__sc_Seq__sci_Set__sci_S
   return new $c_Lcoursier_core_Resolution().init___sc_Seq__sci_Set__sci_Map__sci_Set__sci_Map__sci_Map__sci_Map__s_Option__Lcoursier_core_Activation$Os__s_Option__s_Option__s_Option__sc_Seq__sci_Map(rootDependencies, dependencies, forceVersions, conflicts, projectCache, errorCache, finalDependenciesCache, filter, osInfo, jdkVersion, userActivations, mapDependencies, extraProperties, forceProperties)
 });
 $c_Lcoursier_core_Resolution.prototype.isDone__Z = (function() {
-  return (((((8 & this.bitmap$0$1) << 24) >> 24) === 0) ? this.isDone$lzycompute__p1__Z() : this.isDone$1)
+  return (((16 & this.bitmap$0$1) === 0) ? this.isDone$lzycompute__p1__Z() : this.isDone$1)
 });
 $c_Lcoursier_core_Resolution.prototype.init___sc_Seq__sci_Set__sci_Map__sci_Set__sci_Map__sci_Map__sci_Map__s_Option__Lcoursier_core_Activation$Os__s_Option__s_Option__s_Option__sc_Seq__sci_Map = (function(rootDependencies, dependencies, forceVersions, conflicts, projectCache, errorCache, finalDependenciesCache, filter, osInfo, jdkVersion, userActivations, mapDependencies, extraProperties, forceProperties) {
   this.rootDependencies$1 = rootDependencies;
@@ -48011,7 +48087,7 @@ $c_Lcoursier_core_Resolution.prototype.init___sc_Seq__sci_Set__sci_Map__sci_Set_
   return this
 });
 $c_Lcoursier_core_Resolution.prototype.nextNoMissingUnsafe$lzycompute__p1__Lcoursier_core_Resolution = (function() {
-  if (((((128 & this.bitmap$0$1) << 24) >> 24) === 0)) {
+  if (((256 & this.bitmap$0$1) === 0)) {
     var x1 = this.nextDependenciesAndConflicts__T3();
     if ((x1 === null)) {
       throw new $c_s_MatchError().init___O(x1)
@@ -48022,15 +48098,15 @@ $c_Lcoursier_core_Resolution.prototype.nextNoMissingUnsafe$lzycompute__p1__Lcour
     var x$3 = this.rootDependencies$1;
     var x$4 = this.errorCache$1;
     this.nextNoMissingUnsafe$1 = this.copyWithCache__p1__sc_Seq__sci_Set__sci_Set__sci_Map__Lcoursier_core_Resolution(x$3, x$1, x$2, x$4);
-    this.bitmap$0$1 = (((128 | this.bitmap$0$1) << 24) >> 24)
+    this.bitmap$0$1 = (256 | this.bitmap$0$1)
   };
   return this.nextNoMissingUnsafe$1
 });
 $c_Lcoursier_core_Resolution.prototype.transitiveDependencies__sc_Seq = (function() {
-  return (((((1 & this.bitmap$0$1) << 24) >> 24) === 0) ? this.transitiveDependencies$lzycompute__p1__sc_Seq() : this.transitiveDependencies$1)
+  return (((2 & this.bitmap$0$1) === 0) ? this.transitiveDependencies$lzycompute__p1__sc_Seq() : this.transitiveDependencies$1)
 });
 $c_Lcoursier_core_Resolution.prototype.transitiveDependencies$lzycompute__p1__sc_Seq = (function() {
-  if (((((1 & this.bitmap$0$1) << 24) >> 24) === 0)) {
+  if (((2 & this.bitmap$0$1) === 0)) {
     var this$1 = this.dependencies$1;
     var xs = this.conflicts$1;
     var this$3 = $as_sc_TraversableOnce($f_scg_Subtractable__$$minus$minus__sc_GenTraversableOnce__scg_Subtractable(this$1, xs)).toVector__sci_Vector();
@@ -48046,7 +48122,7 @@ $c_Lcoursier_core_Resolution.prototype.transitiveDependencies$lzycompute__p1__sc
       $as_sci_VectorBuilder($f_scg_Growable__$$plus$plus$eq__sc_TraversableOnce__scg_Growable(b, xs$1))
     };
     this.transitiveDependencies$1 = b.result__sci_Vector();
-    this.bitmap$0$1 = (((1 | this.bitmap$0$1) << 24) >> 24)
+    this.bitmap$0$1 = (2 | this.bitmap$0$1)
   };
   return this.transitiveDependencies$1
 });
@@ -48112,7 +48188,7 @@ $c_Lcoursier_core_Resolution.prototype.addToErrorCache__sc_Iterable__Lcoursier_c
   return this.copyWithCache__p1__sc_Seq__sci_Set__sci_Set__sci_Map__Lcoursier_core_Resolution(x$2, x$3, x$4, x$1)
 });
 $c_Lcoursier_core_Resolution.prototype.reverseDependencies$lzycompute__p1__sci_Map = (function() {
-  if (((((16 & this.bitmap$0$1) << 24) >> 24) === 0)) {
+  if (((32 & this.bitmap$0$1) === 0)) {
     var x1 = this.nextDependenciesAndConflicts__T3();
     if ((x1 === null)) {
       throw new $c_s_MatchError().init___O(x1)
@@ -48179,7 +48255,7 @@ $c_Lcoursier_core_Resolution.prototype.reverseDependencies$lzycompute__p1__sci_M
       b.$$plus$eq__T2__scm_MapBuilder($as_T2(arg1))
     };
     this.reverseDependencies$1 = $as_sci_Map(b.elems$1);
-    this.bitmap$0$1 = (((16 | this.bitmap$0$1) << 24) >> 24)
+    this.bitmap$0$1 = (32 | this.bitmap$0$1)
   };
   return this.reverseDependencies$1
 });
@@ -48198,6 +48274,9 @@ $c_Lcoursier_core_Resolution.prototype.isFixPoint$1__p1__Z = (function() {
   } else {
     return false
   }
+});
+$c_Lcoursier_core_Resolution.prototype.hashCode__I = (function() {
+  return (((1 & this.bitmap$0$1) === 0) ? this.hashCode$lzycompute__p1__I() : this.hashCode$1)
 });
 $c_Lcoursier_core_Resolution.prototype.finalDependencies0__p1__Lcoursier_core_Dependency__sc_Seq = (function(dep) {
   if (dep.transitive$1) {
@@ -48247,10 +48326,6 @@ $c_Lcoursier_core_Resolution.prototype.finalDependencies0__p1__Lcoursier_core_De
     return $m_sci_Nil$()
   }
 });
-$c_Lcoursier_core_Resolution.prototype.hashCode__I = (function() {
-  var this$2 = $m_s_util_hashing_MurmurHash3$();
-  return this$2.productHash__s_Product__I__I(this, (-889275714))
-});
 $c_Lcoursier_core_Resolution.prototype.productIterator__sc_Iterator = (function() {
   return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
 });
@@ -48289,7 +48364,7 @@ $c_Lcoursier_core_Resolution.prototype.nextIfNoMissing__Lcoursier_core_Resolutio
   }
 });
 $c_Lcoursier_core_Resolution.prototype.newDependencies$lzycompute__p1__sci_Set = (function() {
-  if (((((64 & this.bitmap$0$1) << 24) >> 24) === 0)) {
+  if (((128 & this.bitmap$0$1) === 0)) {
     var remainingDependencies0 = this.remainingDependencies__sci_Set();
     this.newDependencies$1 = $as_sc_TraversableOnce($as_sc_TraversableLike(this.nextDependenciesAndConflicts__T3().$$und2$1).filter__F1__O(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, remainingDependencies0$1) {
       return (function(dep$2) {
@@ -48298,15 +48373,15 @@ $c_Lcoursier_core_Resolution.prototype.newDependencies$lzycompute__p1__sci_Set =
         return remainingDependencies0$1.contains__O__Z(elem)
       })
     })(this, remainingDependencies0)))).toSet__sci_Set();
-    this.bitmap$0$1 = (((64 | this.bitmap$0$1) << 24) >> 24)
+    this.bitmap$0$1 = (128 | this.bitmap$0$1)
   };
   return this.newDependencies$1
 });
 $c_Lcoursier_core_Resolution.prototype.missingFromCache__sci_Set = (function() {
-  return (((((4 & this.bitmap$0$1) << 24) >> 24) === 0) ? this.missingFromCache$lzycompute__p1__sci_Set() : this.missingFromCache$1)
+  return (((8 & this.bitmap$0$1) === 0) ? this.missingFromCache$lzycompute__p1__sci_Set() : this.missingFromCache$1)
 });
 $c_Lcoursier_core_Resolution.prototype.remainingDependencies__sci_Set = (function() {
-  return (((((32 & this.bitmap$0$1) << 24) >> 24) === 0) ? this.remainingDependencies$lzycompute__p1__sci_Set() : this.remainingDependencies$1)
+  return (((64 & this.bitmap$0$1) === 0) ? this.remainingDependencies$lzycompute__p1__sci_Set() : this.remainingDependencies$1)
 });
 function $is_Lcoursier_core_Resolution(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lcoursier_core_Resolution)))
@@ -56258,6 +56333,101 @@ function $isArrayOf_Ljava_security_AccessControlException(obj, depth) {
 function $asArrayOf_Ljava_security_AccessControlException(obj, depth) {
   return (($isArrayOf_Ljava_security_AccessControlException(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Ljava.security.AccessControlException;", depth))
 }
+/** @constructor */
+function $c_T14() {
+  $c_O.call(this);
+  this.$$und1$1 = null;
+  this.$$und2$1 = null;
+  this.$$und3$1 = null;
+  this.$$und4$1 = null;
+  this.$$und5$1 = null;
+  this.$$und6$1 = null;
+  this.$$und7$1 = null;
+  this.$$und8$1 = null;
+  this.$$und9$1 = null;
+  this.$$und10$1 = null;
+  this.$$und11$1 = null;
+  this.$$und12$1 = null;
+  this.$$und13$1 = null;
+  this.$$und14$1 = null
+}
+$c_T14.prototype = new $h_O();
+$c_T14.prototype.constructor = $c_T14;
+/** @constructor */
+function $h_T14() {
+  /*<skip>*/
+}
+$h_T14.prototype = $c_T14.prototype;
+$c_T14.prototype.productPrefix__T = (function() {
+  return "Tuple14"
+});
+$c_T14.prototype.productArity__I = (function() {
+  return 14
+});
+$c_T14.prototype.init___O__O__O__O__O__O__O__O__O__O__O__O__O__O = (function(_1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14) {
+  this.$$und1$1 = _1;
+  this.$$und2$1 = _2;
+  this.$$und3$1 = _3;
+  this.$$und4$1 = _4;
+  this.$$und5$1 = _5;
+  this.$$und6$1 = _6;
+  this.$$und7$1 = _7;
+  this.$$und8$1 = _8;
+  this.$$und9$1 = _9;
+  this.$$und10$1 = _10;
+  this.$$und11$1 = _11;
+  this.$$und12$1 = _12;
+  this.$$und13$1 = _13;
+  this.$$und14$1 = _14;
+  return this
+});
+$c_T14.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else if ($is_T14(x$1)) {
+    var Tuple14$1 = $as_T14(x$1);
+    return ((((((((((((($m_sr_BoxesRunTime$().equals__O__O__Z(this.$$und1$1, Tuple14$1.$$und1$1) && $m_sr_BoxesRunTime$().equals__O__O__Z(this.$$und2$1, Tuple14$1.$$und2$1)) && $m_sr_BoxesRunTime$().equals__O__O__Z(this.$$und3$1, Tuple14$1.$$und3$1)) && $m_sr_BoxesRunTime$().equals__O__O__Z(this.$$und4$1, Tuple14$1.$$und4$1)) && $m_sr_BoxesRunTime$().equals__O__O__Z(this.$$und5$1, Tuple14$1.$$und5$1)) && $m_sr_BoxesRunTime$().equals__O__O__Z(this.$$und6$1, Tuple14$1.$$und6$1)) && $m_sr_BoxesRunTime$().equals__O__O__Z(this.$$und7$1, Tuple14$1.$$und7$1)) && $m_sr_BoxesRunTime$().equals__O__O__Z(this.$$und8$1, Tuple14$1.$$und8$1)) && $m_sr_BoxesRunTime$().equals__O__O__Z(this.$$und9$1, Tuple14$1.$$und9$1)) && $m_sr_BoxesRunTime$().equals__O__O__Z(this.$$und10$1, Tuple14$1.$$und10$1)) && $m_sr_BoxesRunTime$().equals__O__O__Z(this.$$und11$1, Tuple14$1.$$und11$1)) && $m_sr_BoxesRunTime$().equals__O__O__Z(this.$$und12$1, Tuple14$1.$$und12$1)) && $m_sr_BoxesRunTime$().equals__O__O__Z(this.$$und13$1, Tuple14$1.$$und13$1)) && $m_sr_BoxesRunTime$().equals__O__O__Z(this.$$und14$1, Tuple14$1.$$und14$1))
+  } else {
+    return false
+  }
+});
+$c_T14.prototype.productElement__I__O = (function(n) {
+  return $f_s_Product14__productElement__I__O(this, n)
+});
+$c_T14.prototype.toString__T = (function() {
+  return (((((((((((((((((((((((((((("(" + this.$$und1$1) + ",") + this.$$und2$1) + ",") + this.$$und3$1) + ",") + this.$$und4$1) + ",") + this.$$und5$1) + ",") + this.$$und6$1) + ",") + this.$$und7$1) + ",") + this.$$und8$1) + ",") + this.$$und9$1) + ",") + this.$$und10$1) + ",") + this.$$und11$1) + ",") + this.$$und12$1) + ",") + this.$$und13$1) + ",") + this.$$und14$1) + ")")
+});
+$c_T14.prototype.hashCode__I = (function() {
+  var this$2 = $m_s_util_hashing_MurmurHash3$();
+  return this$2.productHash__s_Product__I__I(this, (-889275714))
+});
+$c_T14.prototype.productIterator__sc_Iterator = (function() {
+  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
+});
+function $is_T14(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.T14)))
+}
+function $as_T14(obj) {
+  return (($is_T14(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "scala.Tuple14"))
+}
+function $isArrayOf_T14(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.T14)))
+}
+function $asArrayOf_T14(obj, depth) {
+  return (($isArrayOf_T14(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lscala.Tuple14;", depth))
+}
+var $d_T14 = new $TypeData().initClass({
+  T14: 0
+}, false, "scala.Tuple14", {
+  T14: 1,
+  O: 1,
+  s_Product14: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_T14.prototype.$classData = $d_T14;
 /** @constructor */
 function $c_T2() {
   $c_O.call(this);
