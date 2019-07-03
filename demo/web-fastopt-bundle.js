@@ -38045,6 +38045,9 @@ function $m_Lcoursier_core_Type$() {
 function $c_Lcoursier_core_Version$() {
   $c_O.call(this);
   this.empty$1 = null;
+  this.alphaQualifier$1 = null;
+  this.betaQualifier$1 = null;
+  this.milestoneQualifier$1 = null;
   this.qualifiers$1 = null;
   this.qualifiersMap$1 = null
 }
@@ -38058,8 +38061,11 @@ $h_Lcoursier_core_Version$.prototype = $c_Lcoursier_core_Version$.prototype;
 $c_Lcoursier_core_Version$.prototype.init___ = (function() {
   $n_Lcoursier_core_Version$ = this;
   this.empty$1 = new $c_Lcoursier_core_Version$Number().init___I(0);
+  this.alphaQualifier$1 = new $c_Lcoursier_core_Version$Qualifier().init___T__I("alpha", (-5));
+  this.betaQualifier$1 = new $c_Lcoursier_core_Version$Qualifier().init___T__I("beta", (-4));
+  this.milestoneQualifier$1 = new $c_Lcoursier_core_Version$Qualifier().init___T__I("milestone", (-3));
   var jsx$1 = $m_sc_Seq$();
-  var array = [new $c_Lcoursier_core_Version$Qualifier().init___T__I("alpha", (-5)), new $c_Lcoursier_core_Version$Qualifier().init___T__I("beta", (-4)), new $c_Lcoursier_core_Version$Qualifier().init___T__I("milestone", (-3)), new $c_Lcoursier_core_Version$Qualifier().init___T__I("cr", (-2)), new $c_Lcoursier_core_Version$Qualifier().init___T__I("rc", (-2)), new $c_Lcoursier_core_Version$Qualifier().init___T__I("snapshot", (-1)), new $c_Lcoursier_core_Version$Qualifier().init___T__I("ga", 0), new $c_Lcoursier_core_Version$Qualifier().init___T__I("final", 0), new $c_Lcoursier_core_Version$Qualifier().init___T__I("sp", 1)];
+  var array = [this.alphaQualifier$1, this.betaQualifier$1, this.milestoneQualifier$1, new $c_Lcoursier_core_Version$Qualifier().init___T__I("cr", (-2)), new $c_Lcoursier_core_Version$Qualifier().init___T__I("rc", (-2)), new $c_Lcoursier_core_Version$Qualifier().init___T__I("snapshot", (-1)), new $c_Lcoursier_core_Version$Qualifier().init___T__I("ga", 0), new $c_Lcoursier_core_Version$Qualifier().init___T__I("final", 0), new $c_Lcoursier_core_Version$Qualifier().init___T__I("sp", 1)];
   this.qualifiers$1 = $as_sc_Seq(jsx$1.apply__sc_Seq__sc_GenTraversable(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array)));
   var jsx$3 = this.qualifiers$1;
   var jsx$2 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this) {
@@ -38074,10 +38080,8 @@ $c_Lcoursier_core_Version$.prototype.init___ = (function() {
   return this
 });
 $c_Lcoursier_core_Version$.prototype.postProcess__s_Option__Lcoursier_core_Version$Item__sci_Stream__sci_Stream = (function(prevIsNumeric, item, tokens0) {
-  var _tokens = tokens0;
   if (this.isNumeric__Lcoursier_core_Version$Item__Z(item)) {
-    var this$1 = _tokens;
-    var these = this$1;
+    var these = tokens0;
     while (true) {
       if ((!these.isEmpty__Z())) {
         var arg1 = these.head__O();
@@ -38106,132 +38110,90 @@ $c_Lcoursier_core_Version$.prototype.postProcess__s_Option__Lcoursier_core_Versi
       }
     };
     var nextNonDotZero = these;
-    inlinereturn$6: {
-      var these$1 = nextNonDotZero;
-      while ((!these$1.isEmpty__Z())) {
-        var arg1$1 = these$1.head__O();
-        var t = $as_T2(arg1$1);
-        if ((!$m_Lcoursier_core_Version$().isMinMax__Lcoursier_core_Version$Item__Z($as_Lcoursier_core_Version$Item(t.$$und2__O())))) {
-          var x$1 = t.$$und1__O();
-          var x$2 = $m_Lcoursier_core_Version$Tokenizer$Hyphen$();
-          if (((x$1 !== null) && $objectEquals(x$1, x$2))) {
-            var jsx$3 = true
-          } else {
-            var x$3 = t.$$und1__O();
-            var x$4 = $m_Lcoursier_core_Version$Tokenizer$Dot$();
-            if (((x$3 !== null) && $objectEquals(x$3, x$4))) {
-              var jsx$4 = true
-            } else {
-              var x$5 = t.$$und1__O();
-              var x$6 = $m_Lcoursier_core_Version$Tokenizer$None$();
-              var jsx$4 = ((x$5 !== null) && $objectEquals(x$5, x$6))
-            };
-            if (jsx$4) {
-              var jsx$3 = (!$m_Lcoursier_core_Version$().isNumeric__Lcoursier_core_Version$Item__Z($as_Lcoursier_core_Version$Item(t.$$und2__O())))
-            } else {
-              var jsx$3 = false
-            }
-          }
-        } else {
-          var jsx$3 = false
-        };
-        if ((!jsx$3)) {
-          var jsx$2 = false;
-          break inlinereturn$6
-        };
-        these$1 = $as_sc_LinearSeqOptimized(these$1.tail__O())
-      };
+    var this$1 = $f_sc_TraversableLike__headOption__s_Option(nextNonDotZero);
+    if (this$1.isEmpty__Z()) {
       var jsx$2 = true
+    } else {
+      var arg1$1 = this$1.get__O();
+      var x0$2 = $as_T2(arg1$1);
+      if ((x0$2 === null)) {
+        throw new $c_s_MatchError().init___O(x0$2)
+      };
+      var sep = $as_Lcoursier_core_Version$Tokenizer$Separator(x0$2.$$und1__O());
+      var t = $as_Lcoursier_core_Version$Item(x0$2.$$und2__O());
+      var x$2 = $m_Lcoursier_core_Version$Tokenizer$Plus$();
+      if (((!((sep !== null) && (sep === x$2))) && (!$m_Lcoursier_core_Version$().isMinMax__Lcoursier_core_Version$Item__Z(t)))) {
+        var jsx$2 = (!$m_Lcoursier_core_Version$().isNumeric__Lcoursier_core_Version$Item__Z(t))
+      } else {
+        var jsx$2 = false
+      }
     };
     if (jsx$2) {
-      _tokens = nextNonDotZero
+      var tokens = nextNonDotZero
+    } else {
+      var tokens = tokens0
     }
+  } else {
+    var tokens = tokens0
   };
-  var tokens = _tokens;
   var rc18 = false;
   var x2 = null;
-  if ($is_Lcoursier_core_Version$Literal(item)) {
-    rc18 = true;
-    x2 = $as_Lcoursier_core_Version$Literal(item);
-    var p3 = x2.value$2;
-    if ((p3 === "min")) {
-      var x$11 = $m_Lcoursier_core_Version$Min$();
-      $m_sci_Stream$();
-      var stream = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$3, tokens$1, item$1) {
-        return (function() {
-          return this$3.next$1__p1__sci_Stream__Lcoursier_core_Version$Item__sci_Stream(tokens$1, item$1)
-        })
-      })(this, tokens, item));
-      return new $c_sci_Stream$ConsWrapper().init___F0(stream).$$hash$colon$colon__O__sci_Stream(x$11)
-    }
-  };
-  if (rc18) {
-    var p5 = x2.value$2;
-    if ((p5 === "max")) {
-      var x$12 = $m_Lcoursier_core_Version$Max$();
-      $m_sci_Stream$();
-      var stream$1 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$4, tokens$2, item$2) {
-        return (function() {
-          return this$4.next$1__p1__sci_Stream__Lcoursier_core_Version$Item__sci_Stream(tokens$2, item$2)
-        })
-      })(this, tokens, item));
-      return new $c_sci_Stream$ConsWrapper().init___F0(stream$1).$$hash$colon$colon__O__sci_Stream(x$12)
-    }
-  };
-  if (rc18) {
-    var p7 = x2.value$2;
-    if ((p7 === "a")) {
-      var x$13 = this.ifFollowedByNumberElse$1__p1__Lcoursier_core_Version$Item__Lcoursier_core_Version$Item__sci_Stream__Lcoursier_core_Version$Item($as_Lcoursier_core_Version$Item(this.qualifiersMap$1.apply__O__O("alpha")), item, tokens);
-      $m_sci_Stream$();
-      var stream$2 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$5$1, tokens$3, item$3) {
-        return (function() {
-          return this$5$1.next$1__p1__sci_Stream__Lcoursier_core_Version$Item__sci_Stream(tokens$3, item$3)
-        })
-      })(this, tokens, item));
-      return new $c_sci_Stream$ConsWrapper().init___F0(stream$2).$$hash$colon$colon__O__sci_Stream(x$13)
-    }
-  };
-  if (rc18) {
-    var p9 = x2.value$2;
-    if ((p9 === "b")) {
-      var x$14 = this.ifFollowedByNumberElse$1__p1__Lcoursier_core_Version$Item__Lcoursier_core_Version$Item__sci_Stream__Lcoursier_core_Version$Item($as_Lcoursier_core_Version$Item(this.qualifiersMap$1.apply__O__O("beta")), item, tokens);
-      $m_sci_Stream$();
-      var stream$3 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$6$1, tokens$4, item$4) {
-        return (function() {
-          return this$6$1.next$1__p1__sci_Stream__Lcoursier_core_Version$Item__sci_Stream(tokens$4, item$4)
-        })
-      })(this, tokens, item));
-      return new $c_sci_Stream$ConsWrapper().init___F0(stream$3).$$hash$colon$colon__O__sci_Stream(x$14)
-    }
-  };
-  if (rc18) {
-    var p11 = x2.value$2;
-    if ((p11 === "m")) {
-      var x$15 = this.ifFollowedByNumberElse$1__p1__Lcoursier_core_Version$Item__Lcoursier_core_Version$Item__sci_Stream__Lcoursier_core_Version$Item($as_Lcoursier_core_Version$Item(this.qualifiersMap$1.apply__O__O("milestone")), item, tokens);
-      $m_sci_Stream$();
-      var stream$4 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$7$1, tokens$5, item$5) {
-        return (function() {
-          return this$7$1.next$1__p1__sci_Stream__Lcoursier_core_Version$Item__sci_Stream(tokens$5, item$5)
-        })
-      })(this, tokens, item));
-      return new $c_sci_Stream$ConsWrapper().init___F0(stream$4).$$hash$colon$colon__O__sci_Stream(x$15)
-    }
+  matchEnd19: {
+    var nextItem;
+    if ($is_Lcoursier_core_Version$Literal(item)) {
+      rc18 = true;
+      x2 = $as_Lcoursier_core_Version$Literal(item);
+      var p3 = x2.value$2;
+      if ((p3 === "min")) {
+        var nextItem = $m_Lcoursier_core_Version$Min$();
+        break matchEnd19
+      }
+    };
+    if (rc18) {
+      var p5 = x2.value$2;
+      if ((p5 === "max")) {
+        var nextItem = $m_Lcoursier_core_Version$Max$();
+        break matchEnd19
+      }
+    };
+    if (rc18) {
+      var p7 = x2.value$2;
+      if ((p7 === "a")) {
+        var nextItem = this.ifFollowedByNumberElse$1__p1__Lcoursier_core_Version$Item__Lcoursier_core_Version$Item__sci_Stream__Lcoursier_core_Version$Item(this.alphaQualifier$1, item, tokens);
+        break matchEnd19
+      }
+    };
+    if (rc18) {
+      var p9 = x2.value$2;
+      if ((p9 === "b")) {
+        var nextItem = this.ifFollowedByNumberElse$1__p1__Lcoursier_core_Version$Item__Lcoursier_core_Version$Item__sci_Stream__Lcoursier_core_Version$Item(this.betaQualifier$1, item, tokens);
+        break matchEnd19
+      }
+    };
+    if (rc18) {
+      var p11 = x2.value$2;
+      if ((p11 === "m")) {
+        var nextItem = this.ifFollowedByNumberElse$1__p1__Lcoursier_core_Version$Item__Lcoursier_core_Version$Item__sci_Stream__Lcoursier_core_Version$Item(this.milestoneQualifier$1, item, tokens);
+        break matchEnd19
+      }
+    };
+    var nextItem = item
   };
   $m_sci_Stream$();
-  var stream$5 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$8$1, tokens$6, item$6) {
+  var stream = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$3, tokens$1, nextItem$1) {
     return (function() {
-      return this$8$1.next$1__p1__sci_Stream__Lcoursier_core_Version$Item__sci_Stream(tokens$6, item$6)
+      return this$3.next$1__p1__sci_Stream__Lcoursier_core_Version$Item__sci_Stream(tokens$1, nextItem$1)
     })
-  })(this, tokens, item));
-  return new $c_sci_Stream$ConsWrapper().init___F0(stream$5).$$hash$colon$colon__O__sci_Stream(item)
+  })(this, tokens, nextItem));
+  return new $c_sci_Stream$ConsWrapper().init___F0(stream).$$hash$colon$colon__O__sci_Stream(nextItem)
 });
-$c_Lcoursier_core_Version$.prototype.next$1__p1__sci_Stream__Lcoursier_core_Version$Item__sci_Stream = (function(tokens$1, item$1) {
+$c_Lcoursier_core_Version$.prototype.next$1__p1__sci_Stream__Lcoursier_core_Version$Item__sci_Stream = (function(tokens$1, nextItem$1) {
   if (tokens$1.isEmpty__Z()) {
     $m_s_package$();
     var xs = $m_sci_Nil$();
     return xs.toStream__sci_Stream()
   } else {
-    return this.postProcess__s_Option__Lcoursier_core_Version$Item__sci_Stream__sci_Stream(new $c_s_Some().init___O(this.isNumeric__Lcoursier_core_Version$Item__Z(item$1)), $as_Lcoursier_core_Version$Item($as_T2(tokens$1.head__O()).$$und2__O()), $as_sci_Stream(tokens$1.tail__O()))
+    return this.postProcess__s_Option__Lcoursier_core_Version$Item__sci_Stream__sci_Stream(new $c_s_Some().init___O(this.isNumeric__Lcoursier_core_Version$Item__Z(nextItem$1)), $as_Lcoursier_core_Version$Item($as_T2(tokens$1.head__O()).$$und2__O()), $as_sci_Stream(tokens$1.tail__O()))
   }
 });
 $c_Lcoursier_core_Version$.prototype.items__T__sci_List = (function(repr) {
@@ -38262,8 +38224,8 @@ $c_Lcoursier_core_Version$.prototype.listCompare__sci_List__sci_List__I = (funct
           var jsx$2 = true
         } else {
           var arg1 = xs.head__O();
-          var x$18 = $as_Lcoursier_core_Version$Item(arg1);
-          var jsx$2 = (!x$18.isEmpty__Z())
+          var x$13 = $as_Lcoursier_core_Version$Item(arg1);
+          var jsx$2 = (!x$13.isEmpty__Z())
         };
         if ((!jsx$2)) {
           xs = $as_sci_List(xs.tail__O());
@@ -38277,8 +38239,8 @@ $c_Lcoursier_core_Version$.prototype.listCompare__sci_List__sci_List__I = (funct
         var jsx$3 = 0
       } else {
         var arg1$1 = this$4.get__O();
-        var x$19 = $as_Lcoursier_core_Version$Item(arg1$1);
-        var jsx$3 = x$19.compareToEmpty__I()
+        var x$14 = $as_Lcoursier_core_Version$Item(arg1$1);
+        var jsx$3 = x$14.compareToEmpty__I()
       };
       return ((-jsx$3) | 0)
     } else if (second.isEmpty__Z()) {
@@ -38293,8 +38255,8 @@ $c_Lcoursier_core_Version$.prototype.listCompare__sci_List__sci_List__I = (funct
           var jsx$5 = true
         } else {
           var arg1$2 = xs$1.head__O();
-          var x$20 = $as_Lcoursier_core_Version$Item(arg1$2);
-          var jsx$5 = (!x$20.isEmpty__Z())
+          var x$15 = $as_Lcoursier_core_Version$Item(arg1$2);
+          var jsx$5 = (!x$15.isEmpty__Z())
         };
         if ((!jsx$5)) {
           xs$1 = $as_sci_List(xs$1.tail__O());
@@ -38308,8 +38270,8 @@ $c_Lcoursier_core_Version$.prototype.listCompare__sci_List__sci_List__I = (funct
         return 0
       } else {
         var arg1$3 = this$8.get__O();
-        var x$21 = $as_Lcoursier_core_Version$Item(arg1$3);
-        return x$21.compareToEmpty__I()
+        var x$16 = $as_Lcoursier_core_Version$Item(arg1$3);
+        return x$16.compareToEmpty__I()
       }
     } else {
       var rel = $as_Lcoursier_core_Version$Item(first.head__O()).compare__Lcoursier_core_Version$Item__I($as_Lcoursier_core_Version$Item(second.head__O()));
