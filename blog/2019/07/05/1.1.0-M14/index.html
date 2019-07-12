@@ -3,15 +3,15 @@
  <head>
   <meta charSet="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>1.1.0-M13 · Coursier</title>
+  <title>1.1.0-M14 · Coursier</title>
   <meta name="viewport" content="width=device-width">
   <meta name="generator" content="Docusaurus">
-  <meta name="description" content="coursier `1.1.0-M13` was just released.">
+  <meta name="description" content="This post describes the most notables changes of coursier `1.1.0-M14`.">
   <meta name="docsearch:language" content="en">
-  <meta property="og:title" content="1.1.0-M13 · Coursier">
+  <meta property="og:title" content="1.1.0-M14 · Coursier">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://get-coursier.io/blog/2019/03/05/1.1.0-M13">
-  <meta property="og:description" content="coursier `1.1.0-M13` was just released.">
+  <meta property="og:url" content="https://get-coursier.io/blog/2019/07/05/1.1.0-M14">
+  <meta property="og:description" content="This post describes the most notables changes of coursier `1.1.0-M14`.">
   <meta name="twitter:card" content="summary">
   <link rel="shortcut icon" href="../../../../../../undefined">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
@@ -66,8 +66,8 @@
           <ul class="">
            <li class="navListItem"><a class="navItem" href="../../../../../../blog/2019/07/12/2.0.0-RC2">2.0.0-RC2</a></li>
            <li class="navListItem"><a class="navItem" href="../../../../../../blog/2019/07/12/2.0.0-RC1">2.0.0-RC1</a></li>
-           <li class="navListItem"><a class="navItem" href="../../../../../../blog/2019/07/05/1.1.0-M14">1.1.0-M14</a></li>
-           <li class="navListItem navListItemActive"><a class="navItem" href="../../../../../../blog/2019/03/05/1.1.0-M13">1.1.0-M13</a></li>
+           <li class="navListItem navListItemActive"><a class="navItem" href="../../../../../../blog/2019/07/05/1.1.0-M14">1.1.0-M14</a></li>
+           <li class="navListItem"><a class="navItem" href="../../../../../../blog/2019/03/05/1.1.0-M13">1.1.0-M13</a></li>
            <li class="navListItem"><a class="navItem" href="../../../../../../blog/2019/03/04/1.1.0-M12">1.1.0-M12</a></li>
           </ul>
          </div>
@@ -132,47 +132,45 @@
       <div class="lonePost">
        <div class="post">
         <header class="postHeader">
-         <h1 class="postHeaderTitle"><a href="../../../../../../blog/2019/03/05/1.1.0-M13">1.1.0-M13</a></h1>
-         <p class="post-meta">March 5, 2019</p>
+         <h1 class="postHeaderTitle"><a href="../../../../../../blog/2019/07/05/1.1.0-M14">1.1.0-M14</a></h1>
+         <p class="post-meta">July 5, 2019</p>
          <div class="authorBlock">
           <p class="post-authorName"><a href="https://github.com/alexarchambault" target="_blank" rel="noreferrer noopener">Alexandre Archambault</a></p>
          </div>
         </header>
         <div>
-         <span><p>coursier <code>1.1.0-M13</code> was just released.</p> <p>The most notable changes of this milestone happened in the new high level API, that is nearing completion. A notion of "rules" or constraints is also being added to coursier, and should be described in more detail in a later post.</p> <h2><a class="anchor" aria-hidden="true" id="high-level-api"></a><a href="index.html#high-level-api" aria-hidden="true" class="hash-link">
+         <span><p>This post describes the most notables changes of coursier <code>1.1.0-M14</code>.</p> <h2><a class="anchor" aria-hidden="true" id="mirrors"></a><a href="index.html#mirrors" aria-hidden="true" class="hash-link">
             <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
              <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-            </svg></a>High level API</h2> <p>This API aims at being as simple to use as the CLI of coursier, while retaining the purity of the former low level API - without all its traps.</p> <p>For example, one can fetch a few dependencies with</p> <pre><code class="hljs css language-scala"><span class="hljs-keyword">import</span> coursier._
-
-<span class="hljs-keyword">val</span> files = <span class="hljs-type">Fetch</span>()
-  .addDependencies(
-    <span class="hljs-string">dep"org.http4s:http4s-dsl_2.12:0.18.22"</span>,
-    <span class="hljs-string">dep"org.tpolecat:doobie-core_2.12:0.6.0"</span>
-  )
-  .run()
-
-<span class="hljs-comment">// files: Seq[java.io.File]</span>
-</code></pre> <p>It relies on a "builder pattern", not unlike <a href="https://softwaremill.com/introducing-sttp-the-scala-http-client">sttp</a>. Numerous parameters can be adjusted by calling other methods before <code>run</code>, such as <code>addRepositories</code>, <code>withResolutionParams</code>, <code>withCache</code>, etc.</p> <p><code>run()</code> runs resolutions and downloads artifacts synchronously, but can be substituted by <code>future()</code> or <code>io</code> to run things in the background, via a <code>Future</code> or the IO monad of your choice.</p> <p>More details can be found <a href="../../../../../../docs/1.1.0-M13/api">in the documentation</a>.</p> <p>The CLI and the sbt plugins of coursier already rely on this API. In the future, this should ensure that more advanced features, added in the CLI or the sbt plugin of coursier, are available to API users straightaway. It's also easier to evolve this API while retaining binary compatibility.</p> <h2><a class="anchor" aria-hidden="true" id="rules"></a><a href="index.html#rules" aria-hidden="true" class="hash-link">
+            </svg></a>Mirrors</h2> <p>coursier got support for mirrors, kind of like Maven has. Mirrors allow to substitute some repositories for others. This can be useful with internal Maven repositories mirroring Maven Central for example. In that case, you'd prefer requests to go to that mirror rather than to Maven Central.</p> <p>Mirrors are automatically picked from the API (unless explicitly disabled) and the CLI.</p> <p>They can be configured via configuration files, namely <code>~/.config/coursier/mirror.properties</code> on Linux, and <code>~/Library/Preferences/Coursier/mirror.properties</code> on OS X. For example, these settings allow to replace Maven Central with JCenter</p> <pre><code class="hljs">jcenter.from=<span class="hljs-string">https:</span><span class="hljs-comment">//repo1.maven.org/maven2</span>
+jcenter.to=<span class="hljs-string">https:</span><span class="hljs-comment">//jcenter.bintray.com</span>
+</code></pre> <p>Mirrors should be described in more detail in the coursier documentation in a later time.</p> <h2><a class="anchor" aria-hidden="true" id="new-ways-of-passing-credentials"></a><a href="index.html#new-ways-of-passing-credentials" aria-hidden="true" class="hash-link">
             <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
              <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-            </svg></a>Rules</h2> <p>Motivated by <a href="https://github.com/scalacenter/advisoryboard/blob/master/proposals/020-sbt-transitive-dependencies-conflicts.md">SCP-20</a>, support for enforcing some "rules" or constraints is being added to coursier. These are a bit similar to those of the <a href="https://maven.apache.org/enforcer/maven-enforcer-plugin">Maven enforcer plugin</a>, and allow to emulate the <a href="http://ant.apache.org/ivy/history/2.5.0-rc1/settings/conflict-managers.html">strict conflict manager of Ivy</a> in particular.</p> <p>While details are still being ironed out, the CLI already accepts rules.</p> <p>For example, one can require all the jackson modules to have the same version with</p> <pre><code class="hljs css language-bash">$ coursier resolve org.apache.spark:spark-sql_2.12:2.4.0 \
-    --rules <span class="hljs-string">'SameVersion(com.fasterxml.jackson.*:jackson-*)'</span>
-…
-com.fasterxml.jackson.core:jackson-annotations:2.7.9:default
-com.fasterxml.jackson.core:jackson-core:2.7.9:default
-com.fasterxml.jackson.core:jackson-databind:2.7.9:default
-com.fasterxml.jackson.module:jackson-module-paranamer:2.7.9:default
-com.fasterxml.jackson.module:jackson-module-scala_2.12:2.7.9:default
-…
-</code></pre> <p>By default, if a rule doesn't pass, it can try to address the underlying issue. One can instead require resolution to fail, with</p> <pre><code class="hljs css language-bash">$ coursier resolve org.apache.spark:spark-sql_2.12:2.4.0 \
-    --rules <span class="hljs-string">'fail:SameVersion(com.fasterxml.jackson.*:jackson-*)'</span>
-Resolution error: Unsatisfiable rule …
-</code></pre> <p>An upcoming post should describe rules and future plans in more detail.</p> </span>
+            </svg></a>New ways of passing credentials</h2> <p>The CLI and API of coursier now accepts credentials via the environment, via Java properties, or configuration files. These are described in more detail in the <a href="../../../../../../docs/other-credentials">dedicated documentation page</a>. Beware that some details may change a bit before the release of <code>2.0.0</code> final.</p> <h2><a class="anchor" aria-hidden="true" id="refactoring"></a><a href="index.html#refactoring" aria-hidden="true" class="hash-link">
+            <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+             <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+            </svg></a>Refactoring</h2> <h3><a class="anchor" aria-hidden="true" id="redirections"></a><a href="index.html#redirections" aria-hidden="true" class="hash-link">
+            <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+             <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+            </svg></a>Redirections</h3> <p>HTTP redirections are now handled by some custom code, rather than by <code>java.net.HttpURLConnection</code>. (This introduced some regressions, now fixed in subsequent releases.) This allows a more refined handling of credentials when redirections happen (credentials can be stripped, or added if their settings allow it, in particular).</p> <p>This should also allow users to more finely tune whether credentials should be sent upfront, without waiting for a 403 Unauthorized response (to be added to the <a href="../../../../../../docs/other-credentials">dedicated documentation page</a>).</p> <h3><a class="anchor" aria-hidden="true" id="parsers"></a><a href="index.html#parsers" aria-hidden="true" class="hash-link">
+            <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+             <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+            </svg></a>Parsers</h3> <p>Most parsers were moved in dedicated objects under the <code>coursier.parse</code> namespace. That includes <code>DependencyParser</code>, <code>ModuleParser</code>, and <code>RepositoryParser</code> in particular.</p> <h3><a class="anchor" aria-hidden="true" id="high-level-api"></a><a href="index.html#high-level-api" aria-hidden="true" class="hash-link">
+            <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+             <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+            </svg></a>High level API</h3> <p>The new high level API kept evolving / getting refined.</p> <h2><a class="anchor" aria-hidden="true" id="fixes"></a><a href="index.html#fixes" aria-hidden="true" class="hash-link">
+            <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+             <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+            </svg></a>Fixes</h2> <h3><a class="anchor" aria-hidden="true" id="xml-errors"></a><a href="index.html#xml-errors" aria-hidden="true" class="hash-link">
+            <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+             <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+            </svg></a>XML errors</h3> <p>A regression in the code handling XML, since <code>1.1.0-12</code>, giving <code>SAXParseException</code>, was fixed.</p> </span>
         </div>
        </div>
        <div class="blogSocialSection">
         <div class="blogSocialSectionItem">
-         <a href="https://twitter.com/share" class="twitter-share-button" data-text="1.1.0-M13" data-url="https://get-coursier.io/blog/2019/03/05/1.1.0-M13" data-related="true" data-show-count="false">Tweet</a>
+         <a href="https://twitter.com/share" class="twitter-share-button" data-text="1.1.0-M14" data-url="https://get-coursier.io/blog/2019/07/05/1.1.0-M14" data-related="true" data-show-count="false">Tweet</a>
         </div>
        </div>
       </div>
@@ -183,8 +181,18 @@ Resolution error: Unsatisfiable rule …
     </div>
     <nav class="onPageNav">
      <ul class="toc-headings">
-      <li><a href="index.html#high-level-api">High level API</a></li>
-      <li><a href="index.html#rules">Rules</a></li>
+      <li><a href="index.html#mirrors">Mirrors</a></li>
+      <li><a href="index.html#new-ways-of-passing-credentials">New ways of passing credentials</a></li>
+      <li><a href="index.html#refactoring">Refactoring</a>
+       <ul class="toc-headings">
+        <li><a href="index.html#redirections">Redirections</a></li>
+        <li><a href="index.html#parsers">Parsers</a></li>
+        <li><a href="index.html#high-level-api">High level API</a></li>
+       </ul></li>
+      <li><a href="index.html#fixes">Fixes</a>
+       <ul class="toc-headings">
+        <li><a href="index.html#xml-errors">XML errors</a></li>
+       </ul></li>
      </ul>
     </nav>
    </div>
