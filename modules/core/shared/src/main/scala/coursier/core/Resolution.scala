@@ -1601,7 +1601,7 @@ object Resolution {
               m -> proj.actualVersion0
           }
           .getOrElse {
-            sys.error(s"Cannot find $m:${v.asString} in projectCache")
+            throw new ResolutionError.NotFoundInCache(this, s"$m:${v.asString}")
           }
     }
 

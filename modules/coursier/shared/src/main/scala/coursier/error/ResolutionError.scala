@@ -19,6 +19,13 @@ sealed abstract class ResolutionError(
 object ResolutionError {
 
   // format: off
+  final class NotFoundInCache(resolution: Resolution, value: String) extends Simple(
+    resolution,
+    s"Cannot find $value in projectCache"
+  )
+  // format: on
+
+  // format: off
   final class MaximumIterationReached(resolution: Resolution) extends Simple(
     resolution,
     "Maximum number of iterations reached"
